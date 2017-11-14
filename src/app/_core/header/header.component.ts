@@ -1,12 +1,12 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
-  selector: 'app-naglowek',
-  templateUrl: './naglowek.component.html',
-  styleUrls: ['./naglowek.component.css'],
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class NaglowekComponent implements OnInit {
+export class HeaderComponent implements OnInit {
 
   constructor() { }
 
