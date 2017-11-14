@@ -1,4 +1,5 @@
 import {
+  ModuleWithProviders,
   NgModule,
   Optional,
   SkipSelf } from '@angular/core';
@@ -6,7 +7,7 @@ import { CommonModule } from '@angular/common';
 
 //services
 import { UserService } from './user/user.service';
-
+import { HttpModule } from '@angular/http';
 //components
 import { HeaderComponent } from './header/header.component';
 
@@ -19,9 +20,6 @@ import { HeaderComponent } from './header/header.component';
   ],
   exports: [
     HeaderComponent
-  ],
-  providers: [
-    UserService
   ]
 })
 export class CoreModule {
@@ -32,5 +30,10 @@ export class CoreModule {
         'CoreModule is already loaded. Import it in the AppModule only');
     }
   }
-
+  static forRoot(): ModuleWithProviders {
+    return {
+        ngModule: CoreModule,
+        providers: [UserService, HttpModule]
+    };
+}
 }
