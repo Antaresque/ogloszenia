@@ -1,7 +1,7 @@
 #container{width:100%;height:100%; }
-#left{float:left;background-color:red;}
-#right{float:right;background-color:blue;}
-#center{margin:0 auto;background-color:green;}
+#left{background-color:red;}
+#right{background-color:blue;}
+#center{background-color:green;}
 #bottom{background-color:rgb(216, 117, 216) }
 .row.row-eq-height {
     display: -webkit-box;
