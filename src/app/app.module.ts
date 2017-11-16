@@ -6,22 +6,30 @@ import { AppComponent } from './app.component';
 
 //feature modules
 import { CoreModule } from './_core/core.module';
-import { HttpModule } from '@angular/http';
-//routing module
+import { HomeModule } from './home/home.module';
+import { ProfilModule } from './profil/profil.module';
+import { OgloszenieModule } from './ogloszenie/ogloszenie.module';
+import { KategoriaModule } from './kategoria/kategoria.module';
+import { PageNotFoundModule } from './pagenotfound/pagenotfound.module';
 
-import { LoginComponent } from './components/login/login.component';
+//routing module
+import { RoutingModule} from './_routing/routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
   ],
   imports: [
     BrowserModule,
-    HttpModule,
-    CoreModule.forRoot()
+    HomeModule,
+    ProfilModule,
+    OgloszenieModule,
+    KategoriaModule,
+    PageNotFoundModule,
+    CoreModule.forRoot(),
+    RoutingModule
   ],
-  providers: [HttpModule],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
