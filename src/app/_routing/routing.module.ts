@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { LoginComponent } from '../components/login/login.component';
 import { HomeComponent } from '../home/home.component';
+import { PanelComponent } from '../panel/panel.component';
 import { ProfilComponent } from '../profil/profil.component';
 import { OgloszenieComponent } from '../ogloszenie/ogloszenie.component';
 import { KategoriaComponent } from '../kategoria/kategoria.component';
@@ -15,6 +16,10 @@ const appRoutes: Routes = [
   {
     path: 'kategoria/:id',
     component: KategoriaComponent,
+  },
+  {
+    path: 'panel',
+    component: PanelComponent,
   },
   { path: '**', component: PageNotFoundComponent }
 ];
