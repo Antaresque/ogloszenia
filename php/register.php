@@ -11,21 +11,20 @@ if($connect->connect_errno!=0)
 }
 else
 {
-  $login = $_POST['login'];
-	$haslo = $_POST['pass'];
-	$email = $_POST['email'];
-	$imie = $_POST['imie'];
-	$nazwisko = $_POST['nazwisko'];
-	$adres = $_POST['adres'];
-	$nr_tel = $_POST['telefon'];
-	$miasto = $_POST['miasto'];
-	$wojewodztwo = $_POST['region'];
+  $array = json_decode(file_get_contents('php://input'), true);
+  $login = $array['login'];
+	$haslo = $array['pass'];
+	$email = $array['email'];
+	$imie = $array['imie'];
+	$nazwisko = $array['nazwisko'];
+	$adres = $array['adres'];
+	$nr_tel = $array['telefon'];
+	$miasto = $array['miasto'];
+	$wojewodztwo = $array['region'];
 
 	$sql = sprintf("INSERT INTO uzytkownicy (`imie`, `nazwisko`, `adres`, `nr_tel`, `haslo`, `login`, `email`, `miasto`, `wojewodztwo`)
 	VALUES ('$imie', '$nazwisko', '$adres', '$nr_tel', '$haslo', '$login', '$miasto', '$wojewodztwo')");
 	$result = $connect->query($sql);
   $connect->close();
-
 }
-?>
 
