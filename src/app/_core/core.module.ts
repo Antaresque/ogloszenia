@@ -5,18 +5,20 @@ import {
   SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-//services
+// services
 import { UserService } from './user/user.service';
 import { HttpModule } from '@angular/http';
-//components
+// components
 import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   imports: [
     CommonModule
   ],
   declarations: [
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ],
   exports: [
     HeaderComponent
