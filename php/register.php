@@ -13,15 +13,15 @@ else
 {
   if(!empty(file_get_contents('php://input')))
   {
+    $array = json_decode(file_get_contents('php://input'), true);
     $login = $array['login'];
     $email = $array['email'];
     $sql = "SELECT * FROM uzytkownicy WHERE login='$login' OR email='$email'";
     if($result = @$connect->query($sql))
     {
       $ile = $result->num_rows;
-      if($ile==0)
+      if($ile == 0)
       {
-        $array = json_decode(file_get_contents('php://input'), true);
         $haslo = generate_hash($array['pass']);
         $imie = $array['imie'];
         $nazwisko = $array['nazwisko'];
@@ -38,6 +38,7 @@ else
       {
         echo "Error: nazwa lub email już istnieje";
       }
+    }
   }
 }
 
