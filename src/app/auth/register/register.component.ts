@@ -45,6 +45,7 @@ export class RegisterComponent implements OnInit {
     this.http.post('http://localhost/angular/php/register.php', this.model).subscribe(
         res => {
             console.log(res);
+            this.loading = false;
         },
         error => {
             this.loading = false;
