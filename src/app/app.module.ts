@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 // app-root
 import { AppComponent } from './app.component';
-
 
 import { CoreModule } from './_core/core.module';
 
@@ -21,10 +22,13 @@ import { RoutingModule } from './_routing/routing.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    AuthModule,
+    HttpModule,
     HomeModule,
     ProfilModule,
     OgloszenieModule,
@@ -32,8 +36,7 @@ import { RoutingModule } from './_routing/routing.module';
     PageNotFoundModule,
     CoreModule.forRoot(),
     RoutingModule,
-    PanelModule,
-    AuthModule
+    PanelModule
   ],
   providers: [],
   bootstrap: [AppComponent]
