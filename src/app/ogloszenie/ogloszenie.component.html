@@ -1,5 +1,5 @@
 <p>
-  ogloszenie works!
+  {{ dane | json }}
 </p>
 <div class="container">
   <div class="row">
@@ -19,6 +19,9 @@
   <div class="row">
     <div class="col-lg">
       Zawartość wybranej pozycji (z paska wyżej)
+    </div>
+    <div class="col-lg">
+      Data utworzenia: {{ dane?.data_wys | date }}
     </div>
   </div>
 </div>
