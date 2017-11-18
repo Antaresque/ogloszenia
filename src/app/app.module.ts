@@ -13,6 +13,7 @@ import { ProfilModule } from './profil/profil.module';
 import { OgloszenieModule } from './ogloszenie/ogloszenie.module';
 import { KategoriaModule } from './kategoria/kategoria.module';
 import { PageNotFoundModule } from './pagenotfound/pagenotfound.module';
+import { PanelModule } from './panel/panel.module';
 
 // routing module
 import { RoutingModule} from './_routing/routing.module';
@@ -29,7 +30,8 @@ import { RoutingModule} from './_routing/routing.module';
     KategoriaModule,
     PageNotFoundModule,
     CoreModule.forRoot(),
-    RoutingModule
+    RoutingModule,
+    PanelModule
   ],
   providers: [],
   bootstrap: [AppComponent]
