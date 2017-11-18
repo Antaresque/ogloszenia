@@ -1,8 +1,8 @@
 #container{width:100%;height:100%; }
-#left{background-color:red;}
-#right{background-color:blue;}
-#center{background-color:green;}
-#bottom{background-color:rgb(216, 117, 216) }
+#left{background-color:rgb(255, 255, 255);}
+#right{background-color:rgb(255, 255, 255);}
+#center{background-color:rgb(196, 196, 196);}
+#bottom{background-color:rgb(255, 255, 255);}
 .row.row-eq-height {
     display: -webkit-box;
     display: -webkit-flex;
