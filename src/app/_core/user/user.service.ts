@@ -19,6 +19,10 @@ export class UserService {
     return this.isUserLoggedIn;
   }
 
+  login(user) {
+    return this.http.post('http://localhost/angular/php/login.php', user);
+  }
+
   insert(user) {
     return this.http.post('http://localhost/angular/php/register.php', user);
   }
