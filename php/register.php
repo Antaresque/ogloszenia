@@ -13,7 +13,7 @@ else
 {
   $array = json_decode(file_get_contents('php://input'), true);
   $login = $array['login'];
-	$haslo = $array['pass'];
+	$haslo = generate_hash($array['pass']);
 	$email = $array['email'];
 	$imie = $array['imie'];
 	$nazwisko = $array['nazwisko'];

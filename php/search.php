@@ -12,9 +12,9 @@ else
 {
 	$search = $_POST['search'];
 	$kategoria = $_POST['kategoria'];
-	$sql = sprintf("SELECT id_og FROM ogloszenia 
+	$sql = sprintf("SELECT id_og FROM ogloszenia
 	INNER JOIN kategorie ON ogloszenia.id_kat = kategorie.id_kat
 	WHERE nazwa LIKE '*$search*' AND id_kat LIKE '$kategoria'");
 	$result = $connect->query($sql);
-	$connect->close();
-?>
+  $connect->close();
+}
