@@ -11,20 +11,23 @@ if($connect->connect_errno!=0)
 }
 else
 {
-  $array = json_decode(file_get_contents('php://input'), true);
-  $login = $array['login'];
-	$haslo = generate_hash($array['pass']);
-	$email = $array['email'];
-	$imie = $array['imie'];
-	$nazwisko = $array['nazwisko'];
-	$adres = $array['adres'];
-	$nr_tel = $array['telefon'];
-	$miasto = $array['miasto'];
-	$wojewodztwo = $array['region'];
+  if(!empty(file_get_contents('php://input')))
+  {
+    $array = json_decode(file_get_contents('php://input'), true);
+    $login = $array['login'];
+    $haslo = generate_hash($array['pass']);
+    $email = $array['email'];
+    $imie = $array['imie'];
+    $nazwisko = $array['nazwisko'];
+    $adres = $array['adres'];
+    $nr_tel = $array['telefon'];
+    $miasto = $array['miasto'];
+    $wojewodztwo = $array['region'];
 
-	$sql = sprintf("INSERT INTO uzytkownicy (`imie`, `nazwisko`, `adres`, `nr_tel`, `haslo`, `login`, `email`, `miasto`, `wojewodztwo`)
-  VALUES ('$imie', '$nazwisko', '$adres', '$nr_tel', '$haslo', '$login', '$email', '$miasto', '$wojewodztwo')");
-  $result = $connect->query($sql);
-  $connect->close();
+    $sql = sprintf("INSERT INTO uzytkownicy (`imie`, `nazwisko`, `adres`, `nr_tel`, `haslo`, `login`, `email`, `miasto`, `wojewodztwo`)
+    VALUES ('$imie', '$nazwisko', '$adres', '$nr_tel', '$haslo', '$login', '$email', '$miasto', '$wojewodztwo')");
+    $result = $connect->query($sql);
+    $connect->close();
+  }
 }
 

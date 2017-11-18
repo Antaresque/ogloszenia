@@ -19,7 +19,8 @@ export class UserService {
     return this.isUserLoggedIn;
   }
 
-  insert(user: User){
+  insert(user) {
+    return this.http.post('http://localhost/angular/php/register.php', user);
   }
 
   private jwt() {
