@@ -23,8 +23,8 @@ else
 	$wojewodztwo = $array['region'];
 
 	$sql = sprintf("INSERT INTO uzytkownicy (`imie`, `nazwisko`, `adres`, `nr_tel`, `haslo`, `login`, `email`, `miasto`, `wojewodztwo`)
-	VALUES ('$imie', '$nazwisko', '$adres', '$nr_tel', '$haslo', '$login', '$miasto', '$wojewodztwo')");
-	$result = $connect->query($sql);
+  VALUES ('$imie', '$nazwisko', '$adres', '$nr_tel', '$haslo', '$login', '$email', '$miasto', '$wojewodztwo')");
+  $result = $connect->query($sql);
   $connect->close();
 }
 
