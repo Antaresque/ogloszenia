@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 18 Lis 2017, 14:07
+-- Czas generowania: 18 Lis 2017, 14:57
 -- Wersja serwera: 10.1.26-MariaDB
--- Wersja PHP: 7.1.9
+-- Wersja PHP: 7.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -32,7 +32,7 @@ CREATE TABLE `atrybuty` (
   `id_at` int(11) NOT NULL,
   `id_kat` int(11) NOT NULL,
   `nazwa` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
 
@@ -44,7 +44,7 @@ CREATE TABLE `kategorie` (
   `id_kat` int(11) NOT NULL,
   `id_kat_nad` int(11) NOT NULL,
   `nazwa` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
 
@@ -62,7 +62,7 @@ CREATE TABLE `ogloszenia` (
   `email_wys` varchar(50) NOT NULL,
   `nr_tel_wys` varchar(15) NOT NULL,
   `opis` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
 
@@ -75,11 +75,15 @@ CREATE TABLE `uzytkownicy` (
   `imie` varchar(50) NOT NULL,
   `nazwisko` varchar(50) NOT NULL,
   `adres` varchar(50) NOT NULL,
-  `nr_tel` varchar(15) NOT NULL,
-  `haslo` varchar(20) NOT NULL,
+  `nr_tel` varchar(15) DEFAULT NULL,
+  `haslo` varchar(100) NOT NULL,
   `login` varchar(20) NOT NULL,
-  `email` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `email` varchar(50) NOT NULL,
+  `miasto` varchar(50) NOT NULL,
+  `wojewodztwo` varchar(50) NOT NULL,
+  `data_rej` date NOT NULL,
+  `data_log` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
 
@@ -91,10 +95,10 @@ CREATE TABLE `wiadomosci` (
   `id_wiad` int(11) NOT NULL,
   `id_od` int(11) NOT NULL,
   `id_nad` int(11) NOT NULL,
-  `tresc` varchar(255) NOT NULL,
+  `tresc` varchar(512) NOT NULL,
   `data` date NOT NULL,
   `godzina` time NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 --
 -- Indeksy dla zrzutów tabel
@@ -116,7 +120,9 @@ ALTER TABLE `kategorie`
 -- Indexes for table `ogloszenia`
 --
 ALTER TABLE `ogloszenia`
-  ADD PRIMARY KEY (`id_og`);
+  ADD PRIMARY KEY (`id_og`),
+  ADD KEY `ogl_uz` (`id_uz`),
+  ADD KEY `ogl_kat` (`id_kat`);
 
 --
 -- Indexes for table `uzytkownicy`
@@ -139,30 +145,36 @@ ALTER TABLE `wiadomosci`
 --
 ALTER TABLE `atrybuty`
   MODIFY `id_at` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT dla tabeli `kategorie`
 --
 ALTER TABLE `kategorie`
   MODIFY `id_kat` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT dla tabeli `ogloszenia`
 --
 ALTER TABLE `ogloszenia`
   MODIFY `id_og` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT dla tabeli `uzytkownicy`
 --
 ALTER TABLE `uzytkownicy`
   MODIFY `id_uz` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT dla tabeli `wiadomosci`
 --
 ALTER TABLE `wiadomosci`
   MODIFY `id_wiad` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- Ograniczenia dla zrzutów tabel
+--
+
+--
+-- Ograniczenia dla tabeli `ogloszenia`
+--
+ALTER TABLE `ogloszenia`
+  ADD CONSTRAINT `ogl_kat` FOREIGN KEY (`id_kat`) REFERENCES `kategorie` (`id_kat`),
+  ADD CONSTRAINT `ogl_uz` FOREIGN KEY (`id_uz`) REFERENCES `uzytkownicy` (`id_uz`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
