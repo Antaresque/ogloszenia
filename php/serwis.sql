@@ -57,6 +57,7 @@ CREATE TABLE `ogloszenia` (
   `id_uz` int(11) NOT NULL,
   `id_kat` int(11) NOT NULL,
   `nazwa` varchar(100) NOT NULL,
+  `cena` decimal(10,2) NOT NULL,
   `data_wys` date NOT NULL,
   `email_wys` varchar(50) NOT NULL,
   `nr_tel_wys` varchar(15) NOT NULL,
