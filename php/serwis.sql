@@ -56,9 +56,8 @@ CREATE TABLE `ogloszenia` (
   `id_og` int(11) NOT NULL,
   `id_uz` int(11) NOT NULL,
   `id_kat` int(11) NOT NULL,
-  `atrybuty` varchar(100) NOT NULL,
+  `nazwa` varchar(100) NOT NULL,
   `data_wys` date NOT NULL,
-  `id_zdj` int(11) NOT NULL,
   `email_wys` varchar(50) NOT NULL,
   `nr_tel_wys` varchar(15) NOT NULL,
   `opis` varchar(255) NOT NULL
@@ -99,6 +98,20 @@ CREATE TABLE `wiadomosci` (
   `data` date NOT NULL,
   `godzina` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `zdjecia`
+--
+
+CREATE TABLE `zdjecia` (
+  `id_zdj` int(11) NOT NULL,
+  `nazwa` varchar(100) NOT NULL,
+  `id_og` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+-- --------------------------------------------------------
 
 --
 -- Indeksy dla zrzutów tabel
