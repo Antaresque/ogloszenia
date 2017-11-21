@@ -1,0 +1,8 @@
+#login-tabs .nav-pills > li > a {
+  border-radius: 4px 4px 0 0 ;
+  padding: 20px;
+}
+
+#login-tabs .tab-content {
+  padding : 5px 15px;
+}
