@@ -1,3 +1,4 @@
+import { UserService } from './../../_core/user/user.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { RouterLink } from '@angular/router';
 

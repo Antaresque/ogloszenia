@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Http } from '@angular/http';
+import { Ogloszenie } from '../_core/ogloszenia/ogloszenie.class';
 import { OgloszeniaService } from '../_core/ogloszenia/ogloszenia.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class OgloszenieComponent implements OnInit {
 
   sub: any;
   id: number;
-  dane: JSON;
+  dane: Ogloszenie;
   zdjecia: JSON;
 
   constructor(private route: ActivatedRoute, private ogloszenia: OgloszeniaService) { }
