@@ -20,7 +20,7 @@ export class OgloszenieComponent implements OnInit {
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id'];
-    });
+    });ss
 
     const data = {'id': this.id };
     this.ogloszenia.select(data).subscribe(
