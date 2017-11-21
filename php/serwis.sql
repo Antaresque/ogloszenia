@@ -151,6 +151,12 @@ ALTER TABLE `wiadomosci`
   ADD PRIMARY KEY (`id_wiad`);
 
 --
+-- Indexes for table `zdjecia`
+--
+ALTER TABLE `zdjecia`
+  ADD PRIMARY KEY (`id_zdj`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
