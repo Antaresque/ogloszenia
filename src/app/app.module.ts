@@ -15,10 +15,11 @@ import { OgloszenieModule } from './ogloszenie/ogloszenie.module';
 import { KategoriaModule } from './kategoria/kategoria.module';
 import { PageNotFoundModule } from './pagenotfound/pagenotfound.module';
 import { PanelModule } from './panel/panel.module';
+import { PublicModule } from './_public/public.module';
 import { AuthModule } from './auth/auth.module';
 
 // routing module
-import { RoutingModule } from './_routing/routing.module';
+import { RoutingModule } from './routing.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { RoutingModule } from './_routing/routing.module';
   imports: [
     BrowserModule,
     FormsModule,
-    AuthModule,
+    PublicModule,
     HttpModule,
     HomeModule,
     ProfilModule,
@@ -36,7 +37,8 @@ import { RoutingModule } from './_routing/routing.module';
     PageNotFoundModule,
     CoreModule.forRoot(),
     RoutingModule,
-    PanelModule
+    PanelModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -8,22 +8,14 @@ import { CommonModule } from '@angular/common';
 // services
 import { UserService } from './user/user.service';
 import { HttpModule } from '@angular/http';
-// components
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
+
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [
-    HeaderComponent,
-    FooterComponent
-  ],
-  exports: [
-    HeaderComponent,
-    FooterComponent
-  ]
+  declarations: [],
+  exports: []
 })
 export class CoreModule {
 

@@ -22,7 +22,7 @@ export class OgloszenieComponent implements OnInit {
 
     const data = {'id': this.id };
     this.http.post('http://localhost/angular/php/ogloszenie.php', data).subscribe(
-      res => { this.dane = JSON.parse(res._body); }
+      res => { this.dane = JSON.parse(res['_body']); }
     );
   }
 }
