@@ -58,7 +58,7 @@ CREATE TABLE `ogloszenia` (
   `id_kat` int(11) NOT NULL,
   `nazwa` varchar(100) NOT NULL,
   `cena` decimal(10,2) NOT NULL,
-  `data_wys` date NOT NULL,
+  `data_wys` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP;
   `email_wys` varchar(50) NOT NULL,
   `nr_tel_wys` varchar(15) NOT NULL,
   `opis` varchar(255) NOT NULL
