@@ -11,15 +11,11 @@ if(!empty(file_get_contents('php://input')))
   $login = $array['login'];
   $pass = $array['pass'];
 
-  $query = sprintf("SELECT * FROM uzytkownicy WHERE login = '$login'");
-  $result = $connect->query($query);
+  $result = DB::queryFirstRow("SELECT * FROM uzytkownicy WHERE login = %s", $login);
 
   $login_result = false;
 
-  if($result->num_rows == 1){
-    $row = mysqli_fetch_assoc($result);
-    if(validate_pw($pass, $row['haslo'])) $login_result = true;
-  }
+  if(validate_pw($pass, $result['haslo'])) $login_result = true;
 
   $result->close();
   $connect->close();

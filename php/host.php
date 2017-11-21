@@ -1,7 +1,7 @@
 <?php
-  $db_host = "localhost";
-  $db_login = "root";
-  $db_pass = "";
-  $db_name = "serwis";
+  require_once('meekrodb.2.3.class.php');
 
-  $connect = new mysqli($db_host, $db_login, $db_pass, $db_name);
+  DB::$host = "localhost";
+  DB::$user = "root";
+  DB::$password = "";
+  DB::$dbName = "serwis";
