@@ -25,7 +25,7 @@ export class OgloszenieComponent implements OnInit {
     this.http.post('http://localhost/angular/php/ogloszenie.php', data).subscribe(
       res => { this.dane = JSON.parse(res['_body']); }
     );
-    this.http.post('http://localhost/angular/php/zdjecie.php', data).subscribe(
+    this.http.post('http://localhost/angular/php/ogloszeniezdjecia.php', data).subscribe(
       res => { this.zdjecia = JSON.parse(res['_body']); }
     );
   }
