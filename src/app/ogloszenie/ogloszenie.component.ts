@@ -12,6 +12,7 @@ export class OgloszenieComponent implements OnInit {
   sub: any;
   id: number;
   dane: JSON;
+  zdjecia: JSON;
 
   constructor(private route: ActivatedRoute, private http: Http) { }
 
@@ -23,6 +24,9 @@ export class OgloszenieComponent implements OnInit {
     const data = {'id': this.id };
     this.http.post('http://localhost/angular/php/ogloszenie.php', data).subscribe(
       res => { this.dane = JSON.parse(res['_body']); }
+    );
+    this.http.post('http://localhost/angular/php/zdjecie.php', data).subscribe(
+      res => { this.zdjecia = JSON.parse(res['_body']); }
     );
   }
 }
