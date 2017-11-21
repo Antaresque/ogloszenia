@@ -180,6 +180,11 @@ ALTER TABLE `uzytkownicy`
 ALTER TABLE `wiadomosci`
   MODIFY `id_wiad` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT dla tabeli `zdjecia`
+--
+ALTER TABLE `zdjecia`
+  MODIFY `id_zdj` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- Ograniczenia dla zrzutów tabel
 --
 
