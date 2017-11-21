@@ -10,9 +10,7 @@ import { RouterLink } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  loginform = true;
-
-  constructor() { }
+  constructor(private user: UserService) { }
 
   ngOnInit() {
   }
