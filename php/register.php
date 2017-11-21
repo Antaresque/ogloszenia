@@ -11,7 +11,7 @@ if(!empty(file_get_contents('php://input')))
   $login = $array['login'];
   $email = $array['email'];
   $result = DB::queryFirstRow("SELECT * FROM uzytkownicy WHERE login = %s OR email = %s", $login, $email);
-  if(!is_null($result))
+  if(is_null($result))
   {
     $haslo = generate_hash($array['pass']);
     $imie = $array['imie'];

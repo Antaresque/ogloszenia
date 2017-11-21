@@ -15,7 +15,11 @@ if(!empty(file_get_contents('php://input')))
 
   $login_result = false;
 
-  if(validate_pw($pass, $result['haslo'])) $login_result = true;
+  if(validate_pw($pass, $result['haslo'])) {
+    $login_result = true;
+    //jwt token?
+    //data logowania w rekordzie
+  }
 
   $result->close();
   $connect->close();
