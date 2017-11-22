@@ -1,3 +1,7 @@
 .img-circle {
   border-radius: 50%;
 }
+.dropdown-menu-right{
+  left: auto;
+  right: 0;
+}
