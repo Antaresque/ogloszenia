@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Http } from '@angular/http';
+import { Ogloszenie } from '../_core/ogloszenia/ogloszenie.class';
+import { OgloszeniaService } from '../_core/ogloszenia/ogloszenia.service';
 
 @Component({
   selector: 'app-ogloszenie',
@@ -11,10 +13,10 @@ export class OgloszenieComponent implements OnInit {
 
   sub: any;
   id: number;
-  dane: JSON;
+  dane: Ogloszenie;
   zdjecia: JSON;
 
-  constructor(private route: ActivatedRoute, private http: Http) { }
+  constructor(private route: ActivatedRoute, private ogloszenia: OgloszeniaService) { }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
@@ -22,10 +24,10 @@ export class OgloszenieComponent implements OnInit {
     });
 
     const data = {'id': this.id };
-    this.http.post('http://localhost/angular/php/ogloszenie.php', data).subscribe(
+    this.ogloszenia.select(data).subscribe(
       res => { this.dane = JSON.parse(res['_body']); }
     );
-    this.http.post('http://localhost/angular/php/ogloszeniezdjecia.php', data).subscribe(
+    this.ogloszenia.select_zdj(data).subscribe(
       res => { this.zdjecia = JSON.parse(res['_body']); }
     );
   }

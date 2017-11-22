@@ -42,7 +42,7 @@ CREATE TABLE `atrybuty` (
 
 CREATE TABLE `kategorie` (
   `id_kat` int(11) NOT NULL,
-  `id_kat_nad` int(11) NOT NULL,
+  `id_kat_nad` int(11) NULL,
   `nazwa` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
@@ -58,7 +58,7 @@ CREATE TABLE `ogloszenia` (
   `id_kat` int(11) NOT NULL,
   `nazwa` varchar(100) NOT NULL,
   `cena` decimal(10,2) NOT NULL,
-  `data_wys` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP;
+  `data_wys` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `email_wys` varchar(50) NOT NULL,
   `nr_tel_wys` varchar(15) NOT NULL,
   `opis` varchar(255) NOT NULL
@@ -82,7 +82,7 @@ CREATE TABLE `uzytkownicy` (
   `email` varchar(50) NOT NULL,
   `miasto` varchar(50) NOT NULL,
   `wojewodztwo` varchar(50) NOT NULL,
-  `data_rej` date NOT NULL,
+  `data_rej` timestamp DEFAULT CURRENT_TIMESTAMP,
   `data_log` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
@@ -150,6 +150,12 @@ ALTER TABLE `uzytkownicy`
 --
 ALTER TABLE `wiadomosci`
   ADD PRIMARY KEY (`id_wiad`);
+
+--
+-- Indexes for table `zdjecia`
+--
+ALTER TABLE `zdjecia`
+  ADD PRIMARY KEY (`id_zdj`);
 
 --
 -- AUTO_INCREMENT for dumped tables
