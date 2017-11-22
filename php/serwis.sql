@@ -61,7 +61,8 @@ CREATE TABLE `ogloszenia` (
   `data_wys` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `email_wys` varchar(50) NOT NULL,
   `nr_tel_wys` varchar(15) NOT NULL,
-  `opis` varchar(255) NOT NULL
+  `opis` varchar(255) NOT NULL,
+  `promowane` tinyint(1)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
