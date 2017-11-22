@@ -2,11 +2,11 @@
         <a class="navbar-brand" href="#">jajusz.ix</a>
         <h2>Jakies super logo</h2>
     <div class='row'>
-      <div class="sm-col">
-        <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="flase">
+        <div class="sm-col dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <img src="assets/avatar/avatar2.jpg" class="img-circle" height='50' width='50'>
         </a>
-        <div class="dropdown-menu" aria-labelledby="dropdown2">
+        <div class="dropdown-menu dropdown-menu-right p-2" aria-labelledby="dropdown2">
           <a routerLink='/panel/profil/'>Moje konto</a><br>
           <a routerLink='/panel/mojeog/'>Moje ogłoszenia</a><br>
           <a routerLink='/panel/obserwowane/'>Obserwowane</a><br>
@@ -17,11 +17,9 @@
       </div>
       <div class="sm-col nav-link dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Zaloguj</a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown">
-          <ul>
-            <li><a routerLink='auth/login/'>Zaloguj</a></li>
-            <li><a routerLink='auth/register'>Rejestracja</a></li>
-          </ul>
+        <div class="dropdown-menu dropdown-menu-right p-2" aria-labelledby="dropdown">
+            <a routerLink='auth/login'>Zaloguj</a><br>
+            <a routerLink='auth/register'>Rejestracja</a><br>
         </div>
       </div>
     </div>
