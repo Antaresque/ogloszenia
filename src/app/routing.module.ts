@@ -29,27 +29,27 @@ const appRoutes: Routes = [
   {
     path: 'panel/archiwum',
     component: ArchiwumComponent,
-  }
+  },
   {
     path: 'panel/mojeog',
     component: MojeogComponent,
-  }
+  },
   {
     path: 'panel/obserwowane',
     component: ObserwowaneComponent,
-  }
+  },
   {
     path: 'panel/ostatnio',
     component: OstatnioComponent,
-  }
+  },
   {
     path: 'panel/profil',
     component: ProfilComponent,
-  }
+  },
   {
     path: 'panel/stworz',
     component: StworzComponent,
-  }
+  },
   { path: '**', component: PageNotFoundComponent }
 ];
 
