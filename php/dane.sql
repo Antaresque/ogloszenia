@@ -46,18 +46,18 @@ INSERT INTO `kategorie` (`id_kat`, `id_kat_nad`, `nazwa`) VALUES
 (103, 1, 'Części samochodowe');
 
 --
--- Zrzut danych tabeli `ogloszenia`
---
-
-INSERT INTO `ogloszenia` (`id_og`, `id_uz`, `id_kat`, `nazwa`, `cena`, `data_wys`, `email_wys`, `nr_tel_wys`, `opis`) VALUES
-(1, 1, 1, 'Sprzedam opla', '500.00', '2017-11-21 19:52:15', 'janusz@wp.pl', '653434212', 'sprzedam opla nie bity nie stukany na oko rocznik 2001, mały przebieg cena do nego kontakt na priv wymienie za 2 swiezaki');
-
---
 -- Zrzut danych tabeli `uzytkownicy`
 --
 
 INSERT INTO `uzytkownicy` (`id_uz`, `imie`, `nazwisko`, `adres`, `nr_tel`, `haslo`, `login`, `email`, `miasto`, `wojewodztwo`, `data_rej`, `data_log`) VALUES
 (1, 'Janusz', 'Tracz', 'Letnia 20/1', '632543675', '$2y$11$ZsLom.N5w.dW.XzjkqaHPurgwe9xdOS.npZ5IXxE8mBsUB4Z7VJie', 'janusz', 'janusz@wp.pl', 'Lublin', 'woj. lubelskie', '0000-00-00 00:00:00', NULL);
+
+--
+-- Zrzut danych tabeli `ogloszenia`
+--
+
+INSERT INTO `ogloszenia` (`id_og`, `id_uz`, `id_kat`, `nazwa`, `cena`, `data_wys`, `email_wys`, `nr_tel_wys`, `opis`) VALUES
+(1, 1, 1, 'Sprzedam opla', '500.00', '2017-11-21 19:52:15', 'janusz@wp.pl', '653434212', 'sprzedam opla nie bity nie stukany na oko rocznik 2001, mały przebieg cena do nego kontakt na priv wymienie za 2 swiezaki');
 
 --
 -- Zrzut danych tabeli `zdjecia`
