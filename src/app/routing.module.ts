@@ -11,8 +11,8 @@ import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'login', component: AuthComponent},
-  { path: 'register', component: AuthComponent},
+  { path: 'auth/login', component: AuthComponent},
+  { path: 'auth/register', component: AuthComponent},
   { path: 'profil', component: ProfilComponent },
   { path: 'ogloszenie/:id', component: OgloszenieComponent },
   {
