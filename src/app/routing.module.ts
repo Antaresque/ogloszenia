@@ -1,3 +1,4 @@
+import { MojeogComponent } from './panel/mojeog/mojeog.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -22,6 +23,10 @@ const appRoutes: Routes = [
   {
     path: 'panel',
     component: PanelComponent,
+  },
+  {
+    path: 'panel/mojeog',
+    component: MojeogComponent,
   },
   { path: '**', component: PageNotFoundComponent }
 ];
