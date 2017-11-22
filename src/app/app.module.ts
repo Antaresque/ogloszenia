@@ -15,7 +15,6 @@ import { CoreModule } from './_core/core.module';
 
 // feature modules
 import { HomeModule } from './home/home.module';
-import { ProfilModule } from './profil/profil.module';
 import { OgloszenieModule } from './ogloszenie/ogloszenie.module';
 import { KategoriaModule } from './kategoria/kategoria.module';
 import { PageNotFoundModule } from './pagenotfound/pagenotfound.module';
@@ -36,7 +35,6 @@ import { RoutingModule } from './routing.module';
     PublicModule,
     HttpModule,
     HomeModule,
-    ProfilModule,
     OgloszenieModule,
     KategoriaModule,
     PageNotFoundModule,
