@@ -1,8 +1,10 @@
 <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="#">jajusz.ix</a>
-        <img src="assets/gora.png">
-    <div class='row'>
-        <div class="sm-col dropdown">
+  <a class="navbar-brand" href="#">jajusz.ix</a>
+  <img src="assets/gora.png">
+  <div class='row'>
+    <div *ngIf="logged; then loggedIn; else notLoggedIn"></div>
+    <ng-template #loggedIn>
+      <div class="sm-col dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="dropdown2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <img src="assets/avatar/avatar2.jpg" class="img-circle" height='50' width='50'>
         </a>
@@ -13,8 +15,11 @@
           <a routerLink='/panel/stworz/'>Stwórz ogłoszenie</a><br>
           <a routerLink='/panel/archiwum/'>Archiwum</a><br>
           <a routerLink='/panel/ostatnio/'>Ostatnio oglądane</a>
+          <a href="#" (click)='logout()'><b>Wyloguj</b></a>
         </div>
       </div>
+    </ng-template>
+    <ng-template #notLoggedIn>
       <div class="sm-col nav-link dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Zaloguj</a>
         <div class="dropdown-menu dropdown-menu-right p-2" aria-labelledby="dropdown">
@@ -22,5 +27,6 @@
             <a routerLink='auth/register'>Rejestracja</a><br>
         </div>
       </div>
-    </div>
+    </ng-template>
+  </div>
 </nav>

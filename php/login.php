@@ -1,9 +1,12 @@
 <?php
-require_once('host.php');
-require_once('hash.php');
 header('Access-Control-Allow-Origin: *'); //only for localhost
 header('Access-Control-Allow-Headers: Content-Type');
 header('Content-Type: application/json'); //json output
+
+require_once('host.php');
+require_once('hash.php');
+require_once('JWT.php');
+use \Firebase\JWT\JWT;
 
 if(!empty(file_get_contents('php://input')))
 {
@@ -17,14 +20,13 @@ if(!empty(file_get_contents('php://input')))
 
   if(validate_pw($pass, $result['haslo'])) {
     $login_result = true;
-    //jwt token?
+    $data = array('login' => $login); //TODO: dodac do bazy danych i tokena admin/nonadmin
+    $token = JWT::encode($data, $jwt_secret);
+    $data = array("login_result" => $login_result, "jwt" => $token);
     //data logowania w rekordzie
-  }
+  } else $data = array("login_result" => $login_result);
 
-  $result->close();
-  $connect->close();
-
-  echo json_encode(array("login_result" => $login_result));
+  echo json_encode($data);
 }
 
 

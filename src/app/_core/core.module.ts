@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { UserService } from './user/user.service';
 import { OgloszeniaService } from './ogloszenia/ogloszenia.service';
 import { HttpModule } from '@angular/http';
+import { AuthGuard } from './authguard/auth.guard';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { HttpModule } from '@angular/http';
     CommonModule
   ],
   declarations: [],
-  exports: []
+  exports: [],
+  providers: []
 })
 export class CoreModule {
 
@@ -29,7 +31,7 @@ export class CoreModule {
   static forRoot(): ModuleWithProviders {
     return {
         ngModule: CoreModule,
-        providers: [UserService, OgloszeniaService, HttpModule]
+        providers: [UserService, OgloszeniaService, AuthGuard, HttpModule]
     };
-}
+  }
 }

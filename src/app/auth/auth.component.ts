@@ -18,7 +18,6 @@ export class AuthComponent implements OnInit {
   ngOnInit() {
     this.subpage = this.route.snapshot.data['subpage'];
     if(this.subpage == 'login') this.login = true;
-    console.log(this.login)
   }
 
 }

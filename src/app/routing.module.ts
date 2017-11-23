@@ -12,6 +12,7 @@ import { OstatnioComponent } from './panel/ostatnio/ostatnio.component';
 import { ProfilComponent } from './panel/profil/profil.component';
 import { StworzComponent } from './panel/stworz/stworz.component';
 import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
+import { AuthGuard } from './_core/authguard/auth.guard';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -25,6 +26,7 @@ const appRoutes: Routes = [
   {
     path: 'panel',
     component: PanelComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'panel/archiwum',

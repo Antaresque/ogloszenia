@@ -12,7 +12,7 @@
     </ul>
   </div>
   <div class="card-body">
-    <div *ngIf = "login; then loginForm; else registerForm"></div>
+    <div *ngIf="login; then loginForm; else registerForm"></div>
     <div class="tab-content">
       <ng-template #loginForm>
           <app-login></app-login>

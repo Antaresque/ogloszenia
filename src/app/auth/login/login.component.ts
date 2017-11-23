@@ -11,6 +11,7 @@ import { UserService } from '../../_core/user/user.service';
 })
 export class LoginComponent {
 
+  isLoggedIn: boolean;
   wrongPassword = false;
   loading = false;
   model: any = {};
@@ -21,13 +22,15 @@ export class LoginComponent {
     this.loading = true;
     this.user.login(this.model).subscribe(
       data => {
-        this.user.isLoggedIn = JSON.parse(data['_body'])['login_result'];
-        console.log(this.user.isLoggedIn); // czy uzytkownik podal dobre dane (bool)
-
+        this.isLoggedIn = JSON.parse(data['_body'])['login_result'];
+        console.log(this.isLoggedIn); // czy uzytkownik podal dobre dane (bool)
         this.model = {};
         this.loading = false;
-        if(this.user.isLoggedIn) this.location.back();
-        else this.wrongPassword = true;
+
+        if(this.isLoggedIn) {
+          this.user.setJWT(JSON.parse(data['_body'])['jwt']);
+          this.location.back();
+        } else this.wrongPassword = true;
       },
       err => {
         this.model = {};

@@ -49,11 +49,4 @@ export class RegisterComponent implements OnInit {
             this.loading = false;
         });
     }
-
-
-    /*this.http.post('http://localhost/angular/php/register.php', formData)
-        .subscribe(res => this.user.setUserLoggedIn(res.json().login_result)),
-                  (error) => console.log(error['_body']);
-    }
-    console.log('logged:', this.user.getUserLoggedIn());*/
 }

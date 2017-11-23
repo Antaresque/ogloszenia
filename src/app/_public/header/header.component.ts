@@ -12,9 +12,17 @@ import { RouterLink } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private user: UserService) { }
+  constructor(private user: UserService) {
+  }
+
+  get logged(): boolean{
+    return this.user.isLoggedIn;
+  }
 
   ngOnInit() {
   }
 
+  logout() {
+    this.user.logout();
+  }
 }
