@@ -1,5 +1,5 @@
 <?php
-  require_once('meekrodb.2.3.class.php');
+  require_once('_meekrodb.2.3.class.php');
 
   DB::$host = "localhost";
   DB::$user = "root";

@@ -14,7 +14,7 @@ export class OgloszeniaService {
    * @param {int} id ID of advertisement.
    */
   select(id) {
-    return this.http.post('http://localhost/angular/php/ogloszenie.php', id);
+    return this.http.post('http://localhost/angular/php/ogloszenie_select.php', id, {headers: this.user.headers});
   }
 
   /**
@@ -23,7 +23,7 @@ export class OgloszeniaService {
    * @param {int} id ID of advertisement.
    */
   select_zdj(id) {
-    return this.http.post('http://localhost/angular/php/ogloszeniezdjecia.php', id);
+    return this.http.post('http://localhost/angular/php/ogloszenie_zdjecia.php', id, {headers: this.user.headers});
   }
 
   /**
@@ -32,7 +32,7 @@ export class OgloszeniaService {
    * @param {int} id ID of advertisement.
    */
   select_kat(id) {
-    return this.http.post('http://localhost/angular/php/ogloszeniekategorie.php', id);
+    return this.http.post('http://localhost/angular/php/ogloszenie_kategorie.php', id, {headers: this.user.headers});
   }
 
   /**
@@ -41,7 +41,7 @@ export class OgloszeniaService {
    * @param {Ogloszenie} model JSON array with data (Ogloszenie class).
    */
   create(model) {
-    return this.http.post('http://localhost/angular/php/ogloszeniecreate.php', model, {headers: this.user.headers});
+    return this.http.post('http://localhost/angular/php/ogloszenie_create.php', model, {headers: this.user.headers});
   }
 
   /**
@@ -50,7 +50,7 @@ export class OgloszeniaService {
    * @param {int} model id ID of advertisement.
    */
   delete(id) {
-    return this.http.post('http://localhost/angular/php/ogloszeniedelete.php', id, {headers: this.user.headers});
+    return this.http.post('http://localhost/angular/php/ogloszenie_delete.php', id, {headers: this.user.headers});
   }
 
 }
