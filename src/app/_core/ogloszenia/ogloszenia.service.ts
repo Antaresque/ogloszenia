@@ -29,7 +29,7 @@ export class OgloszeniaService {
   /**
    * Get names of categories thro POST request from database.
    *
-   * @param {int} id ID of advertisement.
+   * @param {int/json} id ID/IDs of advertisement.
    */
   select_kat(id) {
     return this.http.post('http://localhost/angular/php/ogloszenie_kategorie.php', id, {headers: this.user.headers});
@@ -47,10 +47,19 @@ export class OgloszeniaService {
   /**
    * Send POST request to server to delete new advertisement.
    *
-   * @param {int} model id ID of advertisement.
+   * @param {int} id ID of advertisement.
    */
   delete(id) {
     return this.http.post('http://localhost/angular/php/ogloszenie_delete.php', id, {headers: this.user.headers});
+  }
+
+  /**
+   * Send POST request to server to change advertisement data.
+   *
+   * @param {JSON} model JSON array with data (need ID of ad).
+   */
+  change(model) {
+    return this.http.post('http://localhost/angular/php/ogloszenie_change.php', model, {headers: this.user.headers});
   }
 
 }
