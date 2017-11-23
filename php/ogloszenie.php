@@ -1,7 +1,7 @@
 <?php
 require_once('host.php');
 header('Access-Control-Allow-Origin: *'); //only for localhost
-header('Access-Control-Allow-Headers: Content-Type');//json output
+header('Access-Control-Allow-Headers: Content-Type, Autorization');//json output
 header('Content-Type: application/json'); //json output
 
 $array = json_decode(file_get_contents('php://input'), true);

@@ -2,7 +2,7 @@
 require_once('host.php');
 require_once('hash.php');
 header('Access-Control-Allow-Origin: *'); //only for localhost
-header('Access-Control-Allow-Headers: Content-Type');//json output
+header('Access-Control-Allow-Headers: Content-Type, Autorization');//json output
 header('Content-Type: application/json'); //json output
 
 if(!empty(file_get_contents('php://input')))
