@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgIf } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+
+import { UserService } from './../_core/user/user.service';
 
 @Component({
   selector: 'app-auth',
@@ -9,15 +11,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AuthComponent implements OnInit {
 
-  subpage: string;
-  login = false;
-
-  constructor(private route: ActivatedRoute) {
+  constructor(private router: Router, private user: UserService) {
   }
 
   ngOnInit() {
-    this.subpage = this.route.snapshot.data['subpage'];
-    if(this.subpage == 'login') this.login = true;
+    if(this.user.getLoggedIn()){
+      this.router.navigate['/'];
+    }
   }
 
 }

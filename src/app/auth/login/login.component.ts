@@ -23,7 +23,7 @@ export class LoginComponent {
     this.user.login(this.model).subscribe(
       data => {
         this.isLoggedIn = JSON.parse(data['_body'])['login_result'];
-        console.log(this.isLoggedIn); // czy uzytkownik podal dobre dane (bool)
+        //console.log(data); // czy uzytkownik podal dobre dane (bool)
         this.model = {};
         this.loading = false;
 

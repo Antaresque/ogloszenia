@@ -3,10 +3,10 @@
     <ul class="nav nav-pills">
       <div class="row">
         <div class="col-sm">
-          <li><a routerLink="/auth/login">Logowanie</a></li>
+          <li><a routerLink="login">Logowanie</a></li>
         </div>
         <div class="col-sm">
-          <li><a routerLink='/auth/register'>Rejestracja</a></li>
+          <li><a routerLink='register'>Rejestracja</a></li>
         </div>
       </div>
     </ul>
@@ -14,12 +14,7 @@
   <div class="card-body">
     <div *ngIf="login; then loginForm; else registerForm"></div>
     <div class="tab-content">
-      <ng-template #loginForm>
-          <app-login></app-login>
-      </ng-template>
-      <ng-template #registerForm>
-        <app-register></app-register>
-      </ng-template>
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

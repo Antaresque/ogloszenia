@@ -8,11 +8,17 @@ export class UserService {
 
   private jwt: string;
   isLoggedIn: boolean;
+
+  getLoggedIn(){
+    this.isLoggedIn = this.checkLoggedIn();
+    return this.isLoggedIn;
+  }
+
   headers: Headers;
 
   constructor(private http: Http) {
     this.jwt = localStorage.getItem('token');
-    this.checkLoggedIn();
+    this.isLoggedIn = this.checkLoggedIn();
 
     this.headers = new Headers();
     this.headers.append('Content-Type', 'application/json');
@@ -22,7 +28,7 @@ export class UserService {
   setJWT(jwt_temp) { // po zalogowaniu chyba
     localStorage.setItem('token', jwt_temp);
     this.jwt = jwt_temp;
-    this.checkLoggedIn();
+    this.isLoggedIn = this.checkLoggedIn();
   }
 
   getData() {
@@ -32,7 +38,7 @@ export class UserService {
   }
 
   checkLoggedIn() {
-    this.isLoggedIn = (this.jwt != null);
+    return (this.jwt != null);
   }
 
   // user api functions

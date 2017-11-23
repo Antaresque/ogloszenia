@@ -14,12 +14,12 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './_core/core.module';
 
 // feature modules
+import { PublicModule } from './_public/public.module';
 import { HomeModule } from './home/home.module';
 import { OgloszenieModule } from './ogloszenie/ogloszenie.module';
 import { KategoriaModule } from './kategoria/kategoria.module';
 import { PageNotFoundModule } from './pagenotfound/pagenotfound.module';
 import { PanelModule } from './panel/panel.module';
-import { PublicModule } from './_public/public.module';
 import { AuthModule } from './auth/auth.module';
 
 // routing module
@@ -32,13 +32,14 @@ import { RoutingModule } from './routing.module';
   imports: [
     BrowserModule,
     FormsModule,
-    PublicModule,
     HttpModule,
+    CoreModule.forRoot(),
+    PublicModule,
     HomeModule,
     OgloszenieModule,
     KategoriaModule,
     PageNotFoundModule,
-    CoreModule.forRoot(),
+
     RoutingModule,
     PanelModule,
     AuthModule
