@@ -1,7 +1,8 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Http } from '@angular/http';
 import { UserService } from '../../_core/user/user.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,7 +17,10 @@ export class LoginComponent {
   loading = false;
   model: any = {};
 
-  constructor(public http: Http, public user: UserService, private location: Location) {}
+  constructor(public user: UserService, private location: Location) {}
+
+  ngOnInit(){
+  }
 
   loginEvent() {
     this.loading = true;

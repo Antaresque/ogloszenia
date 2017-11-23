@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
 import { RouterModule } from '@angular/router';
 import { AuthModule } from '../auth/auth.module';
 
@@ -13,11 +14,13 @@ import { AuthModule } from '../auth/auth.module';
   ],
   declarations: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    PageNotFoundComponent
   ],
   exports: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    PageNotFoundComponent
   ]
 })
 export class PublicModule { }

@@ -18,9 +18,9 @@ import { PublicModule } from './_public/public.module';
 import { HomeModule } from './home/home.module';
 import { OgloszenieModule } from './ogloszenie/ogloszenie.module';
 import { KategoriaModule } from './kategoria/kategoria.module';
-import { PageNotFoundModule } from './pagenotfound/pagenotfound.module';
 import { PanelModule } from './panel/panel.module';
 import { AuthModule } from './auth/auth.module';
+import { UzytkownikModule } from './uzytkownik/uzytkownik.module';
 
 // routing module
 import { RoutingModule } from './routing.module';
@@ -38,11 +38,10 @@ import { RoutingModule } from './routing.module';
     HomeModule,
     OgloszenieModule,
     KategoriaModule,
-    PageNotFoundModule,
-
     RoutingModule,
     PanelModule,
-    AuthModule
+    AuthModule,
+    UzytkownikModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'pl'}
