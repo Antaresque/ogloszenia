@@ -15,6 +15,7 @@ import { PanelComponent } from './panel/panel.component';
   import { StworzComponent } from './panel/stworz/stworz.component';
   import { ObserwowaneComponent } from './panel/obserwowane/obserwowane.component';
   import { ProfilComponent } from './panel/profil/profil.component';
+  import { UstawieniaComponent } from './panel/ustawienia/ustawienia.component';
 import { PageNotFoundComponent } from './_public/pagenotfound/pagenotfound.component';
 
 import { AuthGuard } from './_core/authguard/auth.guard';
@@ -36,7 +37,8 @@ const appRoutes: Routes = [
     { path: 'mojeog', component: MojeogComponent },
     { path: 'ostatnio', component: OstatnioComponent },
     { path: 'stworz', component: StworzComponent },
-    { path: 'obserwowane', component: ObserwowaneComponent }
+    { path: 'obserwowane', component: ObserwowaneComponent },
+    { path: 'ustawienia', component: UstawieniaComponent }
   ]},
   { path: '**', component: PageNotFoundComponent } // 404
 ];
