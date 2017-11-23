@@ -1,5 +1,5 @@
 <?php
-require_once('host.php');
+require_once('_host.php');
 header('Access-Control-Allow-Origin: *'); //only for localhost
 header('Access-Control-Allow-Headers: Content-Type');//json output
 header('Content-Type: application/json'); //json output

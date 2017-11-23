@@ -71,7 +71,7 @@ export class UserService {
    * @param {JSON} user JSON array with login and password.
    */
   login(user) {
-    return this.http.post('http://localhost/angular/php/login.php', user, {headers: this.headers});
+    return this.http.post('http://localhost/angular/php/user_login.php', user, {headers: this.headers});
   }
 
   /**
@@ -80,8 +80,19 @@ export class UserService {
    * @param {User} user JSON array with user data (User class).
    */
   insert(user) {
-    return this.http.post('http://localhost/angular/php/register.php', user, {headers: this.headers});
+    return this.http.post('http://localhost/angular/php/user_register.php', user, {headers: this.headers});
   }
+
+  /**
+   * Send POST request to server to delete an user. (admin or own account)
+   *
+   * @param {int} id ID of user.
+   *
+   */
+  delete(id) {
+    return this.http.post('http://localhost/angular/php/user_delete.php',  {id: id}, {headers: this.headers});
+  }
+
 
   /**
    * Get all non-confidental data about user thro POST request from database.
@@ -114,7 +125,7 @@ export class UserService {
    * Change data about owner of account thro POST request from database.
    * (need token authorization)
    *
-   * @param {JSON} model Data to change - key equals column name in database.
+   * @param {JSON} model Data to change - key equals column name in database (need ID of user).
    */
   changeData(model){
     return this.http.post('http://localhost/angular/php/user_change.php', model, {headers: this.headers});

@@ -26,8 +26,9 @@ export class LoginComponent {
     this.loading = true;
     this.user.login(this.model).subscribe(
       data => {
+        console.log(data);
         this.isLoggedIn = JSON.parse(data['_body'])['login_result'];
-        //console.log(data); // czy uzytkownik podal dobre dane (bool)
+       // czy uzytkownik podal dobre dane (bool)
         this.model = {};
         this.loading = false;
 
