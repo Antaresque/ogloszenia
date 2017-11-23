@@ -1,8 +1,9 @@
 <?php
-require_once('_host.php');
 header('Access-Control-Allow-Origin: *'); //only for localhost
 header('Access-Control-Allow-Headers: Content-Type, Autorization');//json output
 header('Content-Type: application/json'); //json output
+
+require_once('_host.php');
 
 $array = json_decode(file_get_contents('php://input'), true);
 $id_og = $array['id'];
