@@ -84,6 +84,16 @@ export class UserService {
   }
 
   /**
+   * Send POST request to server to delete an user. (admin or own account)
+   *
+   * @param {int} id ID of user.
+   */
+  delete(user) {
+    return this.http.post('http://localhost/angular/php/delete.php', user, {headers: this.headers});
+  }
+
+
+  /**
    * Get all non-confidental data about user thro POST request from database.
    *
    * @param {int} id ID of user.
