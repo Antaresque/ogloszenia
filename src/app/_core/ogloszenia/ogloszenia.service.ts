@@ -31,15 +31,6 @@ export class OgloszeniaService {
   }
 
   /**
-   * Get names of categories thro POST request from database.
-   *
-   * @param {int/json} id ID/IDs of advertisement.
-   */
-  select_kat(id) {
-    return this.http.post('http://localhost/angular/php/ogloszenie_kategorie.php', id, {headers: this.headers});
-  }
-
-  /**
    * Send POST request to server to create new advertisement.
    *
    * @param {Ogloszenie} model JSON array with data (Ogloszenie class).
