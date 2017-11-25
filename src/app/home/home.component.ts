@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  model: any = {}
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  search(){
+    this.router.navigate(['/wyszukiwarka'], {queryParams: {nazwa: this.model.nazwa}});
   }
 
 }

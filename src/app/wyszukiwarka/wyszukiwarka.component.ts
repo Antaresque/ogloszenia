@@ -24,10 +24,11 @@ export class WyszukiwarkaComponent implements OnInit {
         this.model['region'] = params['region'] || null;
     });
 
+    console.log(this.model);
+
     this.ogl.search(this.model).subscribe(
       res => {
-        this.wyniki = JSON.parse(res['_body']);
-        console.log(this.wyniki);
+        this.wyniki = JSON.parse(res['_body']); //zrobic jakis template jezeli nie ma wynikow =w=
       },
       err => console.log(err)
     );
