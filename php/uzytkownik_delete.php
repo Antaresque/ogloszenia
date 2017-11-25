@@ -22,7 +22,7 @@ if(!empty(file_get_contents('php://input')))
         }
     
         $array = json_decode(file_get_contents('php://input'), true);
-        $id = $array['id_uz'];
+        $id = $payload->id;
     
         DB::delete('uzytkownicy',
           'id_uz=%i', $id);
