@@ -1,7 +1,7 @@
 <?php
 header('Access-Control-Allow-Origin: *'); //only for localhost
 header('Access-Control-Allow-Headers: Content-Type, Authorization');
-header('Content-Type: application/json'); //json output
+//header('Content-Type: application/json'); //json output
 
 require_once('_host.php');
 require_once('_JWT.php');
@@ -21,7 +21,7 @@ if(!empty(file_get_contents('php://input')))
       echo $e->getMessage();
     }
 
-    $array = file_get_contents('php://input');
+    $array = json_decode(file_get_contents('php://input'), true);
     $id_uz = $payload->id;
 
     //$id_kat = $array['kategoria']; //nie wiem czy to tak

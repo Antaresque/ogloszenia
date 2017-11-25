@@ -22,6 +22,7 @@ export class StworzComponent implements OnInit {
     this.loading = true;
     this.ogl.create(this.model).subscribe(
       data => {
+        console.log(data);
         this.model = {};
         this.loading = false;
       },
