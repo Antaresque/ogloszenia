@@ -1,3 +1,4 @@
+import { OgloszeniaService } from './../_core/ogloszenia/ogloszenia.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -10,19 +11,26 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class WyszukiwarkaComponent implements OnInit {
 
   sub: any;
-  kategoria: string;
-  nazwa: string;
-  region: string;
+  model: any = {}
+  wyniki: any = []
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router, private ogl: OgloszeniaService) { }
 
   ngOnInit() {
     this.sub = this.route.queryParams.subscribe(
       params => {
-        this.kategoria = params['kategoria'] || null;
-        this.nazwa = params['nazwa'] || null;
-        this.region = params['region'] || null;
+        this.model['kategoria'] = params['kategoria'] || null;
+        this.model['nazwa'] = params['nazwa'] || null;
+        this.model['region'] = params['region'] || null;
     });
+
+    this.ogl.search(this.model).subscribe(
+      res => {
+        this.wyniki = JSON.parse(res['_body']);
+        console.log(this.wyniki);
+      },
+      err => console.log(err)
+    );
   }
 
   ngOnDestroy(){

@@ -18,7 +18,7 @@ export class OgloszeniaService {
    * @param {int} id ID of advertisement.
    */
   select(id) {
-    return this.http.post('http://localhost/angular/php/ogloszenie_select.php', id, {headers: this.headers});
+    return this.http.post('http://localhost/angular/php/ogloszenie_select.php', {id: id}, {headers: this.headers});
   }
 
   /**
@@ -27,7 +27,16 @@ export class OgloszeniaService {
    * @param {int} id ID of advertisement.
    */
   select_zdj(id) {
-    return this.http.post('http://localhost/angular/php/ogloszenie_zdjecia.php', id, {headers: this.headers});
+    return this.http.post('http://localhost/angular/php/ogloszenie_zdjecia.php', {id: id}, {headers: this.headers});
+  }
+
+  /**
+   * Search for advertisements fitting given parameters.
+   *
+   * @param {JSON} model Parameters with keys equal to database columns.
+   */
+  search(model){
+    return this.http.post('http://localhost/angular/php/ogloszenie_search.php', model, {headers: this.headers});
   }
 
   /**
@@ -58,7 +67,7 @@ export class OgloszeniaService {
    * @param {int} id ID of advertisement.
    */
   delete(id) {
-    return this.http.post('http://localhost/angular/php/ogloszenie_delete.php', id, {headers: this.headers});
+    return this.http.post('http://localhost/angular/php/ogloszenie_delete.php', {id: id}, {headers: this.headers});
   }
 
   /**

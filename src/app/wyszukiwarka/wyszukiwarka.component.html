@@ -1,7 +1,15 @@
 <div class="container-fluid">
   <div class="row">
-    nazwa: {{nazwa}}<br>
-    region: {{region}}<br>
-    id kategoria: {{kategoria}}<br>
+    nazwa: {{model.nazwa}}<br>
+    region: {{model.region}}<br>
+    id kategoria: {{model.kategoria}}
+  </div>
+
+  <br>
+  wyniki wyszukiwania:<br>
+  <div class="row" *ngFor = 'let ogl of wyniki'>
+    <div class="col-4">
+      {{ogl.nazwa}} (id:{{ogl.id_og}})
+    </div>
   </div>
 </div>
