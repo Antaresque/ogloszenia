@@ -38,7 +38,7 @@ if(!empty(file_get_contents('php://input')))
       'nr_tel_wys' => $nr_tel,
       'opis' => $opis,
       'id_uz' => $id_uz,
-      'id_kat' => $id_kat,
+      'id_kat' => $id_kat));
   }
   else {
     http_response_code(401);

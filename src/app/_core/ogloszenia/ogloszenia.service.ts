@@ -44,6 +44,15 @@ export class OgloszeniaService {
     return this.http.post('http://localhost/angular/php/ogloszenie_create.php', model, {headers: this.user.headers});
   }
 
+  upload_img(formData){
+    let up_headers = this.user.headers;
+    up_headers.delete('Content-Type');
+    let options = new RequestOptions({ headers: up_headers });
+
+    return this.http.post('http://localhost/angular/php/ogloszenie_uploadzdj.php', formData, {headers: options.headers});
+  }
+
+
   /**
    * Send POST request to server to delete new advertisement.
    *

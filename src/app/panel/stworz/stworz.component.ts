@@ -9,17 +9,29 @@ import { OgloszeniaService } from '../../_core/ogloszenia/ogloszenia.service';
 })
 export class StworzComponent implements OnInit {
 
-  modal: any = {}
+  model: any = {
+    id_kat: 1
+  };
+  loading = false;
 
   constructor(private ogl: OgloszeniaService) { }
 
   ngOnInit() {
   }
 
-  submit(){
-    this.ogl.create(this.modal).subscribe(
+  submit_zdj(event){
+    let fileList = event.target;
+    let file = fileList.files[0];
+    let formData = new FormData();
+    formData.append('uploadFile', file);
+    this.ogl.upload_img(formData).subscribe(
+      res => console.log(res),
+      err => console.log(err)
+    );
+
+    /*this.ogl.create(this.model).subscribe(
       (res) => {console.log(res);},
       (err) => {console.log(err);}
-    );
+    );*/
   }
 }
