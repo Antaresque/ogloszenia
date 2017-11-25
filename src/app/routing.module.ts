@@ -8,6 +8,7 @@ import { AuthComponent } from './auth/auth.component';
 import { OgloszenieComponent } from './ogloszenie/ogloszenie.component';
 import { KategoriaComponent } from './kategoria/kategoria.component';
 import { UzytkownikComponent } from './uzytkownik/uzytkownik.component';
+import { WyszukiwarkaComponent } from './wyszukiwarka/wyszukiwarka.component';
 import { PanelComponent } from './panel/panel.component';
   import { ArchiwumComponent } from './panel/archiwum/archiwum.component';
   import { MojeogComponent } from './panel/mojeog/mojeog.component';
