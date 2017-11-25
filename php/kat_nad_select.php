@@ -7,7 +7,7 @@ require_once('_host.php');
 
 $array = json_decode(file_get_contents('php://input'), true);
 $id_kat = $array['id_kat'];
-$result = DB::queryFirstRow("SELECT * FROM atrybuty WHERE id_kat = %i", $id_kat);
+$result = DB::queryFirstRow("SELECT * FROM kategorie WHERE id_kat_nad = %i", $id_kat);
 
 foreach($result as $row){
     array_push($array, $row['nazwa']);

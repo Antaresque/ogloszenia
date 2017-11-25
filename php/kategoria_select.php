@@ -6,7 +6,7 @@ header('Content-Type: application/json'); //json output
 require_once('_host.php');
 
 $array = json_decode(file_get_contents('php://input'), true);
-$result = DB::queryFirstRow("SELECT * FROM kategoria");
+$result = DB::queryFirstRow("SELECT * FROM kategorie");
 
 foreach($result as $row){
     array_push($array, $row['nazwa']);
