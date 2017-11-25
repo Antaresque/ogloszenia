@@ -1,7 +1,7 @@
 <div class="container" >
     <div class="row">
       <div class="col">
-          <form name="form" (ngSubmit)="f.form.valid && submit()" #f = "ngForm" novalidate>
+          <form name="form" (ngSubmit)="f.form.valid && submit($event)" #f = "ngForm" novalidate>
               <div class="form-group">
                 <label for="nazwa">Nazwa ogłoszenia</label>
                 <input type="text" class="form-control" name="nazwa" #nazwa="ngModel" [(ngModel)]="model.nazwa" required>
@@ -29,7 +29,7 @@
                   region
               </div>
               <div class='form-group'>
-                  <input type="file" (change)='submit_zdj($event)'>
+                  <input type="file" name='zdj1' (change)='submit_zdj($event)'>
               </div>
               <button [disabled]="loading" class="btn btn-primary">Zarejestruj</button>
               <img *ngIf="loading" src="assets/loading.gif">

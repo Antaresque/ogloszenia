@@ -11,20 +11,32 @@ export class StworzComponent implements OnInit {
 
   model: any = {};
   loading = false;
+  formData: FormData;
 
   constructor(private ogl: OgloszeniaService) { }
 
   ngOnInit() {
   }
 
-  submit(){
-    console.log(this.model);
+  submit(event){
     this.loading = true;
     this.ogl.create(this.model).subscribe(
       data => {
-        console.log(data);
-        this.model = {};
-        this.loading = false;
+        console.log(data['_body']);
+        let id_og = JSON.parse(data['_body'])['id'];
+        this.formData.append('id', id_og);
+        this.ogl.upload_img(this.formData).subscribe(
+          res => {
+            console.log(res);
+            this.model = {};
+            this.loading = false;
+          },
+          err => {
+            console.log(err)
+            this.model = {};
+            this.loading = false;
+          }
+        );
       },
       err => {
         this.model = {};
@@ -33,15 +45,12 @@ export class StworzComponent implements OnInit {
       });
   }
 
-  submit_zdj(event){
+  submit_zdj(event, id){
     let fileList = event.target;
     let file = fileList.files[0];
-    let formData = new FormData();
-    formData.append('zdj', file);
-    this.ogl.upload_img(formData).subscribe(
-      res => console.log(res),
-      err => console.log(err)
-    );
+    this.formData = new FormData();
+    console.log(event.target.name);
+    this.formData.append(event.target.name, file);
 
     /*this.ogl.create(this.model).subscribe(
       (res) => {console.log(res);},

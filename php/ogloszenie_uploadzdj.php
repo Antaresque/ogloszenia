@@ -20,16 +20,16 @@ if(!($_FILES == null)){
       echo $e->getMessage();
     }
 
-    $file = $_FILES['zdj'];
-    $id = 1;
+    $file = $_FILES['zdj1'];
+    $id = $_POST['id'];
 
     if ((($file["type"] == "image/jpeg")
     || ($file["type"] == "image/pjpeg")
     || ($file["type"] == "image/jpg")
     || ($file["type"] == "image/png"))
     && ($file["size"] < 5000000)){
-      $uploaddir = '../src/assets/ogloszenie/'; //zmienic po wrzuceniu na strone
-      $uploadfile = $uploaddir.'zdj1-1.png';
+      $uploaddir = '../zdjecia/'; //zmienic po wrzuceniu na strone
+      $uploadfile = $uploaddir.$id.'-1.png';
 
       if (move_uploaded_file($file['tmp_name'], $uploadfile)) {
         echo "Plik został wrzucony";
