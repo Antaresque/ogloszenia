@@ -16,11 +16,12 @@ if(!empty(file_get_contents('php://input')))
 
   $result = DB::queryFirstRow("SELECT * FROM uzytkownicy WHERE login = %s", $login);
 
+  $id = DB::insertId();
   $login_result = false;
 
   if(validate_pw($pass, $result['haslo'])) {
     $login_result = true;
-    $data = array('login' => $login, 'exp' => time() + 7*24*60*60); //TODO: dodac do bazy danych i tokena admin/nonadmin
+    $data = array('id' => $id, 'exp' => time() + 7*24*60*60); //TODO: dodac do bazy danych i tokena admin/nonadmin
     $token = JWT::encode($data, $jwt_secret);
     $data = array("login_result" => $login_result, "jwt" => $token);
     //data logowania w rekordzie
