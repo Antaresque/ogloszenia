@@ -38,7 +38,8 @@ if(!empty(file_get_contents('php://input')))
       'nr_tel_wys' => $nr_tel,
       'opis' => $opis,
       'id_uz' => $id_uz,
-      'id_kat' => 1));
+      'id_kat' => 1,
+      'promowane' => 0));
 
     echo json_encode(array('id' => DB::insertId()));
   }
