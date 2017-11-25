@@ -20,12 +20,13 @@ if(!empty(file_get_contents('php://input')))
         catch(UnexpectedValueException $e){
           echo $e->getMessage();
         }
-    
+
         $array = json_decode(file_get_contents('php://input'), true);
-        $id = $payload->id;
-    
-        DB::delete('uzytkownicy',
-          'id_uz=%i', $id);
+        $id = $array['id'];
+
+        if($payload->funkcja = 'admin' || $payload->id == $id)
+          DB::delete('uzytkownicy', 'id_uz=%i', $id);
+        else http_response_code(401);
       }
       else {
         http_response_code(401);

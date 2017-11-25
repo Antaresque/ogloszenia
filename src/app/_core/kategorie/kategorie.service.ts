@@ -25,7 +25,7 @@ export class KategorieService {
    * Get all categories thro POST request from database.
    */
   select_all(){
-    return this.http.post('http://localhost/angular/php/kategoria_select.php', '', {headers: this.headers});
+    return this.http.post('http://localhost/angular/php/kategoria_select_all.php', '', {headers: this.headers});
   }
 
   /**
@@ -34,7 +34,7 @@ export class KategorieService {
    * @param {int} id ID of main category.
    */
   select_podrz(id) {
-    return this.http.post('http://localhost/angular/php/ogloszenie_kategorie.php', {'id': id}, {headers: this.headers});
+    return this.http.post('http://localhost/angular/php/kat_nad_select.php', {'id': id}, {headers: this.headers});
   }
 
   /**
@@ -43,7 +43,7 @@ export class KategorieService {
    * @param {JSON} model JSON array with data.
    */
   create(model) {
-    return this.http.post('http://localhost/angular/php/ogloszenie_create.php', model, {headers: this.headers});
+    return this.http.post('http://localhost/angular/php/kategoria_create.php', model, {headers: this.headers});
   }
 
   /**
@@ -52,7 +52,7 @@ export class KategorieService {
    * @param {JSON} model JSON array with data.
    */
   create_podrz(model) {
-    return this.http.post('http://localhost/angular/php/ogloszenie_create.php', model, {headers: this.headers});
+    return this.http.post('http://localhost/angular/php/kat_nad_create.php', model, {headers: this.headers});
   }
 
   /**
