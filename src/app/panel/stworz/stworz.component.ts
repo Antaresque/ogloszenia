@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { OgloszeniaService } from '../../_core/ogloszenia/ogloszenia.service';
 
 @Component({
   selector: 'app-stworz',
@@ -8,9 +9,17 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class StworzComponent implements OnInit {
 
-  constructor() { }
+  modal: any = {}
+
+  constructor(private ogl: OgloszeniaService) { }
 
   ngOnInit() {
   }
 
+  submit(){
+    this.ogl.create(this.modal).subscribe(
+      (res) => {console.log(res);},
+      (err) => {console.log(err);}
+    );
+  }
 }
