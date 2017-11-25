@@ -1,4 +1,4 @@
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
 import { KategorieService } from './../../_core/kategorie/kategorie.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -11,7 +11,7 @@ export class HomeKategorieComponent implements OnInit {
 
   dane: any = [];
 
-  constructor(private kat: KategorieService) { }
+  constructor(private kat: KategorieService, private router: Router) { }
 
   ngOnInit() {
     this.kat.select_all().subscribe(
@@ -21,7 +21,7 @@ export class HomeKategorieComponent implements OnInit {
   }
 
   wyszukaj(id_kat){
-    console.log(id_kat);
+    this.router.navigate(['/wyszukiwarka'], {queryParams: {kategoria: id_kat}});
   }
 
 }
