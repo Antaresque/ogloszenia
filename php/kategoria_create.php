@@ -1,7 +1,7 @@
 <?php
 header('Access-Control-Allow-Origin: *'); //only for localhost
 header('Access-Control-Allow-Headers: Content-Type, Authorization');
-//header('Content-Type: application/json'); //json output
+header('Content-Type: application/json'); //json output
 
 require_once('_host.php');
 require_once('_JWT.php');
@@ -21,11 +21,14 @@ if(!empty(file_get_contents('php://input')))
       echo $e->getMessage();
     }
 
-    $array = json_decode(file_get_contents('php://input'), true);
-    $nazwa = $array['nazwa'];
+    if($payload->funkcja == 'admin'){
+      $array = json_decode(file_get_contents('php://input'), true);
+      $nazwa = $array['nazwa'];
 
-    DB::insert('kategorie', array(
-      'nazwa' => $nazwa));
+      DB::insert('kategorie', array(
+        'nazwa' => $nazwa));
+    }
+    else http_response_code(401);
   }
   else {
     http_response_code(401);
