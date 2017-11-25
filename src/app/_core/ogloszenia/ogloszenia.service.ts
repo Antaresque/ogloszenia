@@ -7,6 +7,10 @@ export class OgloszeniaService {
 
   constructor(private http: Http, private user: UserService) {}
 
+  get headers(): Headers{
+    return this.user.headers;
+  }
+
   // ogloszenia api functions
   /**
    * Get data thro POST request from database.
@@ -14,7 +18,7 @@ export class OgloszeniaService {
    * @param {int} id ID of advertisement.
    */
   select(id) {
-    return this.http.post('http://localhost/angular/php/ogloszenie_select.php', id, {headers: this.user.headers});
+    return this.http.post('http://localhost/angular/php/ogloszenie_select.php', id, {headers: this.headers});
   }
 
   /**
@@ -23,7 +27,7 @@ export class OgloszeniaService {
    * @param {int} id ID of advertisement.
    */
   select_zdj(id) {
-    return this.http.post('http://localhost/angular/php/ogloszenie_zdjecia.php', id, {headers: this.user.headers});
+    return this.http.post('http://localhost/angular/php/ogloszenie_zdjecia.php', id, {headers: this.headers});
   }
 
   /**
@@ -32,7 +36,7 @@ export class OgloszeniaService {
    * @param {int/json} id ID/IDs of advertisement.
    */
   select_kat(id) {
-    return this.http.post('http://localhost/angular/php/ogloszenie_kategorie.php', id, {headers: this.user.headers});
+    return this.http.post('http://localhost/angular/php/ogloszenie_kategorie.php', id, {headers: this.headers});
   }
 
   /**
@@ -41,15 +45,14 @@ export class OgloszeniaService {
    * @param {Ogloszenie} model JSON array with data (Ogloszenie class).
    */
   create(model) {
-    return this.http.post('http://localhost/angular/php/ogloszenie_create.php', model, {headers: this.user.headers});
+    return this.http.post('http://localhost/angular/php/ogloszenie_create.php', model, {headers: this.headers});
   }
 
   upload_img(formData){
-    let up_headers = this.user.headers;
+    let up_headers = this.headers;
     up_headers.delete('Content-Type');
-    let options = new RequestOptions({ headers: up_headers });
-
-    return this.http.post('http://localhost/angular/php/ogloszenie_uploadzdj.php', formData, {headers: options.headers});
+    console.log(up_headers);
+    return this.http.post('http://localhost/angular/php/ogloszenie_uploadzdj.php', formData, {headers: up_headers});
   }
 
 
@@ -59,7 +62,7 @@ export class OgloszeniaService {
    * @param {int} id ID of advertisement.
    */
   delete(id) {
-    return this.http.post('http://localhost/angular/php/ogloszenie_delete.php', id, {headers: this.user.headers});
+    return this.http.post('http://localhost/angular/php/ogloszenie_delete.php', id, {headers: this.headers});
   }
 
   /**
@@ -68,7 +71,7 @@ export class OgloszeniaService {
    * @param {JSON} model JSON array with data (need ID of ad).
    */
   change(model) {
-    return this.http.post('http://localhost/angular/php/ogloszenie_change.php', model, {headers: this.user.headers});
+    return this.http.post('http://localhost/angular/php/ogloszenie_change.php', model, {headers: this.headers});
   }
 
 }

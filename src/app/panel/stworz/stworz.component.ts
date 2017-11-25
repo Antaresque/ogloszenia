@@ -23,7 +23,7 @@ export class StworzComponent implements OnInit {
     let fileList = event.target;
     let file = fileList.files[0];
     let formData = new FormData();
-    formData.append('uploadFile', file);
+    formData.append('zdj', file);
     this.ogl.upload_img(formData).subscribe(
       res => console.log(res),
       err => console.log(err)
