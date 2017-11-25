@@ -24,23 +24,21 @@ if(!empty(file_get_contents('php://input')))
     $array = file_get_contents('php://input');
     $id_uz = $payload->id;
 
-    $imie = $array['imie'];
-    $nazwisko = $array['nazwisko'];
-    $adres = $array['adres'];
+    $id_kat = $array['kategoria']; //nie wiem czy to tak
+    $nazwa = $array['nazwa'];
+    $cena = $array['cena'];
+    $email = $array['email'];
     $nr_tel = $array['telefon'];
-    $miasto = $array['miasto'];
-    $wojewodztwo = $array['region']; //zmienic na dane ogloszenia
+    $opis = $array['opis'];
 
     DB::insert('ogloszenia', array(
-      'imie' => $imie,
-      'nazwisko' => $nazwisko,
-      'adres' => $adres,
-      'nr_tel' => $nr_tel,
-      'login' => $login,
-      'haslo' => $haslo,
-      'email' => $email,
-      'miasto' => $miasto,
-      'wojewodztwo' => $wojewodztwo)); //same same
+      'nazwa' => $nazwa,
+      'cena' => $cena,
+      'email_wys' => $email,
+      'nr_tel_wys' => $nr_tel,
+      'opis' => $opis,
+      'id_uz' => $id_uz,
+      'id_kat' => $id_kat,
   }
   else {
     http_response_code(401);
