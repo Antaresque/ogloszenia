@@ -86,7 +86,7 @@ export class UserService {
   }
 
   /**
-   * Send POST request to server to delete an user. (admin or own account)
+   * Send POST request to server to delete a user. (admin or own account)
    *
    * @param {int} id ID of user.
    *

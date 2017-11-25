@@ -47,7 +47,7 @@ export class KategorieService {
   }
 
   /**
-   * Send POST request to server to create new category.
+   * Send POST request to server to create new subcategory.
    *
    * @param {JSON} model JSON array with data.
    */
@@ -62,6 +62,15 @@ export class KategorieService {
    */
   delete(id) {
     return this.http.post('http://localhost/angular/php/kat_delete.php', {id: id}, {headers: this.headers});
+  }
+
+  /**
+   * Send POST request to server to change category.
+   *
+   * @param {int} model Data of category.
+   */
+  change(model){
+    return this.http.post('http://localhost/angular/php/kat_delete.php', model, {headers: this.headers});
   }
 
 }

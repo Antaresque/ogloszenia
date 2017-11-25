@@ -5,3 +5,4 @@
   DB::$user = "root";
   DB::$password = "";
   DB::$dbName = "serwis";
+  DB::$encoding = 'utf8';
