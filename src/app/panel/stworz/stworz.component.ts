@@ -9,14 +9,27 @@ import { OgloszeniaService } from '../../_core/ogloszenia/ogloszenia.service';
 })
 export class StworzComponent implements OnInit {
 
-  model: any = {
-    id_kat: 1
-  };
+  model: any = {};
   loading = false;
 
   constructor(private ogl: OgloszeniaService) { }
 
   ngOnInit() {
+  }
+
+  submit(){
+    console.log(this.model);
+    this.loading = true;
+    this.ogl.create(this.model).subscribe(
+      data => {
+        this.model = {};
+        this.loading = false;
+      },
+      err => {
+        this.model = {};
+        console.log(err['_body']);
+        this.loading = false;
+      });
   }
 
   submit_zdj(event){

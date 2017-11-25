@@ -28,7 +28,7 @@ if(!($_FILES == null)){
     || ($file["type"] == "image/jpg")
     || ($file["type"] == "image/png"))
     && ($file["size"] < 5000000)){
-      $uploaddir = '../src/assets/ogloszenie/';
+      $uploaddir = '../src/assets/ogloszenie/'; //zmienic po wrzuceniu na strone
       $uploadfile = $uploaddir.'zdj1-1.png';
 
       if (move_uploaded_file($file['tmp_name'], $uploadfile)) {
