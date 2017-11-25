@@ -5,11 +5,10 @@ header('Content-Type: application/json'); //json output
 
 require_once('_host.php');
 
-$array = json_decode(file_get_contents('php://input'), true);
 $result = DB::query("SELECT * FROM kategorie WHERE id_kat_nad IS NULL");
+$data = array();
 
 foreach($result as $row){
-    array_push($array, $row['nazwa']);
-  }
-  echo json_encode($array);
-  
+    array_push($data, $row['nazwa']);
+}
+echo json_encode($data);

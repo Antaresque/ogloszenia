@@ -21,13 +21,16 @@ if(!empty(file_get_contents('php://input')))
       echo $e->getMessage();
     }
 
-    $array = json_decode(file_get_contents('php://input'), true);
-    $id_kat = $payload->id_kat; //id kategorii nadrzędnej z listy
-    $nazwa = $array['nazwa'];
+    if($payload->funkcja == 'admin'){
+      $array = json_decode(file_get_contents('php://input'), true);
+      $id_kat = $array['id_kat']; //id kategorii nadrzędnej z listy
+      $nazwa = $array['nazwa'];
 
-    DB::insert('kategorie', array(
-      'nazwa' => $nazwa,
-      'id_kat_nad' => $id_kat));
+      DB::insert('kategorie', array(
+        'nazwa' => $nazwa,
+        'id_kat_nad' => $id_kat));
+    }
+    else http_response_code(401);
   }
   else {
     http_response_code(401);
