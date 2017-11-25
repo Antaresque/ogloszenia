@@ -8,7 +8,15 @@ require_once('_JWT.php');
 use \Firebase\JWT\JWT;
 
 if(!empty(file_get_contents('php://input')))
-  {}
+{
+  if(isset($headers['Authorization'])) {
+    $jwt = getBearerToken();
+    echo $jwt;
+  }
+  else {
+    http_response_code(401);
+  }
+}
 
 //input data of ad in json
 //take id from json create ad

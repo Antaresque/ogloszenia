@@ -42,6 +42,7 @@ export class UserService {
   setJWT(jwt_temp) { // po zalogowaniu chyba
     localStorage.setItem('token', jwt_temp);
     this.jwt = jwt_temp;
+    this.headers.append("Authorization", "Bearer " + this.jwt);
     this.isLoggedIn = this.checkLoggedIn();
   }
   /**
@@ -59,6 +60,7 @@ export class UserService {
   logout() {
     localStorage.removeItem('token');
     this.jwt = null;
+    this.headers.delete("Autorization");
     this.isLoggedIn = false;
   }
 
