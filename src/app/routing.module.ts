@@ -30,7 +30,7 @@ const appRoutes: Routes = [
   ]},
   { path: 'ogloszenie/:id', component: OgloszenieComponent },
   { path: 'kategoria/:id', component: KategoriaComponent },
-  { path: 'kategoria/:id', component: WyszukiwarkaComponent },
+  { path: 'wyszukiwarka', component: WyszukiwarkaComponent },
   { path: 'uzytkownik/:id', component: UzytkownikComponent },
   { path: 'panel', component: PanelComponent, canActivate: [AuthGuard], children: [
     { path: '', component: ProfilComponent },
