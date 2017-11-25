@@ -22,10 +22,10 @@ if(!empty(file_get_contents('php://input')))
         }
     
         $array = json_decode(file_get_contents('php://input'), true);
-        $id = $array['id_og'];
+        $id = $array['id_kat'];
     
-        DB::delete('ogloszenia',
-          'id_og=%i', $id);
+        DB::delete('kategorie',
+          'id_kat=%i', $id);
       }
       else {
         http_response_code(401);
