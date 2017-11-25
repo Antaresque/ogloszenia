@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { UserService } from './../../_core/user/user.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
@@ -31,9 +33,20 @@ export class UstawieniaComponent implements OnInit {
     'woj. zachodniopomorskie'
     ];
 
-  constructor() { }
+  constructor(private user: UserService, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  deleteAcc(){
+    if(confirm('Czy na pewno chcesz usunąć konto?')){
+      let payload = this.user.getPayload();
+      this.user.logout();
+      this.router.navigate['/'];
+      this.user.delete(payload.id).subscribe(
+        (res) => console.log(res)
+      );
+    }
   }
 
 }
