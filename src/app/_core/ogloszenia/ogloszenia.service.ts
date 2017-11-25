@@ -39,6 +39,11 @@ export class OgloszeniaService {
     return this.http.post('http://localhost/angular/php/ogloszenie_create.php', model, {headers: this.headers});
   }
 
+  /**
+   * Upload adv image to server (for form)
+   *
+   * @param {formData} formData JSON array with image and id.
+   */
   upload_img(formData){
     let up_headers = this.headers;
     up_headers.delete('Content-Type');
