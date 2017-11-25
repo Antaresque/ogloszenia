@@ -62,6 +62,9 @@ CREATE TABLE `ogloszenia` (
   `email_wys` varchar(50) NOT NULL,
   `nr_tel_wys` varchar(15) NOT NULL,
   `opis` varchar(255) NOT NULL,
+  `wojewodztwo` varchar(100) NOT NULL,
+  `miasto` varchar(100) NOT NULL,
+  `adres` varchar(100) NOT NULL,
   `promowane` tinyint(1)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
@@ -83,7 +86,9 @@ CREATE TABLE `uzytkownicy` (
   `miasto` varchar(50) NOT NULL,
   `wojewodztwo` varchar(50) NOT NULL,
   `data_rej` timestamp DEFAULT CURRENT_TIMESTAMP,
-  `data_log` date DEFAULT NULL
+  `data_log` date DEFAULT NULL,
+  `nazwa_banku` varchar(50) NOT NULL,
+  `nr_konta_bank` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
