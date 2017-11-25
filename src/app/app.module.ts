@@ -21,6 +21,7 @@ import { KategoriaModule } from './kategoria/kategoria.module';
 import { PanelModule } from './panel/panel.module';
 import { AuthModule } from './auth/auth.module';
 import { UzytkownikModule } from './uzytkownik/uzytkownik.module';
+import { WyszukiwarkaModule } from './wyszukiwarka/wyszukiwarka.module';
 
 // routing module
 import { RoutingModule } from './routing.module';
@@ -41,7 +42,8 @@ import { RoutingModule } from './routing.module';
     RoutingModule,
     PanelModule,
     AuthModule,
-    UzytkownikModule
+    UzytkownikModule,
+    WyszukiwarkaModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'pl'}
