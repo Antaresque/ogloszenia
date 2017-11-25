@@ -83,6 +83,7 @@ CREATE TABLE `uzytkownicy` (
   `haslo` varchar(100) NOT NULL,
   `login` varchar(20) NOT NULL,
   `email` varchar(50) NOT NULL,
+  `funkcja` varchar(20) DEFAULT 'user',
   `miasto` varchar(50) NOT NULL,
   `wojewodztwo` varchar(50) NOT NULL,
   `data_rej` timestamp DEFAULT CURRENT_TIMESTAMP,
