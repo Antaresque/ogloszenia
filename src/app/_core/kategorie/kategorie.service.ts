@@ -18,7 +18,7 @@ export class KategorieService {
    * @param {int} id ID of category.
    */
   select(id){
-    return this.http.post('http://localhost/angular/php/kategoria_select.php', {'id': id}, {headers: this.headers});
+    return this.http.post('http://localhost/angular/php/kategoria_select.php', {id: id}, {headers: this.headers});
   }
 
   /**
@@ -34,7 +34,7 @@ export class KategorieService {
    * @param {int} id ID of main category.
    */
   select_podrz(id) {
-    return this.http.post('http://localhost/angular/php/kat_nad_select.php', {'id': id}, {headers: this.headers});
+    return this.http.post('http://localhost/angular/php/kat_nad_select.php', {id: id}, {headers: this.headers});
   }
 
   /**
@@ -61,7 +61,7 @@ export class KategorieService {
    * @param {int} id ID of category.
    */
   delete(id) {
-    return this.http.post('http://localhost/angular/php/kategoria_delete.php', {'id': id}, {headers: this.headers});
+    return this.http.post('http://localhost/angular/php/kategoria_delete.php', {id: id}, {headers: this.headers});
   }
 
 }
