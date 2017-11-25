@@ -16,7 +16,7 @@ if(!empty(file_get_contents('php://input')))
 
   $result = DB::queryFirstRow("SELECT * FROM uzytkownicy WHERE login = %s", $login);
 
-  $id = DB::insertId();
+  $id = $result['id_uz'];
   $login_result = false;
 
   if(validate_pw($pass, $result['haslo'])) {
