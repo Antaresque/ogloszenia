@@ -33,7 +33,7 @@ if(!empty(file_get_contents('php://input')))
       $miasto = $array['miasto'];
       $wojewodztwo = $array['region'];
       $bank = $array['bank'];
-      $nr_konta = $array['nr_konta'];
+      $nr_konta = generate_hash($array['nr_konta']);
 
       DB::update('uzytkownicy', array(
         'imie' => $imie,
