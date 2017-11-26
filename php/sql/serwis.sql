@@ -89,7 +89,8 @@ CREATE TABLE `uzytkownicy` (
   `data_rej` timestamp DEFAULT CURRENT_TIMESTAMP,
   `data_log` date DEFAULT NULL,
   `nazwa_banku` varchar(50) NOT NULL,
-  `nr_konta_bank` varchar(50) NOT NULL
+  `nr_konta_bank` varchar(50) NOT NULL,
+  `obserwowane` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
