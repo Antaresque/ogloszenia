@@ -21,10 +21,10 @@ if(!empty(file_get_contents('php://input')))
       catch(UnexpectedValueException $e){
         echo $e->getMessage();
       }
-  
+
       $array = json_decode(file_get_contents('php://input'), true);
       $id = $payload->id;
-  
+
       $haslo = generate_hash($array['pass']);
       $imie = $array['imie'];
       $nazwisko = $array['nazwisko'];
@@ -34,7 +34,7 @@ if(!empty(file_get_contents('php://input')))
       $wojewodztwo = $array['region'];
       $bank = $array['bank'];
       $nr_konta = $array['nr_konta'];
-  
+
       DB::update('uzytkownicy', array(
         'imie' => $imie,
         'nazwisko' => $nazwisko,
@@ -43,10 +43,10 @@ if(!empty(file_get_contents('php://input')))
         'miasto' => $miasto,
         'wojewodztwo' => $wojewodztwo,
         'nazwa_banku' => $bank,
-        `nr_konta_bank` => $nr_konta),
-        `id_uz`, $id);
-  
-      echo json_encode(array('id' => DB::insertId()));
+        'nr_konta_bank' => $nr_konta),
+        'id_uz=%s', $id);
+
+      echo json_encode(array('id' => $id));
     }
     else {
       http_response_code(401);

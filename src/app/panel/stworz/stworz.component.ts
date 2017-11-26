@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
 import { OgloszeniaService } from '../../_core/ogloszenia/ogloszenia.service';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-stworz',
@@ -11,7 +12,8 @@ export class StworzComponent implements OnInit {
 
   model: any = {};
   loading = false;
-  formData: FormData;
+  formData = new FormData();
+  @ViewChild('files') files: FormGroup;
 
   constructor(private ogl: OgloszeniaService) { }
 
@@ -26,10 +28,13 @@ export class StworzComponent implements OnInit {
         this.formData.append('id', id_og);
         this.ogl.upload_img(this.formData).subscribe( //wrzuca zdjecie z id ogloszenia
           res => {
+            console.log(res);
             this.model = {};
+            //this.files.reset();
             this.loading = false;
           },
           err => {
+            console.log(err);
             this.model = {};
             this.loading = false;
           }
@@ -44,7 +49,6 @@ export class StworzComponent implements OnInit {
   submit_zdj(event, id){ //dodaje zdjecie do formdata po wybraniu
     let fileList = event.target;
     let file = fileList.files[0];
-    this.formData = new FormData();
     console.log(event.target.name);
     this.formData.append(event.target.name, file);
 

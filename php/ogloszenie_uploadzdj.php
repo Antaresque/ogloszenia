@@ -4,8 +4,10 @@ header('Access-Control-Allow-Headers: Content-Type, Authorization');
 //header('Content-Type: application/json'); //json output
 
 require_once('_host.php');
+require_once('_imagetype.php');
 require_once('_JWT.php');
 use \Firebase\JWT\JWT;
+
 
 if(!($_FILES == null)){
   $jwt = getBearerToken();
@@ -20,25 +22,26 @@ if(!($_FILES == null)){
       echo $e->getMessage();
     }
 
-    $file = $_FILES['zdj1'];
+    $file = $_FILES;
     $id = $_POST['id'];
+    for($i = 0; $i < count($_FILES); $i++){
+      if ((($file[$i]["type"] == "image/jpeg")
+      || ($file[$i]["type"] == "image/jpg")
+      || ($file[$i]["type"] == "image/png"))
+      && ($file[$i]["size"] < 5000000)){
+        $uploaddir = '../zdjecia/'; //zmienic po wrzuceniu na strone
+        $uploadext = get_extension($file[$i]["type"]);
+        $uploadfile = $uploaddir.$id.'-'.$i.$uploadext;
 
-    if ((($file["type"] == "image/jpeg")
-    || ($file["type"] == "image/pjpeg")
-    || ($file["type"] == "image/jpg")
-    || ($file["type"] == "image/png"))
-    && ($file["size"] < 5000000)){
-      $uploaddir = '../zdjecia/'; //zmienic po wrzuceniu na strone
-      $uploadfile = $uploaddir.$id.'-1.png';
-
-      if (move_uploaded_file($file['tmp_name'], $uploadfile)) {
-        echo "Plik został wrzucony";
-      } else {
-        echo "Upload fail";
+        if (move_uploaded_file($file[$i]['tmp_name'], $uploadfile)) {
+          echo "Plik został wrzucony";
+        } else {
+          echo "Upload fail";
+        }
       }
-    }
-    else{
-      echo "Plik ma zły typ lub jest za duży";
+      else{
+        echo "Plik ma zły typ lub jest za duży";
+      }
     }
   }
   else {
