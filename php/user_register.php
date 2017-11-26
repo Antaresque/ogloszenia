@@ -21,6 +21,8 @@ if(!empty(file_get_contents('php://input')))
     $nr_tel = $array['telefon'];
     $miasto = $array['miasto'];
     $wojewodztwo = $array['region'];
+    $bank = $array['bank'];
+    $nr_konta = $array['nr_konta'];
 
     DB::insert('uzytkownicy', array(
       'imie' => $imie,
@@ -31,7 +33,9 @@ if(!empty(file_get_contents('php://input')))
       'haslo' => $haslo,
       'email' => $email,
       'miasto' => $miasto,
-      'wojewodztwo' => $wojewodztwo));
+      'wojewodztwo' => $wojewodztwo,
+      'nazwa_banku' => $bank,
+      `nr_konta_bank` => $nr_konta));
   }
   else echo "Error: nazwa lub email już istnieje";
 }
