@@ -25,7 +25,7 @@ if(!empty(file_get_contents('php://input')))
       $id_uz = $array['id_uz'];
       if($payload->id == $array['id_uz'])
       {
-        $id_og = $arrau['id_og'];
+        $id_og = $array['id_og'];
         $nazwa = $array['nazwa'];
         $cena = $array['cena'];
         $email = $array['email'];
