@@ -17,7 +17,6 @@ import { CoreModule } from './_core/core.module';
 import { PublicModule } from './_public/public.module';
 import { HomeModule } from './home/home.module';
 import { OgloszenieModule } from './ogloszenie/ogloszenie.module';
-import { KategoriaModule } from './kategoria/kategoria.module';
 import { PanelModule } from './panel/panel.module';
 import { AuthModule } from './auth/auth.module';
 import { UzytkownikModule } from './uzytkownik/uzytkownik.module';
@@ -38,7 +37,6 @@ import { RoutingModule } from './routing.module';
     PublicModule,
     HomeModule,
     OgloszenieModule,
-    KategoriaModule,
     RoutingModule,
     PanelModule,
     AuthModule,
