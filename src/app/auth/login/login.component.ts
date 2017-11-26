@@ -1,5 +1,4 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
 import { Http } from '@angular/http';
 import { UserService } from '../../_core/user/user.service';
 import { Router } from '@angular/router';
@@ -17,7 +16,7 @@ export class LoginComponent {
   loading = false;
   model: any = {};
 
-  constructor(public user: UserService, private location: Location) {}
+  constructor(public user: UserService, private router: Router) {}
 
   ngOnInit(){
   }
@@ -34,7 +33,7 @@ export class LoginComponent {
 
         if(this.isLoggedIn) {
           this.user.setJWT(JSON.parse(data['_body'])['jwt']);
-          this.location.back();
+          this.router.navigate['/'];
         } else this.wrongPassword = true;
       },
       err => {

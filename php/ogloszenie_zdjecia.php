@@ -1,17 +1,22 @@
 <?php
 header('Access-Control-Allow-Origin: *'); //only for localhost
-header('Access-Control-Allow-Headers: Content-Type');//json output
+header('Access-Control-Allow-Headers: Content-Type, Authorization');//json output
 header('Content-Type: application/json'); //json output
 
 require_once('_host.php');
 
-$array = json_decode(file_get_contents('php://input'), true);
-$id_og = $array['id'];
-$result = DB::query("SELECT * FROM zdjecia WHERE id_og = %i", $id_og);
-$array = array();
+if(!empty(file_get_contents('php://input'))){
+  $array = json_decode(file_get_contents('php://input'), true);
+  $id = $array['id'];
+  $data = array();
+  $dir = "../zdjecia/".$id.'-*.*';
 
-foreach($result as $row){
-  array_push($array, $row['nazwa']);
+  foreach(glob($dir) as $zdjecie){
+    $zdjecie = substr($zdjecie, 11);
+    array_push($data, $zdjecie);
+  }
+  echo json_encode($data);
 }
-echo json_encode($array);
+
+
 

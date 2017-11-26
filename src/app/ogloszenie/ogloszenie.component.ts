@@ -23,12 +23,12 @@ export class OgloszenieComponent implements OnInit {
       this.id = +params['id'];
     });
 
-    const data = {'id': this.id };
-    this.ogloszenia.select(data).subscribe(
+    this.ogloszenia.select(this.id).subscribe(
       res => { this.dane = JSON.parse(res['_body']); }
     );
-    this.ogloszenia.select_zdj(data).subscribe(
-      res => { this.zdjecia = JSON.parse(res['_body']); }
+    this.ogloszenia.select_zdj(this.id).subscribe(
+      res => { this.zdjecia = JSON.parse(res['_body']);
+    console.log(res); }
     );
   }
 }
