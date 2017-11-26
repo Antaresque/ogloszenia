@@ -21,37 +21,38 @@ if(!empty(file_get_contents('php://input')))
       catch(UnexpectedValueException $e){
         echo $e->getMessage();
       }
+      if($payload->id == $array['id'])
+      {
+       $array = json_decode(file_get_contents('php://input'), true);
+       $id = $payload->id;
 
-      $array = json_decode(file_get_contents('php://input'), true);
-      $id = $payload->id;
+       $haslo = generate_hash($array['pass']);
+       $imie = $array['imie'];
+        $nazwisko = $array['nazwisko'];
+        $adres = $array['adres'];
+        $nr_tel = $array['telefon'];
+        $miasto = $array['miasto'];
+        $wojewodztwo = $array['region'];
+        $bank = $array['bank'];
+       $nr_konta = generate_hash($array['nr_konta']);
 
-      $haslo = generate_hash($array['pass']);
-      $imie = $array['imie'];
-      $nazwisko = $array['nazwisko'];
-      $adres = $array['adres'];
-      $nr_tel = $array['telefon'];
-      $miasto = $array['miasto'];
-      $wojewodztwo = $array['region'];
-      $bank = $array['bank'];
-      $nr_konta = generate_hash($array['nr_konta']);
+       DB::update('uzytkownicy', array(
+          'imie' => $imie,
+          'nazwisko' => $nazwisko,
+          'adres' => $adres,
+          'nr_tel' => $nr_tel,
+          'miasto' => $miasto,
+          'wojewodztwo' => $wojewodztwo,
+          'nazwa_banku' => $bank,
+          'nr_konta_bank' => $nr_konta),
+          'id_uz=%s', $id);
 
-      DB::update('uzytkownicy', array(
-        'imie' => $imie,
-        'nazwisko' => $nazwisko,
-        'adres' => $adres,
-        'nr_tel' => $nr_tel,
-        'miasto' => $miasto,
-        'wojewodztwo' => $wojewodztwo,
-        'nazwa_banku' => $bank,
-        'nr_konta_bank' => $nr_konta),
-        'id_uz=%s', $id);
-
-      echo json_encode(array('id' => $id));
+       echo json_encode(array('id' => $id));
     }
-    else {
-      http_response_code(401);
-    }
+    else http_response_code(401);
   }
+  else http_response_code(401);
+}
 //input: array with data to change
 //if id from token is equal to id of edited user OR id is admin
 // change stuff that is sent
