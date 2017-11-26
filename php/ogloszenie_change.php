@@ -42,7 +42,7 @@ if(!empty(file_get_contents('php://input')))
           'opis' => $opis,
           'id_uz' => $id_uz,
           'id_kat' => $kategoria,
-          'promowane' => $promowane)
+          'promowane' => $promowane),
           'id_og=%s', $id_og);
       }
       else http_response_code(401);
