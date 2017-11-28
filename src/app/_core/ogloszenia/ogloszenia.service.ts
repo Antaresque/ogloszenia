@@ -5,11 +5,14 @@ import { UserService } from './../user/user.service';
 @Injectable()
 export class OgloszeniaService {
 
+  img_path = '../zdjecia/';
+
   constructor(private http: Http, private user: UserService) {}
 
   get headers(): Headers{
     return this.user.headers;
   }
+
 
   // ogloszenia api functions
   /**

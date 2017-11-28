@@ -15,6 +15,7 @@ export class OgloszenieComponent implements OnInit {
   id: number;
   dane: Ogloszenie;
   zdjecia: JSON;
+  img_path: string;
 
   constructor(private route: ActivatedRoute, private ogloszenia: OgloszeniaService) { }
 
@@ -30,5 +31,7 @@ export class OgloszenieComponent implements OnInit {
       res => { this.zdjecia = JSON.parse(res['_body']);
     console.log(res); }
     );
+
+    this.img_path = this.ogloszenia.img_path;
   }
 }
