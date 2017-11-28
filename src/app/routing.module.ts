@@ -16,6 +16,8 @@ import { PanelComponent } from './panel/panel.component';
   import { ObserwowaneComponent } from './panel/obserwowane/obserwowane.component';
   import { ProfilComponent } from './panel/profil/profil.component';
   import { UstawieniaComponent } from './panel/ustawienia/ustawienia.component';
+import { AdminComponent } from './admin/admin.component';
+  import { AdminKategoriaComponent } from './admin/adminkategoria/adminkategoria.component';
 import { PageNotFoundComponent } from './_public/pagenotfound/pagenotfound.component';
 
 import { AuthGuard } from './_core/authguard/auth.guard';
@@ -39,6 +41,9 @@ const appRoutes: Routes = [
     { path: 'stworz', component: StworzComponent },
     { path: 'obserwowane', component: ObserwowaneComponent },
     { path: 'ustawienia', component: UstawieniaComponent }
+  ]},
+  { path: 'admin', component: AdminComponent, children: [
+    { path: 'kategoria', component: AdminKategoriaComponent }
   ]},
   { path: '**', component: PageNotFoundComponent } // 404
 ];

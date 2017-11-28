@@ -24,9 +24,11 @@ if(!empty(file_get_contents('php://input')))
     if($payload->funkcja == 'admin'){
       $array = json_decode(file_get_contents('php://input'), true);
       $nazwa = $array['nazwa'];
+      $atrybuty = array('atrybut1', 'atrybut2', 'atrybut3'); //test <---
 
       DB::insert('kategorie', array(
-        'nazwa' => $nazwa));
+        'nazwa' => $nazwa,
+        'atrybuty' => json_encode($atrybuty)));
     }
     else http_response_code(401);
   }

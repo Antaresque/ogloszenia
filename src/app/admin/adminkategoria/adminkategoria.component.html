@@ -1,0 +1,10 @@
+<form name='form' (submit)='f.form.valid && addkat()' #f = 'ngForm'>
+  <div class="input-group">
+    <input type="text" placeholder="nazwa kategorii" class="form-control" name="nazwa" #nazwa="ngModel" [(ngModel)]="model.nazwa" required>
+    <div class="input-group-btn"><button class='btn btn-success'>s</button></div>
+  </div>
+</form>
+
+<div *ngFor='let at of kategorie.atrybuty'>
+  {{at}}
+</div>

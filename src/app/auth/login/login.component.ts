@@ -33,7 +33,7 @@ export class LoginComponent {
 
         if(this.isLoggedIn) {
           this.user.setJWT(JSON.parse(data['_body'])['jwt']);
-          this.router.navigate['/'];
+          this.router.navigate(['/']);
         } else this.wrongPassword = true;
       },
       err => {

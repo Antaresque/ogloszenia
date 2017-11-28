@@ -5,9 +5,11 @@ header('Content-Type: application/json'); //json output
 
 require_once('_host.php');
 
-$array = json_decode(file_get_contents('php://input'), true);
-$id_kat = $array['id_kat'];
-$result = DB::queryFirstRow("SELECT * FROM ogloszenia WHERE id_kat = %i", $id_kat);
+if(!is_null(file_get_contents('php://input'))){
+  $array = json_decode(file_get_contents('php://input'), true);
+  $id_kat = $array['id'];
+  $result = DB::queryFirstRow("SELECT * FROM kategorie WHERE id_kat = %i", $id_kat);
 
-echo json_encode($result);
+  echo json_encode($result);
+}
 
