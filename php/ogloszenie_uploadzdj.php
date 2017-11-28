@@ -31,10 +31,16 @@ if(!($_FILES == null)){
       && ($file[$i]["size"] < 5000000)){
         $uploaddir = '../zdjecia/'; //zmienic po wrzuceniu na strone
         $uploadext = get_extension($file[$i]["type"]);
-        $uploadfile = $uploaddir.$id.'-'.$i.$uploadext;
+        $uploadname = $id.'-'.$i.$uploadext;
 
-        if (move_uploaded_file($file[$i]['tmp_name'], $uploadfile)) {
+        $filename = $uploaddir.$uploadname;
+
+        if (move_uploaded_file($file[$i]['tmp_name'], $filename)) {
           echo "Plik został wrzucony";
+          if($i == 0)
+            DB::update('ogloszenia', array(
+              'zdjecie' => $uploadname),
+              'id_og=%i', $id);
         } else {
           echo "Upload fail";
         }

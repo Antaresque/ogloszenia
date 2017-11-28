@@ -65,7 +65,8 @@ CREATE TABLE `ogloszenia` (
   `wojewodztwo` varchar(100) NOT NULL,
   `miasto` varchar(100) NOT NULL,
   `adres` varchar(100) NOT NULL,
-  `promowane` tinyint(1)
+  `promowane` tinyint(1) DEFAULT 0,
+  `zdjecie` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
