@@ -13,6 +13,7 @@ export class WyszukiwarkaComponent implements OnInit {
   sub: any;
   model: any = {}
   wyniki: any = []
+  img_path: string;
 
   constructor(private route: ActivatedRoute, private router: Router, private ogl: OgloszeniaService) { }
 
@@ -32,6 +33,8 @@ export class WyszukiwarkaComponent implements OnInit {
       },
       err => console.log(err)
     );
+
+    this.img_path = this.ogl.img_path;
   }
 
   ngOnDestroy(){
