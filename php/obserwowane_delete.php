@@ -4,3 +4,6 @@ header('Access-Control-Allow-Headers: Content-Type, Authorization');//json outpu
 header('Content-Type: application/json'); //json output
 
 require_once('_host.php');
+
+if(!empty(file_get_contents('php://input')))
+  {

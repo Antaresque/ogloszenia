@@ -46,7 +46,7 @@ export class StworzComponent implements OnInit {
       });
   }
 
-  submit_zdj(event, id){ //dodaje zdjecie do formdata po wybraniu
+  submit_zdj(event){ //dodaje zdjecie do formdata po wybraniu
     let fileList = event.target;
     let file = fileList.files[0];
     console.log(event.target.name);
