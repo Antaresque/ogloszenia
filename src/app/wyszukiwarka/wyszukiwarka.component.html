@@ -1,26 +1,17 @@
 <div class="container-fluid">
   <div class="row">
     <div class="container">
-      <div class="row">
-        <div class="col" *ngFor = 'let ogl of wyniki'>
-          <div class="col-4">
-            <img src="../zdjecia/1-0.jpg">
-          </div>
+      <div class="row" *ngFor = 'let ogl of wyniki'>
+        <div class="col-4">
+            <img src="../zdjecia/{{ogl.id_og}}-0.jpg" height="100%" width="100%">
         </div>
         <div class="col">
-          nazwa: {{model.nazwa}}<br>
-          region: {{model.region}}<br>
-          id kategoria: {{model.kategoria}}
-          
+          nazwa: {{ogl.nazwa}}<br>
+          cena: {{ogl.cena}} simoleonów<br>
+          opis: {{ogl.opis}}
         </div>
       </div>
     </div> 
   </div>
-  <br>
-  wyniki wyszukiwania:<br>
-  <div class="row" *ngFor = 'let ogl of wyniki'>
-    <div class="col-4">
-      {{ogl.nazwa}} (id:{{ogl.id_og}})
-    </div>
-  </div>
 </div>
+
