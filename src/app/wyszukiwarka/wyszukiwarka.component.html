@@ -1,17 +1,17 @@
 <div class="container-fluid">
   <div class="row">
     <div class="container">
+      Wyszukana fraza: {{model.nazwa}}<br>
       <div class="row" *ngFor = 'let ogl of wyniki'>
         <div class="col-4">
             <img src="../zdjecia/{{ogl.id_og}}-0.jpg" height="100%" width="100%">
         </div>
         <div class="col">
-          nazwa: {{ogl.nazwa}}<br>
-          cena: {{ogl.cena}} simoleonów<br>
-          opis: {{ogl.opis}}
+          <h2>{{ogl.nazwa}}<br></h2>
+          <h3>Cena: {{ogl.cena}} złotych polskich<br></h3>
+          <h4>Opis: {{ogl.opis}}<br></h4>
         </div>
       </div>
     </div> 
   </div>
 </div>
-
