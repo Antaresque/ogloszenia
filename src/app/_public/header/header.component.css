@@ -1,14 +1,16 @@
-.img-circle {
-  border-radius: 50%;
-}
 .dropdown-menu-right{
   left: auto;
   right: 0;
 }
-@font-face {
-  font-family: 'ADAMCG';
-  src: url('/assets/ADAM.CG PRO.otf') format("opentype");
-}
 .logo, .navbar-brand{
   font-family: 'ADAMCG';
+}
+.img-circle {
+  border-radius: 50%;
+}
+.navbar-nav {
+  float:none;
+  margin:0 auto;
+  display: block;
+  text-align: center;
 }

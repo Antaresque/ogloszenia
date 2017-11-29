@@ -15,6 +15,7 @@ export class WyszukiwarkaComponent implements OnInit {
   model: any = {}
   wyniki: any = []
   img_path: string;
+  noresults = false;
 
   constructor(private route: ActivatedRoute, private router: Router, private ogl: OgloszeniaService, private http: Http) { }
 
@@ -31,7 +32,10 @@ export class WyszukiwarkaComponent implements OnInit {
 
     this.ogl.search(this.model).subscribe(
       res => {
-        this.wyniki = JSON.parse(res['_body']); //zrobic jakis template jezeli nie ma wynikow =w=
+        let temp = JSON.parse(res['_body']);
+        console.log(temp);
+        if(temp.hasOwnProperty('result')) this.noresults = true;
+        else this.wyniki = temp;
       },
       err => console.log(err)
     );
