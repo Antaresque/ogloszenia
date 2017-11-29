@@ -9,6 +9,6 @@
   font-family: 'ADAMCG';
   src: url('/assets/ADAM.CG PRO.otf') format("opentype");
 }
-h1, .navbar-brand{
+.logo, .navbar-brand{
   font-family: 'ADAMCG';
 }
