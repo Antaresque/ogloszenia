@@ -27,11 +27,13 @@ if(!empty(file_get_contents('php://input')))
       if($payload->funkcja == 'admin' || $payload->id == $array['id'])
       {
         $result = DB::queryFirstRow("SELECT * FROM uzytkownicy WHERE id_uz = %i", $id);
+        echo json_encode($result);
       }
       else
       {
         $result = DB::queryFirstRow("SELECT 'login', 'imie', 'nazwisko', 'wojewodztwo', 'miasto', 'adres', 'nr_tel', 'email', 'funkcja', 'data_rej', 'data_log'
         FROM uzytkownicy WHERE id_uz = %i", $id);
+        echo json_encode($result);
       }
     }
     else http_response_code(401);
