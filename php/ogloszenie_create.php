@@ -30,7 +30,8 @@ if(!empty(file_get_contents('php://input')))
     $email = $array['email'];
     $nr_tel = $array['telefon'];
     $opis = $array['opis'];
-    $prom = $array['promowane'];
+    if(is_null($array['promowane'])) $prom = 0;
+    else $prom = $array['promowane'];
 
     DB::insert('ogloszenia', array(
       'nazwa' => $nazwa,
