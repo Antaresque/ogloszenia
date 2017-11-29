@@ -42,7 +42,7 @@
               </div>
               <div class="form-group">
                   promowane
-                  <input type="checkbox" class="form-control" [(ngModel)]="model.promowane" #promowane="ngModel" name="promowane" required>
+                  <input type="checkbox" class="form-control" [(ngModel)]="model.promowane" #promowane="ngModel" name="promowane">
                 </div>
               <button [disabled]="loading" class="btn btn-primary">Zarejestruj</button>
               <img *ngIf="loading" src="assets/loading.gif">
