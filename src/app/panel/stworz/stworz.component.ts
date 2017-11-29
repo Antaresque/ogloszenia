@@ -34,6 +34,7 @@ export class StworzComponent implements OnInit {
     this.loading = true;
     this.ogl.create(this.model).subscribe( //wrzuca ogloszenie
       res => {
+        console.log(res);
         let id_og = JSON.parse(res['_body'])['id'];
         this.formData.append('id', id_og);
         this.ogl.upload_img(this.formData).subscribe( //wrzuca zdjecie z id ogloszenia
