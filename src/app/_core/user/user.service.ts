@@ -105,6 +105,12 @@ export class UserService {
     return this.http.post('http://localhost/angular/php/user_data.php', {id: id, type: 'free'}, {headers: this.headers});
   }
 
+  /** Get data about currently logged user thro POST request from database.
+   *
+   */
+  data_user(){
+    return this.http.post('http://localhost/angular/php/user_data.php', '', {headers: this.headers});
+  }
   /**
    * Get data for buyer (like bank account) about user thro POST request from database.
    * (need token authorization)
