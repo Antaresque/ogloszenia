@@ -104,18 +104,6 @@ CREATE TABLE `wiadomosci` (
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `zdjecia`
---
-
-CREATE TABLE `zdjecia` (
-  `id_zdj` int(11) NOT NULL,
-  `nazwa` varchar(100) NOT NULL,
-  `id_og` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
-
--- --------------------------------------------------------
-
---
 -- Indeksy dla zrzutów tabel
 --
 
@@ -145,11 +133,6 @@ ALTER TABLE `uzytkownicy`
 ALTER TABLE `wiadomosci`
   ADD PRIMARY KEY (`id_wiad`);
 
---
--- Indexes for table `zdjecia`
---
-ALTER TABLE `zdjecia`
-  ADD PRIMARY KEY (`id_zdj`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -170,11 +153,6 @@ ALTER TABLE `uzytkownicy`
 --
 ALTER TABLE `wiadomosci`
   MODIFY `id_wiad` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT dla tabeli `zdjecia`
---
-ALTER TABLE `zdjecia`
-  MODIFY `id_zdj` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Ograniczenia dla zrzutów tabel
 --
