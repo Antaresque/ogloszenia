@@ -43,7 +43,8 @@ CREATE TABLE `atrybuty` (
 CREATE TABLE `kategorie` (
   `id_kat` int(11) NOT NULL,
   `id_kat_nad` int(11) NULL,
-  `nazwa` varchar(50) NOT NULL
+  `nazwa` varchar(50) NOT NULL,
+  `zdjecie` varchar(50) NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------

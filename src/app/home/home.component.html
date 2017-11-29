@@ -1,25 +1,21 @@
-<div class="container">
-  <div class="row justify-content-center">
+<div class="container bg-light">
+  <div class="row justify-content-center p-2">
     <div class='col-6'>
       <form name='form' (submit)='f.form.valid && search()' #f = 'ngForm'>
         <div class="input-group">
-          <input type="text" placeholder="Wyszukaj" class="form-control" name="nazwa" #nazwa="ngModel" [(ngModel)]="model.nazwa" required>
+          <input type="text" placeholder="Wyszukaj" class="form-control wyszuk" name="nazwa" #nazwa="ngModel" [(ngModel)]="model.nazwa" required>
+          <select class="form-control" #region="ngModel"
+          [(ngModel)]="model.region" name="region">
+            <option *ngFor="let region of wojewodztwa" [value]="region">{{region}}</option>
+        </select>
           <div class="input-group-btn"><button class='btn btn-success'>🔍</button></div>
         </div>
       </form>
     </div>
   </div>
   <app-home-kategorie class="row justify-content-center"></app-home-kategorie>
+  <div class="row justify-content-center">
+    <h1>promowane ogłoszenia</h1>
+  </div>
 </div>
-<div class="container">
 
-    <div class="row  justify-content-center">
-      <h1>Promowane ogloszenia</h1>
-    </div>
-    <div class="row  justify-content-center">
-      <img src="assets/kot2.jpg">
-    </div>
-    <div class="row  justify-content-center">
-      <img src="assets/kot3.jpg">
-    </div>
-</div>

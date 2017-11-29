@@ -1,3 +1,4 @@
+import { Wojewodztwa } from './../_core/ogloszenia/wojewodztwa.class';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   model: any = {}
+  wojewodztwa = Wojewodztwa.wojewodztwa;
 
   constructor(private router: Router) { }
 

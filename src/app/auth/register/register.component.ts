@@ -3,6 +3,7 @@ import { UserService } from '../../_core/user/user.service';
 import { NgForm } from '@angular/forms';
 import { NgModel } from '@angular/forms';
 import { Http, Headers } from '@angular/http';
+import { Wojewodztwa } from '../../_core/ogloszenia/wojewodztwa.class';
 
 @Component({
   selector: 'app-register',
@@ -11,25 +12,7 @@ import { Http, Headers } from '@angular/http';
 })
 export class RegisterComponent implements OnInit {
 
-  wojewodztwa = [
-    'Region',
-    'woj. dolnośląskie',
-    'woj. kujawsko-pomorskie',
-    'woj. lubelskie',
-    'woj. lubuskie',
-    'woj. łódzkie',
-    'woj. małopolskie',
-    'woj. mazowieckie',
-    'woj. opolskie',
-    'woj. podkarpackie',
-    'woj. podlaskie',
-    'woj. pomorskie',
-    'woj. śląskie',
-    'woj. świętokrzyskie',
-    'woj. warmińsko-mazurskie',
-    'woj. wielkopolskie',
-    'woj. zachodniopomorskie'
-    ];
+  wojewodztwa = Wojewodztwa.wojewodztwa;
 
   constructor(private user: UserService, private http: Http) { }
 
