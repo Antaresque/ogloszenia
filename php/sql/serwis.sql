@@ -120,12 +120,6 @@ CREATE TABLE `zdjecia` (
 --
 
 --
--- Indexes for table `atrybuty`
---
-ALTER TABLE `atrybuty`
-  ADD PRIMARY KEY (`id_at`);
-
---
 -- Indexes for table `kategorie`
 --
 ALTER TABLE `kategorie`
@@ -161,16 +155,6 @@ ALTER TABLE `zdjecia`
 -- AUTO_INCREMENT for dumped tables
 --
 
---
--- AUTO_INCREMENT dla tabeli `atrybuty`
---
-ALTER TABLE `atrybuty`
-  MODIFY `id_at` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT dla tabeli `kategorie`
---
-ALTER TABLE `kategorie`
-  MODIFY `id_kat` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT dla tabeli `ogloszenia`
 --

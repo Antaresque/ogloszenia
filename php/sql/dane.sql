@@ -84,7 +84,7 @@ INSERT INTO `uzytkownicy` (`id_uz`, `imie`, `nazwisko`, `adres`, `nr_tel`, `hasl
 
 INSERT INTO `ogloszenia` (`id_og`, `id_uz`, `id_kat`, `nazwa`, `cena`, `data_wys`, `email_wys`, `nr_tel_wys`, `opis`, `wojewodztwo`, `miasto`, `adres`,`promowane`, `aktywne`, `zdjecie`) VALUES
 (1, 1, 1, 'Sprzedam opla', '500.00', '2017-11-21 19:52:15', 'janusz@wp.pl', '653434212', 'sprzedam opla nie bity nie stukany na oko rocznik 2001, mały przebieg cena do nego kontakt na priv wymienie za 2 swiezaki dla horej curki', 'mazowieckie', 'siedlce', 'sekulska 4','0' ,'1', '1-0.jpg'),
-(2, 1, 1, 'Sprzedam opla corse b rocznik 1998', '2017-11-29 19:02:20', 'janusz@wp.pl', '65434212', 'Sprzedam opla corse nie bity nie stukany rocznik 1998 wszystkie papiery na miejscu, cena do negocjacji, brak możliwości wymiany za świerzaki', 'mazowieckie', 'siedlce', 'sekulska 5', '1', '1', '2-0.jpg');
+(2, 1, 1, 'Sprzedam opla corse b rocznik 1998', '800.00', '2017-11-29 19:02:20', 'janusz@wp.pl', '65434212', 'Sprzedam opla corse nie bity nie stukany rocznik 1998 wszystkie papiery na miejscu, cena do negocjacji, brak możliwości wymiany za świerzaki', 'mazowieckie', 'siedlce', 'sekulska 5', '1', '1', '2-0.jpg');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
