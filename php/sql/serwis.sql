@@ -25,18 +25,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `atrybuty`
---
-
-CREATE TABLE `atrybuty` (
-  `id_at` int(11) NOT NULL,
-  `id_kat` int(11) NOT NULL,
-  `nazwa` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
-
--- --------------------------------------------------------
-
---
 -- Struktura tabeli dla tabeli `kategorie`
 --
 
@@ -44,6 +32,7 @@ CREATE TABLE `kategorie` (
   `id_kat` int(11) NOT NULL,
   `id_kat_nad` int(11) NULL,
   `nazwa` varchar(50) NOT NULL,
+  `atrybuty` varchar(250),
   `zdjecie` varchar(50) NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
@@ -66,7 +55,9 @@ CREATE TABLE `ogloszenia` (
   `wojewodztwo` varchar(100) NOT NULL,
   `miasto` varchar(100) NOT NULL,
   `adres` varchar(100) NOT NULL,
+  `atrybuty` varchar(250),
   `promowane` tinyint(1) DEFAULT 0,
+  `aktywne` tinyint(1) DEFAULT 1,
   `zdjecie` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
