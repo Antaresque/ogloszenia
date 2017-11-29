@@ -5,7 +5,7 @@ import { UserService } from './../user/user.service';
 @Injectable()
 export class OgloszeniaService {
 
-  img_path = '../zdjecia/';
+  public img_path = '../zdjecia/';
 
   constructor(private http: Http, private user: UserService) {}
 
@@ -80,6 +80,14 @@ export class OgloszeniaService {
    */
   change(model) {
     return this.http.post('http://localhost/angular/php/ogloszenie_change.php', model, {headers: this.headers});
+  }
+
+  /**
+   * Get 20 random featured advertisemets.
+   *
+   */
+  promowane(){
+    return this.http.post('http://localhost/angular/php/promowane_select.php', '', {headers: this.headers});
   }
 
 }

@@ -1,6 +1,7 @@
 import { OgloszeniaService } from './../_core/ogloszenia/ogloszenia.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-wyszukiwarka',
@@ -15,7 +16,7 @@ export class WyszukiwarkaComponent implements OnInit {
   wyniki: any = []
   img_path: string;
 
-  constructor(private route: ActivatedRoute, private router: Router, private ogl: OgloszeniaService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private ogl: OgloszeniaService, private http: Http) { }
 
   ngOnInit() {
     this.sub = this.route.queryParams.subscribe(
@@ -26,6 +27,7 @@ export class WyszukiwarkaComponent implements OnInit {
     });
 
     console.log(this.model);
+    this.img_path = this.ogl.img_path;
 
     this.ogl.search(this.model).subscribe(
       res => {
@@ -33,8 +35,6 @@ export class WyszukiwarkaComponent implements OnInit {
       },
       err => console.log(err)
     );
-
-    this.img_path = this.ogl.img_path;
   }
 
   ngOnDestroy(){

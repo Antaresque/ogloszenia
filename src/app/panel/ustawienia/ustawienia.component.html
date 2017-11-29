@@ -13,6 +13,18 @@
               <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
                 <div class="card-body">
                   <form name="form" (ngSubmit)="f.form.valid && changeData()" #f = "ngForm" novalidate>
+                      <div class="form-group">
+                          <label for="imie">Imię/Imiona</label>
+                          <input type="password" class="form-control" name="imie" [(ngModel)]="model.imie"  #imie="ngModel">
+                        </div>
+                        <div class="form-group">
+                            <label for="nazwisko">Nazwisko</label>
+                            <input type="password" class="form-control" name="nazwisko" [(ngModel)]="model.nazwisko"  #nazwisko="ngModel">
+                          </div>
+                          <div class="form-group">
+                              <label for="telefon">Telefon</label>
+                              <input type="password" class="form-control" name="telefon" [(ngModel)]="model.telefon"  #telefon="ngModel">
+                            </div>
                     <div class="form-group">
                       <label for="ulica">Ulica</label>
                       <input type="text" class="form-control" name="ulica" [(ngModel)]="model.ulica" #ulica="ngModel">
@@ -27,10 +39,7 @@
                         <option *ngFor="let region of wojewodztwa" [value]="region">{{region}}</option>
                       </select>
                     </div>
-
-                    imie nazwisko
-                    telefon
-
+                    <br>
                     <button [disabled]="loading" class="btn btn-primary">Zmień dane</button>
                     <img *ngIf="loading" src="assets/loading.gif">
                   </form>
@@ -74,7 +83,14 @@
               </div>
               <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
                 <div class="card-body">
-                  formularz do maila
+                  <form name="form" (ngSubmit)="f3.form.valid && changeMail()" #f3 = "ngForm" novalidate>
+                    <div class="form-group">
+                      <label for="email">E-mail</label>
+                      <input type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel">
+                    </div>
+                    <button [disabled]="loading" class="btn btn-primary">Zmień e-mail</button>
+                    <img *ngIf="loading" src="assets/loading.gif">
+                  </form>
                 </div>
               </div>
             </div>
@@ -89,7 +105,18 @@
                 </div>
                 <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour" data-parent="#accordion">
                   <div class="card-body">
-                    jakis formularz moze
+                    <form name="form" (ngSubmit)="f4.form.valid && changeBank()" #f4 = "ngForm" novalidate>
+                      <div class="form-group">
+                        <label for="bank">Nazwa banku</label>
+                        <input type="text" class="form-control" name="bank" [(ngModel)]="model.bank" #bank="ngModel">
+                      </div>
+                      <div class="form-group">
+                        <label for="nrkonta">Numer konta</label>
+                        <input type="password" class="form-control" name="nrkonta" [(ngModel)]="model.nrkonta" #nrkonta="ngModel">
+                      </div>
+                      <button [disabled]="loading" class="btn btn-primary">Zmień dane</button>
+                      <img *ngIf="loading" src="assets/loading.gif">
+                      </form>
                   </div>
                 </div>
               </div>

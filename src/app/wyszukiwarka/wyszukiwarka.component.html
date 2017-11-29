@@ -4,7 +4,7 @@
       Wyszukana fraza: {{model.nazwa}}<br>
       <div class="row" *ngFor = 'let ogl of wyniki'>
         <div class="col-4">
-            <img  [src]="img_path+ogl.zdjecie" height="100%" width="100%">
+            <img [src]="img_path+ogl.zdjecie" height="100%" width="100%" onError="this.src = '../zdjecia/placeholder.jpg'">
         </div>
         <div class="col">
           <a routerLink='../ogloszenie/{{ogl.id_og}}'><h2>{{ogl.nazwa}}<br></h2></a>

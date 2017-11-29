@@ -24,12 +24,13 @@ if(!empty(file_get_contents('php://input')))
     $array = json_decode(file_get_contents('php://input'), true);
     $id_uz = $payload->id;
 
-    //$id_kat = $array['kategoria']; //nie wiem czy to tak
+    $id_kat = $array['id_kat']; //nie wiem czy to tak
     $nazwa = $array['nazwa'];
     $cena = $array['cena'];
     $email = $array['email'];
     $nr_tel = $array['telefon'];
     $opis = $array['opis'];
+    $prom = $array['promowane'];
 
     DB::insert('ogloszenia', array(
       'nazwa' => $nazwa,
@@ -38,8 +39,8 @@ if(!empty(file_get_contents('php://input')))
       'nr_tel_wys' => $nr_tel,
       'opis' => $opis,
       'id_uz' => $id_uz,
-      'id_kat' => 1,
-      'promowane' => 0));
+      'id_kat' => $id_kat,
+      'promowane' => $prom));
 
     echo json_encode(array('id' => DB::insertId()));
   }

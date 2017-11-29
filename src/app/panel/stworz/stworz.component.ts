@@ -1,3 +1,4 @@
+import { KategorieService } from './../../_core/kategorie/kategorie.service';
 import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
 import { OgloszeniaService } from '../../_core/ogloszenia/ogloszenia.service';
 import { FormGroup } from '@angular/forms';
@@ -11,20 +12,29 @@ import { FormGroup } from '@angular/forms';
 export class StworzComponent implements OnInit {
 
   model: any = {};
+  kat: any = [];
   loading = false;
   formData = new FormData();
   @ViewChild('files') files: FormGroup;
 
-  constructor(private ogl: OgloszeniaService) { }
+  constructor(private ogl: OgloszeniaService, private katserv: KategorieService) { }
 
   ngOnInit() {
+    this.katserv.select_all().subscribe(
+      res => this.kat = JSON.parse(res['_body'])
+    )
+  }
+
+  getKategoria(event){
+    let option = event.target.selectedOptions;
+    this.model.id_kat = option[0].value;
   }
 
   submit(event){ //po submitowaniu form
     this.loading = true;
     this.ogl.create(this.model).subscribe( //wrzuca ogloszenie
-      data => {
-        let id_og = JSON.parse(data['_body'])['id'];
+      res => {
+        let id_og = JSON.parse(res['_body'])['id'];
         this.formData.append('id', id_og);
         this.ogl.upload_img(this.formData).subscribe( //wrzuca zdjecie z id ogloszenia
           res => {

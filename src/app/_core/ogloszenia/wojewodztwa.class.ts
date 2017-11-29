@@ -1,6 +1,6 @@
 export class Wojewodztwa {
   public static wojewodztwa = [
-  'Region',
+  '',
   'woj. dolnośląskie',
   'woj. kujawsko-pomorskie',
   'woj. lubelskie',

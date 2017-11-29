@@ -14,8 +14,8 @@
     </div>
   </div>
   <app-home-kategorie class="row justify-content-center"></app-home-kategorie>
-  <div class="row justify-content-center">
-    <h1>promowane ogłoszenia</h1>
+  <div class="row justify-content-center" *ngFor = 'let ogl of promowane'>
+    {{ ogl.nazwa }}
   </div>
 </div>
 

@@ -32,6 +32,7 @@
   <div class="form-group">
     <select class="form-control" #region="ngModel"
       [(ngModel)]="model.region" name="region">
+        <option disabled selected value style="display:none"> -- select an option -- </option>
         <option *ngFor="let region of wojewodztwa" [value]="region">{{region}}</option>
     </select>
   </div>
