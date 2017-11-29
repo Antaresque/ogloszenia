@@ -109,7 +109,8 @@ export class UserService {
    *
    */
   data_user(){
-    return this.http.post('http://localhost/angular/php/user_data.php', '', {headers: this.headers});
+    let payload = this.getPayload();
+    return this.http.post('http://localhost/angular/php/user_data.php', {id: payload.id}, {headers: this.headers});
   }
   /**
    * Get data for buyer (like bank account) about user thro POST request from database.

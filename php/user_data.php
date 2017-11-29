@@ -30,13 +30,13 @@ if(!empty(file_get_contents('php://input')))
       }
       else
       {
-        $result = DB::queryFirstRow("SELECT 'login', 'imie', 'nazwisko', 'wojewodztwo', 'miasto', 'adres', 'nr_tel', 'email', 'funkcja', 'data_rej', 'data_log' 
+        $result = DB::queryFirstRow("SELECT 'login', 'imie', 'nazwisko', 'wojewodztwo', 'miasto', 'adres', 'nr_tel', 'email', 'funkcja', 'data_rej', 'data_log'
         FROM uzytkownicy WHERE id_uz = %i", $id);
       }
     }
     else http_response_code(401);
   }
-  else http_response_code(401);
+
 //input: id and type: (free, public, private)
 //free - no need for token
 //public - needs to buy sth from owner
