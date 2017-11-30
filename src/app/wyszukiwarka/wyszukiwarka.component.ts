@@ -40,9 +40,4 @@ export class WyszukiwarkaComponent implements OnInit {
       err => console.log(err)
     );
   }
-
-  ngOnDestroy(){
-    this.sub.unsubscribe();
-  }
-
 }
