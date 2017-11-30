@@ -1,21 +1,30 @@
-<div class="container bg-light">
-  <div class="row justify-content-center p-2">
-    <div class='col-6'>
+<div class="container-fluid bg-light">
+  <div class="container">
+    <br>
+    <div class="row justify-content-center p-2 mt-2">
       <form name='form' (submit)='f.form.valid && search()' #f = 'ngForm'>
-        <div class="input-group">
+        <div class="input-group input-group-lg">
           <input type="text" placeholder="Wyszukaj" class="form-control wyszuk" name="nazwa" #nazwa="ngModel" [(ngModel)]="model.nazwa" required>
-          <select class="form-control" #region="ngModel"
-          [(ngModel)]="model.region" name="region">
-            <option *ngFor="let region of wojewodztwa" [value]="region">{{region}}</option>
-        </select>
-          <div class="input-group-btn"><button class='btn btn-success'>🔍</button></div>
+          <select class="form-control" name="kategoria" #kategoria="ngModel" [(ngModel)]="model.kategoria">
+            <option disabled selected value style="display:none"></option>
+            <option *ngFor="let kat of kategorie" [value]="kat.id">{{kat.nazwa}}</option>
+          </select>
+          <div class="input-group-btn"><button class='btn btn-primary'>🔍</button></div>
         </div>
       </form>
     </div>
+    <br>
+
+    <app-home-kategorie></app-home-kategorie>
+
+    <br>
   </div>
-  <app-home-kategorie class="row justify-content-center"></app-home-kategorie>
-  <div class="row justify-content-center" *ngFor = 'let ogl of promowane'>
-    {{ ogl.nazwa }}
-  </div>
+</div>
+<br><br>
+<div class="container">
+    <label>Ogłoszenia promowane (do zrobienia 🤔)</label>
+    <div class="row justify-content-center" *ngFor = 'let ogl of promowane'>
+      {{ ogl.nazwa }}
+    </div>
 </div>
 

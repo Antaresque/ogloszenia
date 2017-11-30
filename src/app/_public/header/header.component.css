@@ -1,14 +1,14 @@
-.img-circle {
-  border-radius: 50%;
-}
 .dropdown-menu-right{
   left: auto;
   right: 0;
 }
-@font-face {
-  font-family: 'ADAMCG';
-  src: url('/assets/ADAM.CG PRO.otf') format("opentype");
-}
-h1, .navbar-brand{
+.logo, .navbar-brand{
   font-family: 'ADAMCG';
 }
+.dropdown-menu{
+  font-family: 'Palanquin-Light';
+}
+.img-circle {
+  border-radius: 50%;
+}
+

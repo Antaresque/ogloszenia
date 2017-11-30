@@ -1,7 +1,7 @@
 <div class="container" >
     <div class="row">
       <div class="col">
-          <form name="form" (ngSubmit)="f.form.valid && submit($event)" #f = "ngForm" novalidate>
+          <form name="form" (ngSubmit)="f.form.valid && this.model.hasOwnProperty('id_kat') && submit($event)" #f = "ngForm" novalidate>
               <div class="form-group">
                 <label for="nazwa">Nazwa ogłoszenia</label>
                 <input type="text" class="form-control" name="nazwa" #nazwa="ngModel" [(ngModel)]="model.nazwa" required>

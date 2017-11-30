@@ -23,11 +23,12 @@ if(!empty(file_get_contents('php://input')))
 
   $result = DB::query("SELECT * FROM ogloszenia WHERE
         id_kat LIKE %s_kategoria
-    && nazwa LIKE %s_nazwa
-    || opis LIKE %s_nazwa
-    && wojewodztwo LIKE %s_region",
+    && wojewodztwo LIKE %s_region
+    && (nazwa LIKE %s_nazwa
+    || opis LIKE %s_nazwa)",
     $params);
 
+  if(DB::count() == 0) $result = array('result' => false);
   echo json_encode($result);
 }
 
