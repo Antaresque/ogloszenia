@@ -9,7 +9,6 @@ $result = DB::query("SELECT * FROM kategorie WHERE id_kat_nad IS NULL");
 $data = array();
 
 foreach($result as $row){
-    $temp = array('id' => $row['id_kat'], 'nazwa' => $row['nazwa']);
-    array_push($data, $temp);
+    array_push($data, $row);
 }
 echo json_encode($data);
