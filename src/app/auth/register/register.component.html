@@ -1,45 +1,45 @@
-<form name="form" (ngSubmit)="f.form.valid && registerEvent()" #f = "ngForm" novalidate>
+<form name="form" [formGroup] = "form" (ngSubmit)="registerEvent()" novalidate>
   <div class="form-group">
     <label for="login">Rejestracja</label>
-    <input type="text" class="form-control" name="login" [(ngModel)]="model.login" #login="ngModel" placeholder="Nazwa użytkownika" required>
+    <input type="text" class="form-control" formControlName="login" placeholder="Nazwa użytkownika">
   </div>
-  <div class="form-group">
-    <input type="password" placeholder="Hasło" class="form-control" [(ngModel)]="model.pass"  #pass="ngModel" name="pass" required>
+  <div class="form-group" formGroupName="passGroup">
+    <input type="password" placeholder="Hasło" class="form-control" formControlName="pass">
   </div>
-  <div class="form-group">
-      <input type="password" placeholder="Potwierdź hasło" class="form-control" [(ngModel)]="model.pass2"  #pass="ngModel" name="pass2" required>
+  <div class="form-group" formGroupName="passGroup">
+      <input type="password" placeholder="Potwierdź hasło" class="form-control" formControlName="pass2">
     </div>
   <div class="form-group">
-    <input type="text" placeholder="E-mail" class="form-control" #email="ngModel"
-      [(ngModel)]="model.email" name="email" required>
+    <input type="text" placeholder="E-mail" class="form-control" formControlName="email">
   </div>
   <div class="form-group">
-    <input type="text" placeholder="Imię/Imiona" class="form-control" #imie="ngModel"
-      [(ngModel)]="model.imie" name="imie" required>
+    <input type="text" placeholder="Imię/Imiona" class="form-control" formControlName="imie">
   </div>
   <div class="form-group">
-    <input type="text" placeholder="Nazwisko" class="form-control" #nazwisko="ngModel"
-      [(ngModel)]="model.nazwisko" name="nazwisko" required>
+    <input type="text" placeholder="Nazwisko" class="form-control" formControlName="nazwisko">
   </div>
   <div class="form-group">
-    <input type="text" placeholder="Adres zamieszkania" class="form-control" #adres="ngModel"
-      [(ngModel)]="model.adres" name="adres" required>
+    <input type="text" placeholder="Adres zamieszkania" class="form-control" formControlName="adres">
   </div>
   <div class="form-group">
-    <input type="text" placeholder="Miasto" class="form-control" #miasto="ngModel"
-      [(ngModel)]="model.miasto" name="miasto" required>
+    <input type="text" placeholder="Miasto" class="form-control" formControlName="miasto">
   </div>
   <div class="form-group">
-    <select class="form-control" #region="ngModel"
-      [(ngModel)]="model.region" name="region">
+    <select class="form-control" formControlName="region">
         <option disabled selected value style="display:none"> -- select an option -- </option>
         <option *ngFor="let region of wojewodztwa" [value]="region">{{region}}</option>
     </select>
   </div>
   <div class="form-group">
+<<<<<<< HEAD
+    <input type="text" placeholder="Telefon" class="form-control" formControlName="telefon">
+  </div>
+  <button [disabled]="loading || form.invalid" class="btn btn-primary">Zarejestruj</button>
+=======
     <input type="text" placeholder="Telefon" class="form-control" #telefon="ngModel"
       [(ngModel)]="model.telefon" name="telefon">
   </div>
   <button [disabled]="loading" class="btn btn-primary">Zarejestruj</button>
+>>>>>>> 15d5df56cab11ff85af863842c605f22ae2903bb
   <img *ngIf="loading" src="assets/loading.gif">
 </form>

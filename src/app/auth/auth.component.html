@@ -1,23 +1,24 @@
-<div class="card" id="login-tabs">
-  <div class="card-header">
-    <ul class="nav nav-pills">
-      <div class="row">
-        <div class="col-sm">
-          <li><a routerLink="login">Logowanie</a></li>
+<div class='container'>
+  <div class="card" id="login-tabs">
+    <div class="card-header">
+      <ul class="nav nav-pills">
+        <div class="row">
+          <div class="col-sm">
+            <li><a routerLink="login">Logowanie</a></li>
+          </div>
+          <div class="col-sm">
+            <li><a routerLink='register'>Rejestracja</a></li>
+          </div>
         </div>
-        <div class="col-sm">
-          <li><a routerLink='register'>Rejestracja</a></li>
-        </div>
+      </ul>
+    </div>
+    <div class="card-body">
+      <div class="tab-content">
+        <router-outlet></router-outlet>
       </div>
-    </ul>
-  </div>
-  <div class="card-body">
-    <div class="tab-content">
-      <router-outlet></router-outlet>
     </div>
   </div>
 </div>
-
 
 
 
