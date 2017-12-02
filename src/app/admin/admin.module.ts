@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdminComponent } from './admin.component';
 import { AdminKategoriaComponent } from './adminkategoria/adminkategoria.component';
+import { AdminuserComponent } from './adminuser/adminuser.component';
 
 @NgModule({
   imports: [
@@ -11,6 +12,6 @@ import { AdminKategoriaComponent } from './adminkategoria/adminkategoria.compone
     RouterModule,
     FormsModule
   ],
-  declarations: [AdminComponent, AdminKategoriaComponent]
+  declarations: [AdminComponent, AdminKategoriaComponent, AdminuserComponent]
 })
 export class AdminModule { }
