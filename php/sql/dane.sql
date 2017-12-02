@@ -26,8 +26,8 @@ SET time_zone = "+00:00";
 -- Zrzut danych tabeli `kategorie`
 --
 
-INSERT INTO `kategorie` (`id_kat`, `id_kat_nad`, `nazwa`, `zdjecie`) VALUES
-(1, NULL, 'Motoryzacja', 'motoryzacja.jpg'),
+INSERT INTO `kategorie` (`id_kat`, `id_kat_nad`, `nazwa`,`atrybuty`, `zdjecie`) VALUES
+(1, NULL, 'Motoryzacja','["Marka","Model","Rok produkcji","Stan"]', 'motoryzacja.jpg'),
 (2, NULL, 'Dom i ogród', 'dom.jpg'),
 (3, NULL, 'Praca i usługi', 'praca.jpg'),
 (4, NULL, 'Elektronika', 'elektronika.jpg'),
@@ -39,9 +39,9 @@ INSERT INTO `kategorie` (`id_kat`, `id_kat_nad`, `nazwa`, `zdjecie`) VALUES
 (10, NULL, 'Sport', 'sport.jpg'),
 (11, NULL, 'Muzyka i sztuka', 'muzyka.jpg'),
 (12, NULL, 'Nauka i edukacja', 'nauka.jpg'),
-(101, 1, 'Samochody', NULL),
-(102, 1, 'Motocykle i skutery', NULL),
-(103, 1, 'Części samochodowe', NULL),
+(101, 1, 'Samochody','["Typ nadwozia","Pojemność i typ silnika","Moc","Przebieg"]', NULL),
+(102, 1, 'Motocykle i skutery','["Pojemność silnika","Moc","Przebieg"]', NULL),
+(103, 1, 'Części samochodowe','["Rodzaj części"]', NULL),
 (201, 2, 'Meble ogrodowe', NULL),
 (202, 2, 'Meble salonowe', NULL),
 (203, 2, 'Meble kuchenne', NULL),
