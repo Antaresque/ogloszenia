@@ -7,7 +7,7 @@
           <input type="text" placeholder="Wyszukaj" class="form-control wyszuk" name="nazwa" #nazwa="ngModel" [(ngModel)]="model.nazwa" required>
           <select class="form-control" name="kategoria" #kategoria="ngModel" [(ngModel)]="model.kategoria">
             <option disabled selected value style="display:none"></option>
-            <option *ngFor="let kat of kategorie" [value]="kat.id">{{kat.nazwa}}</option>
+            <option *ngFor="let kat of kategorie" [value]="kat.id_kat">{{kat.nazwa}}</option>
           </select>
           <div class="input-group-btn"><button class='btn btn-primary'>🔍</button></div>
         </div>
@@ -24,7 +24,18 @@
 <div class="container">
     <label>Ogłoszenia promowane (do zrobienia 🤔)</label>
     <div class="row justify-content-center" *ngFor = 'let ogl of promowane'>
-      {{ ogl.nazwa }}
+      <div class='col-4'>
+          <div class="card">
+              <img class="card-img-top" src="" alt="Card image cap">
+              <div class="card-body">
+                <h4 class="card-title">Card title</h4>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
+              </div>
+            </div>
+      </div>
     </div>
 </div>
 

@@ -1,6 +1,6 @@
 <div class="row justify-content-center">
   <div class='col-md-3 p-2' *ngFor='let kat of dane; let i = index'>
-    <a class="kat-group" (click)='wyszukaj(kat.id)'>
+    <a class="kat-group" (click)='wyszukaj(kat.id_kat)'>
       <img class="kat-logo img-circle" src="../zdjecia/kategorie/{{kat.zdjecie}}" onError="this.src = '../zdjecia/placeholder.jpg'">
       <span class='kat-tekst'>{{kat.nazwa}}</span>
     </a>
