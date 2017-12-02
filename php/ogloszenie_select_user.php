@@ -24,9 +24,8 @@ if(!empty(file_get_contents('php://input')))
         $array = json_decode(file_get_contents('php://input'), true);
         $id = $array['id'];
 
-        if($payload->id == $id)
-          DB::query("SELECT * FROM ogloszenia WHERE
-          id_uz LIKE $payload->id");
+        if($payload->id == $id || $payload->funkcja == "admin")
+          DB::query("SELECT * FROM ogloszenia WHERE id_uz LIKE %i", $id);
         else http_response_code(401);
       }
       else {
