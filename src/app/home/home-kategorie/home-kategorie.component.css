@@ -8,4 +8,7 @@
 .kat-tekst{
   font-family: 'Palanquin-Light';
 }
-
+span:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
