@@ -90,4 +90,12 @@ export class OgloszeniaService {
     return this.http.post('http://localhost/angular/php/promowane_select.php', '', {headers: this.headers});
   }
 
+  /**
+   * Search for advertisements fitting given parameters.
+   *
+   * @param {int} id ID of user.
+   */
+  search_by_user(id){
+    return this.http.post('http://localhost/angular/php/ogloszenie_select_user.php', {id: id}, {headers: this.headers});
+  }
 }
