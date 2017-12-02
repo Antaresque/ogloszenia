@@ -1,13 +1,8 @@
 <?php
-header('Access-Control-Allow-Origin: *'); //only for localhost
-header('Access-Control-Allow-Headers: Content-Type, Authorization');
-//header('Content-Type: application/json'); //json output
-
 require_once('_host.php');
 require_once('_imagetype.php');
 require_once('_JWT.php');
 use \Firebase\JWT\JWT;
-
 
 if(!($_FILES == null)){
   $jwt = getBearerToken();
@@ -36,17 +31,17 @@ if(!($_FILES == null)){
         $filename = $uploaddir.$uploadname;
 
         if (move_uploaded_file($file[$i]['tmp_name'], $filename)) {
-          echo "Plik został wrzucony";
+          echo json_encode(array('result' => "Plik został wrzucony"));
           if($i == 0)
             DB::update('ogloszenia', array(
               'zdjecie' => $uploadname),
               'id_og=%i', $id);
         } else {
-          echo "Upload fail";
+          echo json_encode(array('result' => "Upload fail"));
         }
       }
       else{
-        echo "Plik ma zły typ lub jest za duży";
+        echo json_encode(array('result' => "Plik ma zły typ lub jest za duży"));
       }
     }
   }

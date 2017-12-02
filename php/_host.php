@@ -6,3 +6,7 @@
   DB::$password = "";
   DB::$dbName = "serwis";
   DB::$encoding = 'utf8';
+
+  header('Access-Control-Allow-Origin: *'); //only for localhost
+  header('Access-Control-Allow-Headers: Content-Type, Authorization'); //token check
+  header('Content-Type: application/json'); //json output
