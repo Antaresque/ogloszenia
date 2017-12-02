@@ -1,3 +1,4 @@
+import { UserService } from './../../_core/user/user.service';
 import { OgloszeniaService } from './../../_core/ogloszenia/ogloszenia.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -11,24 +12,18 @@ import { Http } from '@angular/http';
 })
 export class MojeogComponent implements OnInit {
 
-  sub: any;
-  model: any = {}
   wyniki: any = []
   img_path: string;
+  id: number;
   noresults = false;
 
-  constructor(private route: ActivatedRoute, private router: Router, private ogl: OgloszeniaService, private http: Http) { }
+  constructor(private user: UserService, private ogl: OgloszeniaService) { }
 
   ngOnInit() {
-    this.sub = this.route.queryParams.subscribe(
-      params => {
-        this.model['id_uz'] = params['id_uz'] || null;
-    });
-
-    console.log(this.model);
+    this.id = this.user.getPayload().id;
     this.img_path = this.ogl.img_path;
 
-    this.ogl.search(this.model).subscribe(
+    this.ogl.search(this.id).subscribe(
       res => {
         let temp = JSON.parse(res['_body']);
         console.log(temp);
