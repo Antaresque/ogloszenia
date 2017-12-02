@@ -83,7 +83,7 @@ export class OgloszeniaService {
   }
 
   /**
-   * Get 20 random featured advertisemets.
+   * Get 9 random featured advertisemets.
    *
    */
   promowane(){

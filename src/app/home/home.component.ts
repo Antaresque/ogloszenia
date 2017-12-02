@@ -15,10 +15,13 @@ export class HomeComponent implements OnInit {
   model: any = {}
   promowane: any = []
   wojewodztwa = Wojewodztwa.wojewodztwa;
+  img_path: string;
 
   constructor(private router: Router, private ogl: OgloszeniaService, private kat: KategorieService) { }
 
   ngOnInit() {
+    this.img_path = this.ogl.img_path;
+
     this.ogl.promowane().subscribe(
       res => this.promowane = JSON.parse(res['_body']),
       err => console.log(err)

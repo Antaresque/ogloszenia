@@ -5,6 +5,6 @@ header('Content-Type: application/json'); //json output
 
 require_once('_host.php');
 
-$result = DB::query("SELECT * FROM ogloszenia WHERE promowane = %i ORDER BY RAND() LIMIT 20", 1);
+$result = DB::query("SELECT * FROM ogloszenia WHERE promowane = %i ORDER BY RAND() LIMIT 9", 1);
 
 echo json_encode($result);
