@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-lg>">
-    <img *ngIf="zdjecia" [src]="img_path+dane.zdjecie" onError="this.src = '../zdjecia/placeholder.jpg'">
+        <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
     </div>
     <div class="col-lg">
       <h1>{{dane?.nazwa}}</h1>
@@ -22,6 +22,5 @@
     <div class="col-lg">
       Data utworzenia: {{ dane?.data_wys | date }}
     </div>
-    <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
   </div>
 </div>

@@ -1,3 +1,4 @@
+import { Gallery } from './../_shared/generate-gallery.class';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Ogloszenie } from '../_core/ogloszenia/ogloszenie.class';
@@ -48,27 +49,18 @@ export class OgloszenieComponent implements OnInit {
           breakpoint: 400,
           preview: false
       }
-  ];
-
-    this.ogloszenia.select(this.id).subscribe(
-      res => { this.dane = JSON.parse(res['_body']); }
-    );
-    this.ogloszenia.select_zdj(this.id).subscribe(
-      res => { console.log(res); }
-    );
+    ];
 
     this.img_path = this.ogloszenia.img_path;
 
-
-    this.galleryImages = [
-      { small:
-        '../zdjecia/8-0.jpg',
-        medium: '../zdjecia/8-0.jpg',
-        big: '../zdjecia/8-0.jpg'
+    this.ogloszenia.select(this.id).subscribe(
+        res => { this.dane = JSON.parse(res['_body']); }
+    );
+    this.ogloszenia.select_zdj(this.id).subscribe(
+      res => {
+          this.zdjecia = JSON.parse(res['_body']);
+          this.galleryImages = Gallery.generateImages(this.zdjecia, this.img_path);
       }
-    ];
-    //for(let i = 0; i < this.zdjecia.length; i++){
-    //  this.galleryImages.push(this.img_path+this.zdjecia[i]);
-    //}
+    );
   }
 }
