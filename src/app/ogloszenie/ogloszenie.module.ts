@@ -1,11 +1,11 @@
+import { SharedModule } from './../_shared/shared.module';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
+// components
 import { OgloszenieComponent } from './ogloszenie.component';
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
+  imports: [SharedModule],
   declarations: [OgloszenieComponent],
   exports: [OgloszenieComponent]
 })

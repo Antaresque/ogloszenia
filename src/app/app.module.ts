@@ -1,7 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID  } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { registerLocaleData } from '@angular/common';
 import localePl from '@angular/common/locales/pl';
 
@@ -12,6 +10,10 @@ import { AppComponent } from './app.component';
 
 // services
 import { CoreModule } from './_core/core.module';
+
+// angular modules
+import { SharedModule } from './_shared/shared.module';
+import { HttpModule } from '@angular/http';
 
 // feature modules
 import { PublicModule } from './_public/public.module';
@@ -32,7 +34,7 @@ import { RoutingModule } from './routing.module';
   ],
   imports: [
     BrowserModule,
-    FormsModule,
+    SharedModule,
     HttpModule,
     CoreModule.forRoot(),
     PublicModule,

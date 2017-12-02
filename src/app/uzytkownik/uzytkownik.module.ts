@@ -1,11 +1,11 @@
+import { SharedModule } from './../_shared/shared.module';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
+//components
 import { UzytkownikComponent } from './uzytkownik.component';
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
+  imports: [SharedModule],
   declarations: [UzytkownikComponent]
 })
 export class UzytkownikModule { }

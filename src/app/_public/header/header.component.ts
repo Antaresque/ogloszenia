@@ -1,8 +1,6 @@
-import { LoginComponent } from './../../auth/login/login.component';
 import { UserService } from './../../_core/user/user.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { RouterLink } from '@angular/router';
-
 
 @Component({
   selector: 'app-header',

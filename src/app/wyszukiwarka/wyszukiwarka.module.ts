@@ -1,13 +1,11 @@
-import { RouterModule } from '@angular/router';
+import { SharedModule } from './../_shared/shared.module';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
+// components
 import { WyszukiwarkaComponent } from './wyszukiwarka.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule
-  ],
+  imports: [SharedModule],
   declarations: [WyszukiwarkaComponent]
 })
 export class WyszukiwarkaModule { }

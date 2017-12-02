@@ -4,12 +4,14 @@ import {
   Optional,
   SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpModule } from '@angular/http';
 
 // services
 import { UserService } from './user/user.service';
 import { OgloszeniaService } from './ogloszenia/ogloszenia.service';
 import { KategorieService } from './kategorie/kategorie.service';
-import { HttpModule } from '@angular/http';
+
+// guards
 import { AuthGuard } from './authguard/auth.guard';
 
 

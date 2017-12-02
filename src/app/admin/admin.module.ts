@@ -1,17 +1,13 @@
-import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { SharedModule } from './../_shared/shared.module';
+
+// components
 import { AdminComponent } from './admin.component';
 import { AdminKategoriaComponent } from './adminkategoria/adminkategoria.component';
 import { AdminuserComponent } from './adminuser/adminuser.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule,
-    FormsModule
-  ],
+  imports: [SharedModule],
   declarations: [AdminComponent, AdminKategoriaComponent, AdminuserComponent]
 })
 export class AdminModule { }
