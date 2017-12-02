@@ -23,8 +23,9 @@ export class MojeogComponent implements OnInit {
     this.id = this.user.getPayload().id;
     this.img_path = this.ogl.img_path;
 
-    this.ogl.search(this.id).subscribe(
+    this.ogl.search_by_user(this.id).subscribe(
       res => {
+        console.log(res);
         let temp = JSON.parse(res['_body']);
         console.log(temp);
         if(temp.hasOwnProperty('result')) this.noresults = true;
