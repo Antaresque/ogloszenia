@@ -6,10 +6,29 @@ label{
   font-size: 90%;
 }
 
-.card-ellipsis {
+.promowane-title {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2; /* number of lines to show */
+}
+
+.promowane-img{
+  height: 200px;
+  padding: 5px;
+  border-radius: 3%;
+}
+
+.promowane-opis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4; /* number of lines to show */
+}
+
+a {
+  color: black;
+  text-decoration: none; /* no underline */
 }

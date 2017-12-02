@@ -24,21 +24,19 @@
 <div class="container">
     <label>Ogłoszenia promowane (do zrobienia 🤔)</label>
     <div class="row justify-content-center">
-      <div class='col-4' *ngFor = 'let ogl of promowane'>
-        <div class="m-1">
-          <div class="card h-100 m-1">
-              <img class="card-img-top" [src]="img_path + ogl.zdjecie" alt="Card image cap" height='200px'>
+      <div class='col-4 mb-2' *ngFor = 'let ogl of promowane'>
+          <div class="card h-100">
+              <img class="card-img-top promowane-img" [src]="img_path + ogl.zdjecie" alt="Card image cap">
               <a [routerLink]="'/ogloszenie/'+ogl.id_og">
                 <div class="card-body">
-                  <h4 class="card-title card-ellipsis">{{ogl.nazwa}}</h4>
-                  <p class="card-text">{{ogl.id_kat}}</p>
+                  <h4 class="card-title promowane-title">{{ogl.nazwa}}</h4>
+                  <p class="card-text promowane-opis">{{ogl.opis}}</p>
                 </div>
               </a>
               <div class="card-footer">
                 <small class="text-muted">{{ogl.data_wys | timeAgo}}</small>
               </div>
             </div>
-          </div>
       </div>
     </div>
 </div>
