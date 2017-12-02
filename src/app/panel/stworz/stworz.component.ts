@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { KategorieService } from './../../_core/kategorie/kategorie.service';
 import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
 import { OgloszeniaService } from '../../_core/ogloszenia/ogloszenia.service';
@@ -17,7 +18,7 @@ export class StworzComponent implements OnInit {
   formData = new FormData();
   @ViewChild('files') files: FormGroup;
 
-  constructor(private ogl: OgloszeniaService, private katserv: KategorieService) { }
+  constructor(private ogl: OgloszeniaService, private katserv: KategorieService, private router: Router) { }
 
   ngOnInit() {
     this.katserv.select_all().subscribe(
@@ -34,18 +35,16 @@ export class StworzComponent implements OnInit {
     this.loading = true;
     this.ogl.create(this.model).subscribe( //wrzuca ogloszenie
       res => {
-        console.log(res);
         let id_og = JSON.parse(res['_body'])['id'];
         this.formData.append('id', id_og);
         this.ogl.upload_img(this.formData).subscribe( //wrzuca zdjecie z id ogloszenia
           res => {
-            console.log(res);
             this.model = {};
             //this.files.reset();
             this.loading = false;
+            this.router.navigate(['/ogloszenie/' + id_og]);
           },
           err => {
-            console.log(err);
             this.model = {};
             this.loading = false;
           }
