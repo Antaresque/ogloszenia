@@ -25,11 +25,11 @@
     <label>Ogłoszenia promowane (do zrobienia 🤔)</label>
     <div class="row justify-content-center">
       <div class='col-4' *ngFor = 'let ogl of promowane'>
-          <div class="card">
-              <img class="card-img-top" [src]="img_path + ogl.zdjecie" alt="Card image cap">
+          <div class="card m-1">
+              <img class="card-img-top" [src]="img_path + ogl.zdjecie" alt="Card image cap" height='200px'>
               <div class="card-body">
-                <h4 class="card-title">{{ogl.nazwa}}</h4>
-                <p class="card-text">{{ogl.opis}}</p>
+                <h4 class="card-title">{{ogl.nazwa | truncate:[50, '..']}}</h4>
+                <p class="card-text">{{ogl.id_kat}}</p>
               </div>
               <div class="card-footer">
                 <small class="text-muted">{{ogl.data_wys | timeAgo}}</small>

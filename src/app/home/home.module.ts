@@ -1,3 +1,4 @@
+import { TruncatePipe } from './../_public/truncate-pipe';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -12,7 +13,7 @@ import { TimeAgoPipe } from '../_public/time-ago-pipe';
     RouterModule,
     FormsModule
   ],
-  declarations: [HomeComponent, HomeKategorieComponent, TimeAgoPipe],
+  declarations: [HomeComponent, HomeKategorieComponent, TimeAgoPipe, TruncatePipe],
   exports: [HomeComponent]
 })
 export class HomeModule { }
