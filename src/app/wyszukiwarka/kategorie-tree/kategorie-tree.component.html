@@ -1,9 +1,9 @@
 <ol class="breadcrumb breadcrumb-arrow">
-  <li class='breadcrumb-item'>
-    <a><i class="fa fa-home"></i></a>
+  <li class='breadcrumb-item' (click)='search("")'>
+    <span><i class="fa fa-home"></i></span>
   </li>
-  <li class='breadcrumb-item' *ngFor = 'let kat of kategorie; let last = last' [class.active]='last'>
-    <a href="#" (click)='search(kat.id_kat)'>{{kat.nazwa}}</a>
+  <li class='breadcrumb-item' (click)='search(kat.id_kat)' *ngFor = 'let kat of kategorie; let last = last' [class.active]='last'>
+    <span>{{kat.nazwa}}</span>
   </li>
 </ol>
 

@@ -1,1 +1,6 @@
 ol {background-color:white}
+
+.breadcrumb-item>span:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}

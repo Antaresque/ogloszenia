@@ -3,12 +3,12 @@
     <br>
       <app-form-wyszukiwrka class="row justify-content-center p-2 mt-2"></app-form-wyszukiwrka>
     <br>
-      <app-atrybuty [kat_id] = 'this.model["kategoria"]'></app-atrybuty>
+      <app-atrybuty></app-atrybuty>
     <br>
   </div>
 </div>
 <div class="container">
-  <app-kategorie-tree [kat_id] = 'this.model["kategoria"]'></app-kategorie-tree>
+  <app-kategorie-tree></app-kategorie-tree>
       Wyszukana fraza: {{model.nazwa}}<br>
       <div *ngIf='noresults; then noResultsTemplate; else resultsTemplate'></div>
 
