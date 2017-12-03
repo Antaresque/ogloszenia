@@ -1,15 +1,19 @@
-<ol class="breadcrumb breadcrumb-arrow">
-  <li class='breadcrumb-item' (click)='search("")'>
-    <span><i class="fa fa-home"></i></span>
-  </li>
-  <li class='breadcrumb-item' (click)='search(kat.id_kat)' *ngFor = 'let kat of kategorie; let last = last' [class.active]='last'>
-    <span>{{kat.nazwa}}</span>
-  </li>
-</ol>
+<div class="bread-div">
+  <ol class="breadcrumb breadcrumb-arrow">
+    <li class='breadcrumb-item' (click)='search("")'>
+      <span><i class="fa fa-home"></i></span>
+    </li>
+    <li class='breadcrumb-item' (click)='search(kat.id_kat)' *ngFor = 'let kat of kategorie; let last = last' [class.active]='last'>
+      <span>{{kat.nazwa}}</span>
+    </li>
+  </ol>
+</div>
 
 <!-- list of sub categories here -->
-<div class='row text-align-center mb-3'>
-  <span class='font-weight-light text-small mr-4' *ngFor='let kat of podkategorie' (click)='search(kat.id_kat)'>
-    {{kat.nazwa}}
-  </span>
+<div class='sub-div'>
+  <div class='row text-align-center ml-3 mb-3'>
+    <span class='font-weight-light text-small mr-4' *ngFor='let kat of podkategorie' (click)='search(kat.id_kat)'>
+      {{kat.nazwa}}
+    </span>
+  </div>
 </div>

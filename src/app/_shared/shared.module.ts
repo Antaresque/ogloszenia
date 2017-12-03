@@ -6,7 +6,7 @@ import { NgxGalleryModule } from 'ngx-gallery';
 
 import { TimeAgoPipe } from './time-ago-pipe';
 import { TruncatePipe } from './truncate-pipe';
-import { FormWyszukiwrkaComponent } from './form-wyszukiwrka/form-wyszukiwrka.component';
+
 
 @NgModule({
   imports: [
@@ -16,7 +16,7 @@ import { FormWyszukiwrkaComponent } from './form-wyszukiwrka/form-wyszukiwrka.co
     ReactiveFormsModule,
     NgxGalleryModule
   ],
-  declarations: [TimeAgoPipe, TruncatePipe, FormWyszukiwrkaComponent],
+  declarations: [TimeAgoPipe, TruncatePipe],
   exports: [
     CommonModule,
     FormsModule,
@@ -24,7 +24,6 @@ import { FormWyszukiwrkaComponent } from './form-wyszukiwrka/form-wyszukiwrka.co
     ReactiveFormsModule,
     NgxGalleryModule,
     TimeAgoPipe,
-    TruncatePipe,
-    FormWyszukiwrkaComponent]
+    TruncatePipe
 })
 export class SharedModule { }

@@ -8,12 +8,11 @@
   </div>
 </div>
 <div class="container">
-  <app-kategorie-tree></app-kategorie-tree>
-      Wyszukana fraza: {{model.nazwa}}<br>
+  <app-kategorie-tree></app-kategorie-tree><br><br>
       <div *ngIf='noresults; then noResultsTemplate; else resultsTemplate'></div>
 
       <ng-template #resultsTemplate>
-        <div class="row" *ngFor = 'let ogl of wyniki'>
+        <div class="row rounded mb-2" [ngClass]='ogl.promowane == 1 ? "bg-prom" : "bg-light"' *ngFor = 'let ogl of wyniki'>
           <div class="col-4">
               <img [src]="img_path+ogl.zdjecie" height="100%" width="100%" onError="this.src = '../zdjecia/placeholder.jpg'">
           </div>
@@ -26,6 +25,8 @@
       </ng-template>
 
       <ng-template #noResultsTemplate>
-        <h1>brak wyników :(</h1>
+        <div class="row justify-content-center noresults-text">
+          Niestety nic nie znaleziono - spróbuj zmienić zapytanie na bardziej ogólne lub poszukaj czegoś innego!
+        </div>
       </ng-template>
 </div>
