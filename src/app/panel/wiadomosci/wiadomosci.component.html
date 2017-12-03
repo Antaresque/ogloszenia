@@ -1,1 +1,13 @@
-<router-outlet></router-outlet>
+<div class="card" id="mail-tabs">
+    <div class="card-header text-center">
+        <div class="row tab-row">
+          <a routerLink='odebrane' class="col-sm tab-link noselect" [class.active] = "active == 'odebrane'">Odebrane</a>
+          <a routerLink='wyslane' class="col-sm tab-link noselect" [class.active] = "active == 'wyslane'">Wysłane</a>
+        </div>
+    </div>
+    <div class="card-body">
+      <div class="tab-content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
