@@ -49,6 +49,19 @@ if(!empty(file_get_contents('php://input')))
     LIMIT %i_numstart, %i_numofrows",
     $params);
 
+  DB::query("SELECT id_og FROM ogloszenia WHERE
+    id_kat LIKE %s_kategoria
+    && wojewodztwo LIKE %s_region
+    && (nazwa LIKE %s_nazwa
+    || opis LIKE %s_nazwa)
+    ORDER BY promowane DESC, %b_sort $dir",
+    $params);
+
+  $count = DB::count();
+  $pages = array(ceil($count/$num));
+
+  $result = array_merge($result, $pages);
+
   if(DB::count() == 0) $result = array('result' => false);
   echo json_encode($result);
 }

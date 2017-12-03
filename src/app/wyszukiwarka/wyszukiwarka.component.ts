@@ -11,8 +11,10 @@ import { Http } from '@angular/http';
 })
 export class WyszukiwarkaComponent implements OnInit {
 
+  Arr = Array;
   model: any = {}
   wyniki: any = []
+  pages: number;
   img_path: string;
   noresults = false;
 
@@ -36,7 +38,11 @@ export class WyszukiwarkaComponent implements OnInit {
             let temp = JSON.parse(res['_body']);
             console.log(temp);
             if(temp.hasOwnProperty('result')) this.noresults = true;
-            else {this.wyniki = temp; this.noresults = false}
+            else {
+              this.pages = temp.pop();
+              this.wyniki = temp;
+              this.noresults = false;
+            }
           },
           err => console.log(err)
         );
