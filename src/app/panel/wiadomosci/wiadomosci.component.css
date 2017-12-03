@@ -5,6 +5,10 @@
   padding: 0;
   margin: 0;
 }
+.card-body{
+  padding: 0;
+  margin: 0;
+}
 
 .tab-link{
   text-transform: uppercase;
