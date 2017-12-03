@@ -1,3 +1,5 @@
+import { UserService } from './../../../_core/user/user.service';
+import { WiadomosciService } from './../../../_core/wiadomosci/wiadomosci.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WiadomosciWyslaneComponent implements OnInit {
 
-  constructor() { }
+  wiadomosci: any = [];
+  noresults: boolean = false;
+
+  constructor(private wiad: WiadomosciService, private user: UserService) { }
 
   ngOnInit() {
+    let id = this.user.getPayload()['id'];
+    this.wiad.odebrane(id).subscribe(
+      res => {
+        this.wiadomosci = JSON.parse(res['_body']);
+        if(this.wiadomosci == null) this.noresults = true;
+        else {
+          this.noresults = false;
+          for(let i = 0; i < this.wiadomosci.length; i++){
+            this.user.dataPublic(this.wiadomosci[i].id_nad).subscribe(
+              res => {
+                this.wiadomosci[i]['nadawca'] = JSON.parse(res['_body']);
+              }
+            )
+          }
+        }
+      }
+    )
   }
-
 }
