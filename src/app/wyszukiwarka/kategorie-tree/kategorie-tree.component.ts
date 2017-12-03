@@ -50,13 +50,6 @@ export class KategorieTreeComponent implements OnInit {
   search(id){
     if(id == "") this.model.kategoria = null;
     else this.model.kategoria = id;
-    this.router.navigate(['/wyszukiwarka'], {queryParams:
-      { nazwa: this.model.nazwa,
-        kategoria: this.model.kategoria,
-        region: this.model.region,
-        sort: this.model.sort,
-        dir: this.model.dir,
-        page: this.model.page,
-        num: this.model.num}});
+    this.router.navigate(['/wyszukiwarka'], {queryParams: {kategoria: this.model.kategoria}, queryParamsHandling: 'merge'});
   }
 }
