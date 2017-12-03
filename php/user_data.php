@@ -28,13 +28,13 @@ if(!empty(file_get_contents('php://input')))
       }
       else
       {
-        $result = DB::queryFirstRow("SELECT id_uz, imie, nazwisko, wojewodztwo, miasto, adres, nr_tel, email, data_rej, data_log
+        $result = DB::queryFirstRow("SELECT id_uz, login, imie, nazwisko, wojewodztwo, miasto, adres, nr_tel, email, data_rej, data_log
         FROM uzytkownicy WHERE id_uz = %i", $id);
         echo json_encode($result);
       }
     }
     else{
-      $result = DB::queryFirstRow("SELECT id_uz, imie, nazwisko, wojewodztwo, miasto, adres, nr_tel, email, data_rej, data_log FROM uzytkownicy WHERE id_uz = %i", $id);
+      $result = DB::queryFirstRow("SELECT id_uz, login, imie, nazwisko, wojewodztwo, miasto, adres, nr_tel, email, data_rej, data_log FROM uzytkownicy WHERE id_uz = %i", $id);
       echo json_encode($result);
     }
   }

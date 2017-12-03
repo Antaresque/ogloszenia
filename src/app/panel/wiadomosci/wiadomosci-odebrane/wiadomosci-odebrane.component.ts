@@ -24,7 +24,8 @@ export class WiadomosciOdebraneComponent implements OnInit {
         else {
           this.noresults = false;
           for(let i = 0; i < this.wiadomosci.length; i++){
-            this.user.dataPublic(this.wiadomosci[i].id_od).subscribe(
+            console.log(this.wiadomosci[i].id_nad);
+            this.user.dataPublic(this.wiadomosci[i].id_nad).subscribe(
               res => {
                 this.wiadomosci[i]['nadawca'] = JSON.parse(res['_body']);
               }

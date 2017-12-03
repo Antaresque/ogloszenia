@@ -23,7 +23,7 @@ export class WiadomosciWyslaneComponent implements OnInit {
         else {
           this.noresults = false;
           for(let i = 0; i < this.wiadomosci.length; i++){
-            this.user.dataPublic(this.wiadomosci[i].id_nad).subscribe(
+            this.user.dataPublic(this.wiadomosci[i].id_od).subscribe(
               res => {
                 this.wiadomosci[i]['odbiorca'] = JSON.parse(res['_body']);
               }
