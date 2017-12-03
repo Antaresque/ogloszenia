@@ -13,7 +13,6 @@ import 'hammerjs';
 })
 export class OgloszenieComponent implements OnInit {
 
-  sub: any;
   id: number;
   dane: Ogloszenie;
   zdjecia: any = [];
@@ -25,7 +24,7 @@ export class OgloszenieComponent implements OnInit {
   constructor(private route: ActivatedRoute, private ogloszenia: OgloszeniaService) { }
 
   ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
+    this.route.params.subscribe(params => {
       this.id = +params['id'];
     });
 

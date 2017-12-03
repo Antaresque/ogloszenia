@@ -11,7 +11,6 @@ import { Http } from '@angular/http';
 })
 export class WyszukiwarkaComponent implements OnInit {
 
-  sub: any;
   model: any = {}
   wyniki: any = []
   img_path: string;
@@ -20,7 +19,7 @@ export class WyszukiwarkaComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, private ogl: OgloszeniaService, private http: Http) { }
 
   ngOnInit() {
-    this.sub = this.route.queryParams.subscribe(
+    this.route.queryParams.subscribe(
       params => {
         this.model['kategoria'] = params['kategoria'] || null;
         this.model['nazwa'] = params['nazwa'] || null;
