@@ -18,7 +18,7 @@ if(!empty(file_get_contents('php://input')))
     }
     $array = json_decode(file_get_contents('php://input'), true);
     if($payload->id == $array['id']){
-        $id = $array['id']
+        $id = $array['id'];
         $result = DB::queryFirstRow("SELECT * FROM wiadomosci WHERE id_od = %i", $id);
         echo json_encode($result);
     }
