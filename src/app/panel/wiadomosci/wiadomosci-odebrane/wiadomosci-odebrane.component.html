@@ -12,11 +12,11 @@
               </tr>
             </thead>
             <tbody>
-      <tr *ngFor='let wiad of wiadomosci'>
+      <tr class="p-2" *ngFor='let wiad of wiadomosci'>
         <td class='tytul'>{{wiad.tytul}}</td>
-        <td class='nadawca'>{{wiad.nadawca}}</td>
-        <td class='tresc'>{{wiad.opis}}</td>
-        <td class='data'>{{wiad.data}}</td>
+        <td class='nadawca'>{{wiad.nadawca.login}}</td>
+        <td class='tresc'>{{wiad.tresc}}</td>
+        <td class='data'>{{wiad.data | timeAgo}}</td>
       </tr>
     </tbody>
   </table>

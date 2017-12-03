@@ -16,7 +16,7 @@ export class WiadomosciWyslaneComponent implements OnInit {
 
   ngOnInit() {
     let id = this.user.getPayload()['id'];
-    this.wiad.odebrane(id).subscribe(
+    this.wiad.wyslane(id).subscribe(
       res => {
         this.wiadomosci = JSON.parse(res['_body']);
         if(this.wiadomosci == null) this.noresults = true;
@@ -25,7 +25,7 @@ export class WiadomosciWyslaneComponent implements OnInit {
           for(let i = 0; i < this.wiadomosci.length; i++){
             this.user.dataPublic(this.wiadomosci[i].id_nad).subscribe(
               res => {
-                this.wiadomosci[i]['nadawca'] = JSON.parse(res['_body']);
+                this.wiadomosci[i]['odbiorca'] = JSON.parse(res['_body']);
               }
             )
           }

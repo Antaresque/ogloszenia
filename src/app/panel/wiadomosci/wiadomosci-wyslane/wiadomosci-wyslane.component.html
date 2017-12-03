@@ -13,10 +13,10 @@
                 </thead>
                 <tbody>
           <tr *ngFor='let wiad of wiadomosci'>
-            <td class='tytul'>{{wiad.tytul}}</td>
-            <td class='odbiorca'>{{wiad.odbiorca}}</td>
-            <td class='tresc'>{{wiad.opis}}</td>
-            <td class='data'>{{wiad.data}}</td>
+            <td class='tytul'>{{wiad?.tytul}}</td>
+            <td class='odbiorca'>{{wiad?.odbiorca?.login}}</td>
+            <td class='tresc'>{{wiad?.tresc}}</td>
+            <td class='data'>{{wiad?.data | timeAgo}}</td>
           </tr>
         </tbody>
       </table>
