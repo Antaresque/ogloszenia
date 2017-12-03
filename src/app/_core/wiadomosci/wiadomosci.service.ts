@@ -15,16 +15,16 @@ export class WiadomosciService {
     return this.http.post('http://localhost/angular/php/wiadomosci_insert.php', model, {headers: this.headers})
   }
   read(id){
-    return this.http.post('http://localhost/angular/php/wiadomosci_read.php', {id_wiad: id}, {headers: this.headers})
+    return this.http.post('http://localhost/angular/php/wiadomosci_read.php', {id: id}, {headers: this.headers})
   }
   search(id){
-    return this.http.post('http://localhost/angular/php/wiadomosci_search.php', {id_wiad: id}, {headers: this.headers})
+    return this.http.post('http://localhost/angular/php/wiadomosci_search.php', {id: id}, {headers: this.headers})
   }
-  wyslane(){
-    return this.http.post('http://localhost/angular/php/wiadomosci_wyslane.php', '', {headers: this.headers})
+  wyslane(id){
+    return this.http.post('http://localhost/angular/php/wiadomosci_wyslane.php', {id: id}, {headers: this.headers})
   }
-  odebrane(){
-    return this.http.post('http://localhost/angular/php/wiadomosci_odebrane.php', '', {headers: this.headers})
+  odebrane(id){
+    return this.http.post('http://localhost/angular/php/wiadomosci_odebrane.php', {id: id}, {headers: this.headers})
   }
 
 }
