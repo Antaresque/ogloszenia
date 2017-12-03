@@ -1,4 +1,5 @@
 <div class='col-10 offset-1'>
+  <br>
   <form name="form" [formGroup] = "form" (ngSubmit)="send()" novalidate>
     <div class="form-group">
       <label for="temat">Temat</label>
@@ -15,4 +16,5 @@
     <button [disabled]="loading || form.invalid" class="btn btn-primary">Zarejestruj</button>
     <img *ngIf="loading" src="assets/loading.gif">
   </form>
+  <br>
 </div>
