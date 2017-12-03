@@ -1,14 +1,31 @@
 <div class="container">
+  <div class="row">
+    <div class="bread-div">
+      <ol class="breadcrumb breadcrumb-arrow">
+        <li class='breadcrumb-item' (click)='search("")'>
+          <span><i class="fa fa-home"></i></span>
+        </li>
+        <li class='breadcrumb-item' (click)='search(kat.id_kat)' *ngFor = 'let kat of kategorie'>
+          <span>{{kat.nazwa}}</span>
+        </li>
+      </ol>
+    </div>
+  </div>
   <div class="row main rounded">
     <div class="col-lg img rounded">
         <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
     </div>
     <div class="col-lg info rounded">
-      <h1>{{dane?.nazwa}}</h1>
-      <br>Cena: {{dane?.cena | currency: "zł"}}
-      <br>ID kategorii: {{dane?.id_kat}} (Do wymiany na nazwę)
-      <br>{{dane?.opis}}
+      <h1>{{ dane?.nazwa }}</h1>
+      <br>Cena: {{ dane?.cena | currency: "zł" }}
+      <br>Kategoria: {{ kategorie[kategorie.length-1]?.nazwa }}
+      <br>{{ dane?.opis }}
       <br>Data utworzenia: {{ dane?.data_wys | date }}
+      <br><button class='btn btn-outline-primary mt-2' (click) = 'sendMessage(dane.id_og)'><i class="fa fa-comment"></i> Wyślij wiadomość</button>
+      <button class='btn btn-outline-primary mt-2' (click) = 'telefonshow = true'><i class="fa fa-phone"></i>
+        <span *ngIf='!telefonshow'>Pokaż numer telefonu</span>
+        <span *ngIf='telefonshow'><b>{{uzytk.nr_tel}}</b></span>
+      </button>
     </div>
   </div>
   <div class="row rounded bott">

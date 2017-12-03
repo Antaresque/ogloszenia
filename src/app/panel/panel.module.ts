@@ -8,11 +8,15 @@ import { MojeogComponent } from './mojeog/mojeog.component';
 import { ObserwowaneComponent } from './obserwowane/obserwowane.component';
 import { StworzComponent } from './stworz/stworz.component';
 import { ArchiwumComponent } from './archiwum/archiwum.component';
-import { OstatnioComponent } from './ostatnio/ostatnio.component';
 import { UstawieniaComponent } from './ustawienia/ustawienia.component';
+import { WiadomosciComponent } from './wiadomosci/wiadomosci.component';
+import { WiadomosciNewComponent } from './wiadomosci/wiadomosci-new/wiadomosci-new.component';
+import { WiadomosciOdebraneComponent } from './wiadomosci/wiadomosci-odebrane/wiadomosci-odebrane.component';
+import { WiadomosciWyslaneComponent } from './wiadomosci/wiadomosci-wyslane/wiadomosci-wyslane.component';
+import { WiadomosciShowComponent } from './wiadomosci/wiadomosci-show/wiadomosci-show.component';
 
 @NgModule({
   imports: [SharedModule],
-  declarations: [PanelComponent, ProfilComponent, MojeogComponent, ObserwowaneComponent, StworzComponent, ArchiwumComponent, OstatnioComponent, UstawieniaComponent]
+  declarations: [PanelComponent, ProfilComponent, MojeogComponent, ObserwowaneComponent, StworzComponent, ArchiwumComponent, UstawieniaComponent, WiadomosciComponent, WiadomosciNewComponent, WiadomosciOdebraneComponent, WiadomosciWyslaneComponent, WiadomosciShowComponent]
 })
 export class PanelModule { }

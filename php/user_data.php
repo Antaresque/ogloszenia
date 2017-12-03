@@ -6,6 +6,9 @@ use \Firebase\JWT\JWT;
 
 if(!empty(file_get_contents('php://input')))
   {
+    $array = json_decode(file_get_contents('php://input'), true);
+    $id = $array['id'];
+
     $jwt = getBearerToken();
     if(isset($jwt))
     {
@@ -18,8 +21,6 @@ if(!empty(file_get_contents('php://input')))
       catch(UnexpectedValueException $e){
         echo $e->getMessage();
       }
-      $array = json_decode(file_get_contents('php://input'), true);
-      $id = $array['id'];
       if($payload->funkcja == 'admin' || $payload->id == $array['id'])
       {
         $result = DB::queryFirstRow("SELECT * FROM uzytkownicy WHERE id_uz = %i", $id);
@@ -27,12 +28,15 @@ if(!empty(file_get_contents('php://input')))
       }
       else
       {
-        $result = DB::queryFirstRow("SELECT 'login', 'imie', 'nazwisko', 'wojewodztwo', 'miasto', 'adres', 'nr_tel', 'email', 'funkcja', 'data_rej', 'data_log'
+        $result = DB::queryFirstRow("SELECT id_uz, imie, nazwisko, wojewodztwo, miasto, adres, nr_tel, email, data_rej, data_log
         FROM uzytkownicy WHERE id_uz = %i", $id);
         echo json_encode($result);
       }
     }
-    else http_response_code(401);
+    else{
+      $result = DB::queryFirstRow("SELECT id_uz, imie, nazwisko, wojewodztwo, miasto, adres, nr_tel, email, data_rej, data_log FROM uzytkownicy WHERE id_uz = %i", $id);
+      echo json_encode($result);
+    }
   }
 
 //input: id and type: (free, public, private)

@@ -7,8 +7,15 @@
   padding:5px
 }
 .main{
-    margin-bottom:10px
+    margin-bottom:10px;
+    font-family: 'Palanquin-Light';
 }
 .bott{
     background-color: #EEE
+}
+ol {background-color:white}
+
+.breadcrumb-item:not(.active)>span:hover{
+  text-decoration: underline;
+  cursor: pointer;
 }

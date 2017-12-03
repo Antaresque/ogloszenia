@@ -11,11 +11,15 @@ import { WyszukiwarkaComponent } from './wyszukiwarka/wyszukiwarka.component';
 import { PanelComponent } from './panel/panel.component';
   import { ArchiwumComponent } from './panel/archiwum/archiwum.component';
   import { MojeogComponent } from './panel/mojeog/mojeog.component';
-  import { OstatnioComponent } from './panel/ostatnio/ostatnio.component';
   import { StworzComponent } from './panel/stworz/stworz.component';
   import { ObserwowaneComponent } from './panel/obserwowane/obserwowane.component';
   import { ProfilComponent } from './panel/profil/profil.component';
   import { UstawieniaComponent } from './panel/ustawienia/ustawienia.component';
+  import { WiadomosciComponent } from './panel/wiadomosci/wiadomosci.component';
+    import { WiadomosciShowComponent } from './panel/wiadomosci/wiadomosci-show/wiadomosci-show.component';
+    import { WiadomosciNewComponent } from './panel/wiadomosci/wiadomosci-new/wiadomosci-new.component';
+    import { WiadomosciWyslaneComponent } from './panel/wiadomosci/wiadomosci-wyslane/wiadomosci-wyslane.component';
+    import { WiadomosciOdebraneComponent } from './panel/wiadomosci/wiadomosci-odebrane/wiadomosci-odebrane.component';
 import { AdminComponent } from './admin/admin.component';
   import { AdminKategoriaComponent } from './admin/adminkategoria/adminkategoria.component';
 import { PageNotFoundComponent } from './_public/pagenotfound/pagenotfound.component';
@@ -37,10 +41,16 @@ const appRoutes: Routes = [
     { path: 'profil', component: ProfilComponent },
     { path: 'archiwum', component: ArchiwumComponent },
     { path: 'mojeog', component: MojeogComponent },
-    { path: 'ostatnio', component: OstatnioComponent },
     { path: 'stworz', component: StworzComponent },
     { path: 'obserwowane', component: ObserwowaneComponent },
-    { path: 'ustawienia', component: UstawieniaComponent }
+    { path: 'ustawienia', component: UstawieniaComponent },
+    { path: 'wiadomosci', component: WiadomosciComponent, children: [
+      { path: '', redirectTo: 'odebrane', pathMatch: 'full' },
+      { path: 'odebrane', component: WiadomosciOdebraneComponent },
+      { path: 'wyslane', component: WiadomosciWyslaneComponent },
+      { path: 'new', component: WiadomosciNewComponent },
+      { path: 'show', component: WiadomosciShowComponent }
+    ]}
   ]},
   { path: 'admin', component: AdminComponent, children: [
     { path: 'kategoria', component: AdminKategoriaComponent }

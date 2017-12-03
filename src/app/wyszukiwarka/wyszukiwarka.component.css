@@ -9,22 +9,10 @@
   font-size: 16px;
   font-family: 'Palanquin-Light';
 }
-.sort-link{
-  text-transform: uppercase;
-  font-family: "ADAMCG";
-  padding: 15px;}
 .sort-link:hover{
   cursor: pointer;
   text-decoration: underline;
   background-color: #EEE;
-}
-.sort-row{
-  padding: 0;
-  margin: 0;
-}
-span{
-  color:  blue;
-  text-decoration: none;
 }
 .noselect{
   -webkit-user-select: none;  /* Chrome all / Safari all */
@@ -42,4 +30,7 @@ padding:5px
 }
 .mb-2{
 padding:10px
+}
+.ogl-nazwa{
+  font-family: "Palanquin-SemiBold";
 }

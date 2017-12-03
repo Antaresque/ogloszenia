@@ -6,13 +6,20 @@
       <app-atrybuty class='row justify-content-center'></app-atrybuty>
     <br>
       <div class='text-center'>
-        <h5>Sortowanie:</h5>
-        <br>
-        <div class="container sort-row">
-        <span (click)='search({sort: "cena", dir: "ASC"})' class="ml-1 sort-link noselect">najtańsze</span>
-        <span (click)='search({sort: "cena", dir: "DESC"})' class="ml-1 sort-link noselect">najdroższe</span>
-        <span (click)='search({sort: "data_wys", dir: "DESC"})' class="ml-1 sort-link noselect">najnowsze</span>
-        <span (click)='search({sort: "data_wys", dir: "ASC"})' class="ml-1 sort-link noselect">najstarsze</span>
+        <div class='text-right'>
+          sortowanie:
+          <span (click)='search({sort: "cena", dir: "ASC"})' class="ml-1 sort-link">najtańsze</span>
+          <span (click)='search({sort: "cena", dir: "DESC"})' class="ml-1 sort-link">najdroższe</span>
+          <span (click)='search({sort: "data_wys", dir: "DESC"})' class="ml-1 sort-link">najnowsze</span>
+          <span (click)='search({sort: "data_wys", dir: "ASC"})' class="ml-1 sort-link">najstarsze</span>
+        </div>
+        <div class='text-right'>
+          ilosc ogloszen na stronie:
+          <span (click)='search({num: 5})' class="ml-1 sort-link">5</span>
+          <span (click)='search({num: 10})' class="ml-1 sort-link">10</span>
+          <span (click)='search({num: 25})' class="ml-1 sort-link">25</span>
+          <span (click)='search({num: 50})' class="ml-1 sort-link">50</span>
+          <span (click)='search({num: 100})' class="ml-1 sort-link">100</span>
         </div>
       </div>
       <br>
@@ -26,12 +33,12 @@
       <ng-template #resultsTemplate>
         <div class="row rounded mb-2" [ngClass]='ogl.promowane == 1 ? "bg-prom" : "bg-light"' *ngFor = 'let ogl of wyniki'>
           <div class="col-4 img rounded">
-              <img clas="rounded" [src]="img_path+ogl.zdjecie" height="100%" width="100%" onError="this.src = '../zdjecia/placeholder.jpg'">
+              <img class="rounded" [src]="img_path+ogl.zdjecie" height="100%" width="100%" onError="this.src = '../zdjecia/placeholder.jpg'">
           </div>
           <div class="col info rounded">
-            <a routerLink='../ogloszenie/{{ogl.id_og}}'><h2>{{ogl.nazwa}}<br></h2></a>
-            <h3>Cena: {{ogl.cena}} złotych polskich<br></h3>
-            <h4>Opis: {{ogl.opis}}<br></h4>
+            <a routerLink='../ogloszenie/{{ogl.id_og}}'><h3 class='ogl-nazwa'>{{ogl.nazwa}}<br></h3></a>
+            <p>{{ogl.cena | currency: 'zł'}}<br></p>
+            <p>Opis: {{ogl.opis}}<br></p>
           </div>
         </div>
       </ng-template>
@@ -49,17 +56,4 @@
       </li>
     </ul>
   </div>
-  <div class='text-center'>
-      <br>
-      <h5>Ilość ogłoszeń na stronie:</h5>
-      <br>
-      <div class="container sort-row">
-      <span (click)='search({num: 5})' class="ml-1 sort-link noselect">5</span>
-      <span (click)='search({num: 10})' class="ml-1 sort-link noselect">10</span>
-      <span (click)='search({num: 25})' class="ml-1 sort-link noselect">25</span>
-      <span (click)='search({num: 50})' class="ml-1 sort-link noselect">50</span>
-      <span (click)='search({num: 100})' class="ml-1 sort-link noselect">100</span>
-      </div>
-    </div>
 </div>
- 
