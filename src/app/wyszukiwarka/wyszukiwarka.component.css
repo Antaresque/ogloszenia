@@ -3,13 +3,43 @@
   font-family: 'Palanquin-SemiBold';
 }
 .bg-prom{
-  background-color: lightsalmon;
+  background-color: rgb(255, 220, 106);;
 }
-.text-right{
+.text-center{
   font-size: 16px;
   font-family: 'Palanquin-Light';
 }
+.sort-link{
+  text-transform: uppercase;
+  font-family: "ADAMCG";
+  padding: 15px;}
 .sort-link:hover{
   cursor: pointer;
   text-decoration: underline;
+  background-color: #EEE;
+}
+.sort-row{
+  padding: 0;
+  margin: 0;
+}
+span{
+  color:  blue;
+  text-decoration: none;
+}
+.noselect{
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;
+}
+.info{
+  background-color: #EEE
+}
+.img{
+background-color: #EEE;
+margin-right:10px;
+padding:5px
+}
+.mb-2{
+padding:10px
 }

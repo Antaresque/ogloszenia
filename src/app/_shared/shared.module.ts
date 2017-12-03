@@ -3,11 +3,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgxGalleryModule } from 'ngx-gallery';
-
 import { TimeAgoPipe } from './time-ago-pipe';
 import { TruncatePipe } from './truncate-pipe';
-
-
 @NgModule({
   imports: [
     CommonModule,
@@ -25,5 +22,6 @@ import { TruncatePipe } from './truncate-pipe';
     NgxGalleryModule,
     TimeAgoPipe,
     TruncatePipe
+  ]
 })
 export class SharedModule { }

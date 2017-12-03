@@ -1,26 +1,17 @@
 <div class="container">
-  <div class="row">
-    <div class="col-lg>">
+  <div class="row main rounded">
+    <div class="col-lg img rounded">
         <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
     </div>
-    <div class="col-lg">
+    <div class="col-lg info rounded">
       <h1>{{dane?.nazwa}}</h1>
-      <br>{{dane?.cena | currency: "zł"}}
-      <br>{{dane?.id_kat}}
+      <br>Cena: {{dane?.cena | currency: "zł"}}
+      <br>ID kategorii: {{dane?.id_kat}} (Do wymiany na nazwę)
       <br>{{dane?.opis}}
+      <br>Data utworzenia: {{ dane?.data_wys | date }}
     </div>
   </div>
-  <div class="row">
-    <div class="col-lg">
-      Pasek wyboru (opis, dane ogłoszeniodawcy itd)
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg">
-      Zawartość wybranej pozycji (z paska wyżej)
-    </div>
-    <div class="col-lg">
-      Data utworzenia: {{ dane?.data_wys | date }}
-    </div>
+  <div class="row rounded bott">
+    Stopka z jakimiś informacjami, ale to potem
   </div>
 </div>

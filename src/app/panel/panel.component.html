@@ -1,16 +1,19 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-2" id="panel" background-color="blue">
-      <h1>Le panel</h1><br>
-      <a routerLink='../panel/profil'>Moje konto</a><br>
-      <a routerLink='../panel/ustawienia'>Ustawienia profilu</a><br>
-      <a routerLink='../panel/mojeog'>Moje ogłoszenia</a><br>
-      <a routerLink='../panel/obserwowane'>Obserwowane</a><br>
-      <a routerLink='../panel/stworz'>Stwórz ogłoszenie</a><br>
-      <a routerLink='../panel/archiwum'>Archiwum</a><br>
-      <a routerLink='../panel/ostatnio'>Ostatnio oglądane</a><br>
+    <div class="col-sm-2 rounded text-center" background-color="blue">
+      <div class="panel">
+        <br>
+      <h3>Panel użytkownika</h3><br>
+      <a class="ml-1 sort-pan noselect" routerLink='../panel/profil'>Moje konto</a><br><br>
+      <a class="ml-1 sort-pan noselect" routerLink='../panel/ustawienia'>Ustawienia profilu</a><br><br>
+      <a class="ml-1 sort-pan noselect" routerLink='../panel/mojeog'>Moje ogłoszenia</a><br><br>
+      <a class="ml-1 sort-pan noselect" routerLink='../panel/obserwowane'>Obserwowane</a><br><br>
+      <a class="ml-1 sort-pan noselect" routerLink='../panel/stworz'>Stwórz ogłoszenie</a><br><br>
+      <a class="ml-1 sort-pan noselect" routerLink='../panel/archiwum'>Archiwum</a><br><br>
+      <a class="ml-1 sort-pan noselect" routerLink='../panel/ostatnio'>Ostatnio oglądane</a><br><br>
+      </div>
     </div>
-    <div class="col-sm-10">
+    <div class="col-sm-8">
         <router-outlet></router-outlet>
     </div>
     </div>
