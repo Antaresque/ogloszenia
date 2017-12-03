@@ -19,7 +19,7 @@ if(!empty(file_get_contents('php://input')))
     $array = json_decode(file_get_contents('php://input'), true);
     if($payload->id == $array['id']){
         $id = $array['id'];
-        $result = DB::query("SELECT * FROM wiadomosci WHERE id_nad = %i", $id);
+        $result = DB::query("SELECT * FROM wiadomosci WHERE id_nad = %i ORDER BY data DESC", $id);
         echo json_encode($result);
     }
     else http_response_code(401);
