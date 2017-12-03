@@ -11,12 +11,18 @@ import { UserService } from './../_core/user/user.service';
 })
 export class AuthComponent implements OnInit {
 
-  constructor(private router: Router, private user: UserService) {
-  }
+  active: any;
+
+  constructor(private route: ActivatedRoute, private router: Router, private user: UserService) {}
 
   ngOnInit() {
     if(this.user.getLoggedIn()){
       this.router.navigate(['/']);
     }
+    this.active = this.route.firstChild.snapshot.routeConfig.path;
+
+    this.router.events.subscribe(
+      (event) => this.active = this.route.firstChild.snapshot.routeConfig.path
+    );
   }
 }

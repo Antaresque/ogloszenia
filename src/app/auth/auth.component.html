@@ -1,25 +1,11 @@
 <div class='container'>
   <div class="col-lg-6 offset-3">
   <div class="card" id="login-tabs">
-    <div class="card-header">
-      <ul class="nav nav-pills">
-        <div class="row">
-            <div class="col-lg"></div>
-            <div class="col-lg"></div>
-          <div class="col-sm">
-            <li><a routerLink="login">Logowanie</a></li>
-          </div>
-          <div class="col-lg"></div>
-          <div class="col-lg"></div>
-          <div class="col-lg"></div>
-          <div class="col-lg"></div>
-          <div class="col-lg"></div>
-          <div class="col-lg"></div>
-          <div class="col-sm">
-            <li><a routerLink='register'>Rejestracja</a></li>
-          </div>
+    <div class="card-header text-center">
+        <div class="row tab-row">
+          <a routerLink="login" class="col-sm tab-link " [class.active] = "active == 'login'">Logowanie</a>
+          <a routerLink='register' class="col-sm tab-link" [class.active] = "active == 'register'">Rejestracja</a>
         </div>
-      </ul>
     </div>
     <div class="card-body">
       <div class="tab-content">
