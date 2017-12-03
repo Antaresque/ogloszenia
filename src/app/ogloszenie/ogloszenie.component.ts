@@ -88,7 +88,7 @@ export class OgloszenieComponent implements OnInit {
     this.router.navigate(['/wyszukiwarka'], {queryParams: {kategoria: this.model.kategoria}, queryParamsHandling: 'merge'});
   }
 
-  sendMessage(nazwa){
-    this.router.navigate(['/panel/wiadomosci/new'], {queryParams: {nazwa: nazwa}});
+  sendMessage(){
+    this.router.navigate(['/panel/wiadomosci/new'], {queryParams: {nazwa: dane.nazwa, odbiorca: this.uzytk.nazwa}});
   }
 }
