@@ -19,7 +19,7 @@ export class WiadomosciWyslaneComponent implements OnInit {
     this.wiad.wyslane(id).subscribe(
       res => {
         this.wiadomosci = JSON.parse(res['_body']);
-        if(this.wiadomosci == null) this.noresults = true;
+        if(this.wiadomosci.length == 0) this.noresults = true;
         else {
           this.noresults = false;
           for(let i = 0; i < this.wiadomosci.length; i++){

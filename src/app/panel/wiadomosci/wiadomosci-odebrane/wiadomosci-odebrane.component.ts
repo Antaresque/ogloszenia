@@ -19,12 +19,10 @@ export class WiadomosciOdebraneComponent implements OnInit {
     this.wiad.odebrane(id).subscribe(
       res => {
         this.wiadomosci = JSON.parse(res['_body']);
-        console.log(this.wiadomosci);
-        if(this.wiadomosci == null) this.noresults = true;
+        if(this.wiadomosci.length == 0) this.noresults = true;
         else {
           this.noresults = false;
           for(let i = 0; i < this.wiadomosci.length; i++){
-            console.log(this.wiadomosci[i].id_nad);
             this.user.dataPublic(this.wiadomosci[i].id_nad).subscribe(
               res => {
                 this.wiadomosci[i]['nadawca'] = JSON.parse(res['_body']);
