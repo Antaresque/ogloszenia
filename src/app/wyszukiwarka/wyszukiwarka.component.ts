@@ -27,6 +27,7 @@ export class WyszukiwarkaComponent implements OnInit {
 
         this.ogl.search(this.model).subscribe(
           res => {
+            console.log(res);
             let temp = JSON.parse(res['_body']);
             console.log(temp);
             if(temp.hasOwnProperty('result')) this.noresults = true;
