@@ -1,6 +1,7 @@
+import { Location } from '@angular/common';
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { UserService } from '../../_core/user/user.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,10 +12,16 @@ export class LoginComponent {
 
   isLoggedIn: boolean;
   wrongPassword = false;
+  redirect = true;
   loading = false;
   model: any = {};
 
-  constructor(public user: UserService, private router: Router) {}
+  constructor(public user: UserService, private router: Router, private route: ActivatedRoute, private location: Location) {
+    this.route.queryParams.subscribe(
+      params => {
+        this.redirect = params['redirect'] || true;
+      })
+  }
 
   ngOnInit(){
   }
@@ -31,7 +38,8 @@ export class LoginComponent {
 
         if(this.isLoggedIn) {
           this.user.setJWT(JSON.parse(data['_body'])['jwt']);
-          this.router.navigate(['/']);
+          if(this.redirect) this.location.back();
+          else this.router.navigate(['/']);
         } else this.wrongPassword = true;
       },
       err => {

@@ -25,4 +25,8 @@ export class AuthComponent implements OnInit {
       (event) => this.active = this.route.firstChild.snapshot.routeConfig.path
     );
   }
+
+  move(model){
+    this.router.navigate(['/auth/login'], {queryParams: model});
+  }
 }
