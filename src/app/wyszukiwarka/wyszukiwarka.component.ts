@@ -22,6 +22,11 @@ export class WyszukiwarkaComponent implements OnInit {
         this.model['kategoria'] = params['kategoria'] || null;
         this.model['nazwa'] = params['nazwa'] || null;
         this.model['region'] = params['region'] || null;
+        this.model['sort'] = params['sort'] || null;
+        this.model['dir'] = params['dir'] || null;
+        this.model['page'] = params['page'] || null;
+        this.model['num'] = params['num'] || null;
+
         console.log(this.model);
         this.img_path = this.ogl.img_path;
 
@@ -41,6 +46,6 @@ export class WyszukiwarkaComponent implements OnInit {
   ngOnInit() {}
 
   search(event){
-    this.router.navigate(['/wyszukiwarka'], {queryParams: {nazwa: this.model.nazwa, kategoria: this.model.kategoria}});
+    this.router.navigate(['/wyszukiwarka'], {queryParams: event, queryParamsHandling: 'merge'});
   }
 }

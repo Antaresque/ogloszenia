@@ -5,3 +5,11 @@
 .bg-prom{
   background-color: lightsalmon;
 }
+.text-right{
+  font-size: 16px;
+  font-family: 'Palanquin-Light';
+}
+.sort-link:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}

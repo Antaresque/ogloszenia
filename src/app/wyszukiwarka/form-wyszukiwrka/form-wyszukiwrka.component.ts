@@ -1,5 +1,5 @@
 import { KategorieService } from './../../_core/kategorie/kategorie.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -12,13 +12,18 @@ export class FormWyszukiwrkaComponent implements OnInit {
   @Input() modelinput;
   model: any = {}
 
-  constructor(private router: Router, private kat: KategorieService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private kat: KategorieService) {
+  }
 
   ngOnInit() {
-    if(this.modelinput != null) this.model = this.modelinput;
+    this.model.nazwa = this.modelinput.nazwa || null;
   }
 
   search(){
-    this.router.navigate(['/wyszukiwarka'], {queryParams: {nazwa: this.model.nazwa, kategoria: this.model.kategoria}});
+    this.router.navigate(['/wyszukiwarka'], {queryParams: {nazwa: this.model.nazwa}, queryParamsHandling: 'merge'});
+  }
+  delete(){
+    this.model.nazwa = '';
+    this.router.navigate(['/wyszukiwarka'], {queryParams: {nazwa: this.model.nazwa}, queryParamsHandling: 'merge'});
   }
 }

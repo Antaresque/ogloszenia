@@ -16,26 +16,29 @@ if(!empty(file_get_contents('php://input')))
     $params = array_merge($params, $temp); //polacz tabele $params z wygenerowana wartoscia
   }
 
-  if(array_key_exists('page', $array)) $page = $array['page'];
+  if(!is_null($array['page'])) $page = $array['page'];
   else $page = 1;
 
-  if(array_key_exists('sort', $array)) $sort = $array['sort'];
+  if(!is_null($array['sort'])) $sort = $array['sort'];
   else $sort = 'cena';
 
-  if(array_key_exists('dir', $array)) $dirkey = array_search($array['dir'], $dirs);
+  if(!is_null($array['dir'])) $dirkey = array_search($array['dir'], $dirs);
   else $dirkey = 0;
+
+  if(!is_null($array['num'])) $num = $array['num'];
+  else $num = 25;
 
   $dir = $dirs[$dirkey];
 
   $temp = array(
-    'numstart' => 25 * ($page - 1), //index od ktorego zaczyna
-    'numofrows' => 25, //ilosc rzedow
+    'numstart' => $num * ($page - 1), //index od ktorego zaczyna
+    'numofrows' => $num, //ilosc rzedow
     'sort' => $sort); //po czym sortowac ma
 
   $params = array_merge($params, $temp);
 
 
-  if(array_key_exists('nazwa', $params)) $params['nazwa'] = '%'.$params['nazwa'].'%'; //dopisuje % na poczatku i koncu dla nazwy
+  if($params['nazwa'] != '%') $params['nazwa'] = '%'.$params['nazwa'].'%'; //dopisuje % na poczatku i koncu dla nazwy
 
   $result = DB::query("SELECT * FROM ogloszenia WHERE
         id_kat LIKE %s_kategoria
