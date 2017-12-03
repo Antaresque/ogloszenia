@@ -19,18 +19,17 @@ if(!empty(file_get_contents('php://input')))
 
     $array = json_decode(file_get_contents('php://input'), true);
     $id_nad = $payload->id;
-    $id_od = $array['id_od'];
+    $id_od = $array['odbiorca'];
     $tresc = $array['tresc'];
-    $id_og = $array['id_og'];
-    $tytul =$array['tytul'];
+    $tytul = $array['temat'];
 
 
     DB::insert('wiadomosci', array(
       'id_nad' => $id_nad,
       'id_od' => $id_od,
       'tresc' => $tresc,
-      'id_og' => $id_og,
-      'tytul' =>$tytul
+      'id_og' => '1',
+      'tytul' => $tytul
     ));
 
     echo json_encode(array('id' => DB::insertId()));

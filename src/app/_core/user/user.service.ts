@@ -149,4 +149,8 @@ export class UserService {
   uploadAvatar(formData){
     return this.http.post('http://localhost/angular/php/user_avatar.php', formData, {headers: this.headers});
   }
+
+  search_name(nazwa){
+    return this.http.post('http://localhost/angular/php/user_search_name.php', {nazwa: nazwa}, {headers: this.headers});
+  }
 }

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { UserService } from './../../../_core/user/user.service';
 import { WiadomosciService } from './../../../_core/wiadomosci/wiadomosci.service';
 import { Component, OnInit } from '@angular/core';
@@ -12,7 +13,7 @@ export class WiadomosciWyslaneComponent implements OnInit {
   wiadomosci: any = [];
   noresults: boolean = false;
 
-  constructor(private wiad: WiadomosciService, private user: UserService) { }
+  constructor(private wiad: WiadomosciService, private user: UserService, private router: Router) { }
 
   ngOnInit() {
     let id = this.user.getPayload()['id'];
@@ -32,5 +33,9 @@ export class WiadomosciWyslaneComponent implements OnInit {
         }
       }
     )
+  }
+
+  sendMessage(){
+    this.router.navigate(['/panel/wiadomosci/new']);
   }
 }
