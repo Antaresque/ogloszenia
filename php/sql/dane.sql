@@ -96,6 +96,16 @@ INSERT INTO `ogloszenia` (`id_og`, `id_uz`, `id_kat`, `nazwa`, `cena`, `data_wys
 (11, 5, 7, 'Prawie nieużywany rozrzutnik gnoju, wymaga czyszczenia, lekko wadliwy', '60000.00', '2017-12-02 20:51:55', 'moeuczeń@wp.pl', '593750679', 'Sprzedam rozrzutnik gnoju, wymaga czyszczenia, lekko wadliwy, a mianowicie towar rozrzucany zamiast przez otwór wylotowy na pole dostaje się do kabiny, poza tym działa dobrze', 'mazowieckie', 'siedlce', 'monte cassino 36/19', '1', '1', '11-0.jpg'),
 (12, 1, 9, 'Zabawka dla dziecka, pluszowy lis pirat', '19.87', '2017-12-03 11:58:34', 'moeuczeń@wp.pl', '583750476', 'Sprzedam zabawkę dla dziecka, jest to pluszowy lis pirat, stan idealny - był to nietrafiony prezent, ciotka pomyślała, że dawanie pluszaka 14-letniemu Brajankowi to dobry pomysł', 'mazowieckie', 'siedlce', 'słowackiego 5', '0', '1', '12-0.jpg');
 
+--
+-- Zrzut danych tabeli `wiadomosci`
+--
+
+INSERT INTO `wiadomosci` (`id_wiad`, `id_od`, `id_nad`, `tresc`, `data`, `tytul`, `id_og`, `odczytane`) VALUES
+(1, 1, 2, 'Witam panie Januszu. Mam pytanie co do Opla corsy. Czy on aby na pewno nie był klepany?', '2017-12-03 20:02:22', 'Opel', 2, '1'),
+(2, 2, 1, 'Pan mie tu nie obraża, oczywiście, że nie klepany, ja to uczciwy człowiek jestem. Kupujesz pan czy nie?', '2017-12-03 20:03:44', 'Klepanko', 2, '0');
+
+
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
