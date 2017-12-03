@@ -10,6 +10,7 @@ import { HttpModule } from '@angular/http';
 import { UserService } from './user/user.service';
 import { OgloszeniaService } from './ogloszenia/ogloszenia.service';
 import { KategorieService } from './kategorie/kategorie.service';
+import { WiadomosciService } from './wiadomosci/wiadomosci.service';
 
 // guards
 import { AuthGuard } from './authguard/auth.guard';
@@ -34,7 +35,7 @@ export class CoreModule {
   static forRoot(): ModuleWithProviders {
     return {
         ngModule: CoreModule,
-        providers: [UserService, OgloszeniaService, KategorieService, AuthGuard, HttpModule]
+        providers: [UserService, OgloszeniaService, KategorieService, WiadomosciService, AuthGuard, HttpModule]
     };
   }
 }
