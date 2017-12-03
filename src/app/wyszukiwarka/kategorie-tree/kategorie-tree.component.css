@@ -1,6 +1,15 @@
 ol {background-color:white}
 
-.breadcrumb-item>span:hover{
+.breadcrumb-item:not(.active)>span:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.text-small{
+  font-size: 100%;
+  font-family: 'Palanquin-Light';
+}
+.text-small:hover{
   text-decoration: underline;
   cursor: pointer;
 }

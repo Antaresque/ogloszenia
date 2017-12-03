@@ -22,6 +22,8 @@ export class AtrybutyComponent implements OnInit {
         this.model['nazwa'] = params['nazwa'] || null;
         this.model['region'] = params['region'] || null;
 
+        this.atrybuty = [];
+
         this.kat.select_tree(this.model['kategoria']).subscribe(
           res => {
             this.kategorie = JSON.parse(res['_body']);

@@ -1,3 +1,6 @@
-<div *ngFor = 'let atr of atrybuty'>
-  {{atr}}
-</div>
+<input
+  type='text'
+  class="form-control-sm pb-1 col-2 ml-1 mr-1"
+  [name]='"atr"+i'
+  [placeholder]='atr'
+  *ngFor = 'let atr of atrybuty; let i = index'>

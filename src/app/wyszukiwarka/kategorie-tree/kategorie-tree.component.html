@@ -8,6 +8,8 @@
 </ol>
 
 <!-- list of sub categories here -->
-<div *ngFor='let kat of podkategorie'>
-  {{kat.nazwa}}
+<div class='row text-align-center mb-3'>
+  <span class='font-weight-light text-small mr-4' *ngFor='let kat of podkategorie' (click)='search(kat.id_kat)'>
+    {{kat.nazwa}}
+  </span>
 </div>

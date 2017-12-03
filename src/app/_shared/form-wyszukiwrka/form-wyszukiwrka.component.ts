@@ -1,6 +1,6 @@
 import { KategorieService } from './../../_core/kategorie/kategorie.service';
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-form-wyszukiwrka',
@@ -9,12 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormWyszukiwrkaComponent implements OnInit {
 
+  @Input() modelinput;
   model: any = {}
   kategorie: any = []
 
   constructor(private router: Router, private kat: KategorieService) { }
 
   ngOnInit() {
+    if(this.modelinput != null) this.model = this.modelinput;
+
     this.kat.select_all().subscribe(
       res => { this.kategorie = JSON.parse(res['_body'])}
     );

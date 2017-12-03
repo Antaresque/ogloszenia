@@ -22,19 +22,30 @@ export class KategorieTreeComponent implements OnInit {
         this.model['nazwa'] = params['nazwa'] || null;
         this.model['region'] = params['region'] || null;
 
-        this.kat.select_tree(this.model['kategoria']).subscribe(
+        let id_kat = this.model['kategoria'];
+
+        this.kat.select_tree(id_kat).subscribe(
           res => this.kategorie = JSON.parse(res['_body']),
           err => console.log(err)
         )
-        this.kat.select_podrz(this.model['kategoria']).subscribe(
-          res => this.podkategorie = JSON.parse(res['_body']),
-          err => console.log(err)
-        )
+        if(id_kat == null){
+          this.kat.select_all().subscribe(
+            res => this.podkategorie = JSON.parse(res['_body']),
+            err => console.log(err)
+          )
+        }
+        else{
+          this.kat.select_podrz(id_kat).subscribe(
+            res => this.podkategorie = JSON.parse(res['_body']),
+            err => console.log(err)
+          )
+        }
     });
   }
 
-  search(id: any){
-    if(this.model.kategoria == "") this.model.kategoria = null;
+  search(id){
+    if(id == "") this.model.kategoria = null;
+    else this.model.kategoria = id;
     this.router.navigate(['/wyszukiwarka'], {queryParams: {nazwa: this.model.nazwa, kategoria: this.model.kategoria}});
   }
 }
