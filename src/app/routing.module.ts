@@ -25,7 +25,7 @@ import { AuthGuard } from './_core/authguard/auth.guard';
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'auth', component: AuthComponent, children: [
-    { path: '', component: LoginComponent },
+    { path: '', redirectTo: 'login',  pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent }
   ]},
@@ -33,7 +33,7 @@ const appRoutes: Routes = [
   { path: 'wyszukiwarka', component: WyszukiwarkaComponent },
   { path: 'uzytkownik/:id', component: UzytkownikComponent },
   { path: 'panel', component: PanelComponent, canActivate: [AuthGuard], children: [
-    { path: '', component: ProfilComponent },
+    { path: '', redirectTo: 'profil',  pathMatch: 'full' },
     { path: 'profil', component: ProfilComponent },
     { path: 'archiwum', component: ArchiwumComponent },
     { path: 'mojeog', component: MojeogComponent },
