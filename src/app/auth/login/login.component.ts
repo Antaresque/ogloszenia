@@ -1,8 +1,6 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
 import { UserService } from '../../_core/user/user.service';
 import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-login',
