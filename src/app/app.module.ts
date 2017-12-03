@@ -12,7 +12,6 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './_core/core.module';
 
 // angular modules
-import { SharedModule } from './_shared/shared.module';
 import { HttpModule } from '@angular/http';
 
 // feature modules
@@ -34,7 +33,6 @@ import { RoutingModule } from './routing.module';
   ],
   imports: [
     BrowserModule,
-    SharedModule,
     HttpModule,
     CoreModule.forRoot(),
     PublicModule,

@@ -1,4 +1,4 @@
-import { RouterLink, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { KategorieService } from './../../_core/kategorie/kategorie.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -15,8 +15,7 @@ export class HomeKategorieComponent implements OnInit {
 
   ngOnInit() {
     this.kat.select_all().subscribe(
-      res => { this.dane = JSON.parse(res['_body'])
-               console.log(this.dane);}
+      res => { this.dane = JSON.parse(res['_body'])}
     );
   }
 

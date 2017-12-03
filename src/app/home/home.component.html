@@ -1,22 +1,9 @@
 <div class="container-fluid bg-light">
   <div class="container">
     <br>
-    <div class="row justify-content-center p-2 mt-2">
-      <form name='form' (submit)='f.form.valid && search()' #f = 'ngForm'>
-        <div class="input-group input-group-lg">
-          <input type="text" placeholder="Wyszukaj" class="form-control wyszuk" name="nazwa" #nazwa="ngModel" [(ngModel)]="model.nazwa" required>
-          <select class="form-control" name="kategoria" #kategoria="ngModel" [(ngModel)]="model.kategoria">
-            <option disabled selected value style="display:none"></option>
-            <option *ngFor="let kat of kategorie" [value]="kat.id_kat">{{kat.nazwa}}</option>
-          </select>
-          <div class="input-group-btn"><button type="button" class="btn btn-primary">🔍</button></div>
-        </div>
-      </form>
-    </div>
+    <app-form-wyszukiwrka class="row justify-content-center p-2 mt-2"></app-form-wyszukiwrka>
     <br>
-
     <app-home-kategorie></app-home-kategorie>
-
     <br>
   </div>
 </div>

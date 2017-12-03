@@ -1,0 +1,11 @@
+<form name='form' (submit)='f.form.valid && search()' #f = 'ngForm'>
+  <div class="input-group input-group-lg">
+    <input type="text" placeholder="Wyszukaj" class="form-control wyszuk" name="nazwa" #nazwa="ngModel" [(ngModel)]="model.nazwa" required>
+    <select class="form-control" name="kategoria" #kategoria="ngModel" [(ngModel)]="model.kategoria">
+      <option selected value>Wszystkie</option>
+      <option disabled value>--------</option>
+      <option *ngFor="let kat of kategorie" [value]="kat.id_kat">{{kat.nazwa}}</option>
+    </select>
+    <div class="input-group-btn"><button type="submit" class="btn btn-primary">🔍</button></div>
+  </div>
+</form>

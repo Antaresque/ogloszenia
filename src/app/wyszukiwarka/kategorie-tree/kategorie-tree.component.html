@@ -1,0 +1,13 @@
+<ol class="breadcrumb breadcrumb-arrow">
+  <li class='breadcrumb-item'>
+    <a><i class="fa fa-home"></i></a>
+  </li>
+  <li class='breadcrumb-item' *ngFor = 'let kat of kategorie; let last = last' [class.active]='last'>
+    <a href="#" (click)='search(kat.id_kat)'>{{kat.nazwa}}</a>
+  </li>
+</ol>
+
+<!-- list of sub categories here -->
+<div *ngFor='let kat of podkategorie'>
+  {{kat.nazwa}}
+</div>

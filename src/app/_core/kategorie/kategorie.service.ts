@@ -38,6 +38,15 @@ export class KategorieService {
   }
 
   /**
+   * Get tree of categories thro POST request from database.
+   *
+   * @param {int} id ID of child category.
+   */
+
+  select_tree(id){
+    return this.http.post('http://localhost/angular/php/kat_tree.php', {id: id}, {headers: this.headers});
+  }
+  /**
    * Send POST request to server to create new category.
    *
    * @param {JSON} model JSON array with data.
@@ -72,5 +81,4 @@ export class KategorieService {
   change(model){
     return this.http.post('http://localhost/angular/php/kat_delete.php', model, {headers: this.headers});
   }
-
 }
