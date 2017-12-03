@@ -22,13 +22,15 @@ if(!empty(file_get_contents('php://input')))
     $id_od = $array['id_od'];
     $tresc = $array['tresc'];
     $id_og = $array['id_og'];
+    $tytul =$array['tytul'];
 
 
     DB::insert('wiadomosci', array(
       'id_nad' => $id_nad,
       'id_od' => $id_od,
       'tresc' => $tresc,
-      'id_og' => $id_og
+      'id_og' => $id_og,
+      'tytul' =>$tytul
     ));
 
     echo json_encode(array('id' => DB::insertId()));

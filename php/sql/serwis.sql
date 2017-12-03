@@ -95,10 +95,10 @@ CREATE TABLE `wiadomosci` (
   `id_od` int(11) NOT NULL,
   `id_nad` int(11) NOT NULL,
   `tresc` varchar(512) NOT NULL,
-  `data` date NOT NULL,
-  `godzina` time NOT NULL,
+  `data` timestamp NOT NULL,
+  `tytul` varchar(50) NOT NULL,
   `id_og` int(11) NOT NULL,
-  `odczytane` tinyint(1)
+  `odczytane` tinyint(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
