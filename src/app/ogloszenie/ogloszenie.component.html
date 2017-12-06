@@ -21,11 +21,15 @@
       <br>Kategoria: {{ kategorie[kategorie.length-1]?.nazwa }}
       <br>{{ dane?.opis }}
       <br>Data utworzenia: {{ dane?.data_wys | date }}
-      <br><button class='btn btn-outline-primary mt-2' (click) = 'sendMessage()'><i class="fa fa-comment"></i> Wyślij wiadomość</button>
+      <br><br>
+      <div class="text-center"><button class='btn btn-outline-primary mt-2' (click) = 'sendMessage()'><i class="fa fa-comment"></i> Wyślij wiadomość</button>
       <button class='btn btn-outline-primary mt-2' (click) = 'telefonshow = true'><i class="fa fa-phone"></i>
         <span *ngIf='!telefonshow'>Pokaż numer telefonu</span>
         <span *ngIf='telefonshow'><b>{{uzytk.nr_tel}}</b></span>
       </button>
+      <br>
+      <button class='btn btn-outline-primary mt-2' (click) = 'obserwowaneDodaj()'><i class="fa fa-star"></i>Dodaj do obserwowanych</button>
+      </div>
     </div>
   </div>
   <div class="row rounded bott">

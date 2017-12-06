@@ -8,7 +8,7 @@
       <ng-template #resultsTemplate>
         <div class="row rounded mb-2" [ngClass]='ogl.promowane == 1 ? "bg-prom" : "bg-light"' *ngFor = 'let ogl of wyniki'>
           <div class="col-4 img rounded">
-              <img class="rounded" [src]="img_path+ogl.zdjecie" height="100%" width="100%" onError="this.src = '../zdjecia/placeholder.jpg'">
+              <img class="rounded" [src]="img_path+ogl.zdjecie" height="100%" width="100%" onError="this.src = '../../zdjecia/placeholder.jpg'">
           </div>
           <div class="col info rounded">
             <a routerLink='../../ogloszenie/{{ogl.id_og}}'><h2>{{ogl.nazwa}}<br></h2></a>

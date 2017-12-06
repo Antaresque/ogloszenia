@@ -1,13 +1,28 @@
-<div class="container" >
-    <div class="col">
-      <div class="row">
-        <h1>Piękny i potężny pasek<br>do sortowania rzeczy</h1>
-      </div>
-      <div class="row">
-        <div class="col">
-        <h1>-------------------------<br>A to piękne i potężne<br>obserowane ogłoszenia<br></h1>
-        <img src="assets/kot2.jpg">
-      </div>
-      </div>
-      </div>
+<div class="container-fluid">
+  <div class="row">
+    
+    <div class="container">
+      <h4>Oto twoje obserwowane ogłoszenia:</h4>
+      <div *ngIf='noresults; then noResultsTemplate; else resultsTemplate'></div>
+
+      <ng-template #resultsTemplate>
+        <div class="row rounded mb-2" [ngClass]='ogl.promowane == 1 ? "bg-prom" : "bg-light"' *ngFor = 'let ogl of wyniki'>
+          <div class="col-4 img rounded">
+              <img class="rounded" [src]="img_path+ogl.zdjecie" height="100%" width="100%" onError="this.src = '../../zdjecia/placeholder.jpg'">
+          </div>
+          <div class="col info rounded">
+            <a routerLink='../../ogloszenie/{{ogl.id_og}}'><h2>{{ogl.nazwa}}<br></h2></a>
+            <h3>Cena: {{ogl.cena}} złotych polskich<br></h3>
+            <h4>Opis: {{ogl.opis}}<br></h4>
+          </div>
+        </div>
+      </ng-template>
+      
+
+      <ng-template #noResultsTemplate>
+        <h1>Nie masz nic w obserwowanych :[</h1>
+      </ng-template>
     </div>
+  </div>
+</div>
+ 
