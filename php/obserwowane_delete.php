@@ -1,5 +1,7 @@
 <?php
 require_once('_host.php');
+require_once('_JWT.php');
+use \Firebase\JWT\JWT;
 
 if(!empty(file_get_contents('php://input'))) {
   $jwt = getBearerToken();

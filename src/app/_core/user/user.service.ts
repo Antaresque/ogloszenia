@@ -159,7 +159,11 @@ export class UserService {
   }
 
   obs_select(){
-    return this.http.post('http://localhost/angular/php/obserwowane_select.php', '', {headers: this.headers});
+    return this.http.post('http://localhost/angular/php/obserwowane_select.php', {type: 'id'}, {headers: this.headers});
+  }
+
+  obs_select_detailed(){
+    return this.http.post('http://localhost/angular/php/obserwowane_select.php', {type: 'detailed'}, {headers: this.headers});
   }
 
   obs_delete(id_og){

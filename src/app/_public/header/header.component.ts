@@ -10,6 +10,8 @@ import { RouterLink } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
+  data: any = {};
+
   constructor(private user: UserService) {
   }
 
@@ -18,6 +20,9 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(this.logged) this.user.data_user().subscribe(
+      res => this.data = JSON.parse(res['_body'])
+    )
   }
 
   logout() {
