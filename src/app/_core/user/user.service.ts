@@ -153,4 +153,16 @@ export class UserService {
   search_name(nazwa){
     return this.http.post('http://localhost/angular/php/user_search_name.php', {nazwa: nazwa}, {headers: this.headers});
   }
+
+  obs_add(id_og){
+    return this.http.post('http://localhost/angular/php/obserwowane_add.php', {id_og: id_og}, {headers: this.headers});
+  }
+
+  obs_select(){
+    return this.http.post('http://localhost/angular/php/obserwowane_select.php', '', {headers: this.headers});
+  }
+
+  obs_delete(id_og){
+    return this.http.post('http://localhost/angular/php/obserwowane_delete.php', {id_og: id_og}, {headers: this.headers});
+  }
 }
