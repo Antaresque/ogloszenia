@@ -91,4 +91,7 @@ export class OgloszenieComponent implements OnInit {
   sendMessage(){
     this.router.navigate(['/panel/wiadomosci/new'], {queryParams: {nazwa: this.dane.nazwa, odbiorca: this.uzytk.login}});
   }
+  obserwowaneDodaj(){
+    // ;__;
+  }
 }
