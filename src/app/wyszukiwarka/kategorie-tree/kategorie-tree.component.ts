@@ -23,8 +23,8 @@ export class KategorieTreeComponent implements OnInit {
         this.model['region'] = params['region'] || null;
         this.model['sort'] = params['sort'] || null;
         this.model['dir'] = params['dir'] || null;
-        this.model['page'] = params['page'] || null
-        this.model['num'] = params['num'] || null
+        this.model['page'] = params['page'] || null;
+        this.model['num'] = params['num'] || null;
 
         let id_kat = this.model['kategoria'];
 
