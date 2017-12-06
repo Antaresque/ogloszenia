@@ -1,3 +1,4 @@
+import { UserService } from './../_core/user/user.service';
 import { OgloszeniaService } from './../_core/ogloszenia/ogloszenia.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -17,7 +18,9 @@ export class WyszukiwarkaComponent implements OnInit {
   img_path: string;
   noresults = false;
 
-  constructor(private route: ActivatedRoute, private router: Router, private ogl: OgloszeniaService) {
+  obserwowane: any = [];
+
+  constructor(private route: ActivatedRoute, private router: Router, private ogl: OgloszeniaService, private user: UserService) {
     this.route.queryParams.subscribe(
       params => {
         this.model['kategoria'] = params['kategoria'] || null;
@@ -33,22 +36,28 @@ export class WyszukiwarkaComponent implements OnInit {
 
         this.ogl.search(this.model).subscribe(
           res => {
-            console.log(res);
             let temp = JSON.parse(res['_body']);
-            console.log(temp);
             if(temp.hasOwnProperty('result')) this.noresults = true;
             else {
-              this.pages = temp.pop();
+              this.pages = temp.pop(); //takes 1st key from array to variable
               this.wyniki = temp;
               this.noresults = false;
             }
           },
           err => console.log(err)
         );
+
+        this.user.obs_select().subscribe(
+          res => {this.obserwowane = JSON.parse(res['_body']);}
+        )
     });
   }
 
   ngOnInit() {
+  }
+
+  obs_exists(id){
+    return this.obserwowane.includes(parseInt(id));
   }
 
   search(event){

@@ -34,3 +34,8 @@ padding:10px
 .ogl-nazwa{
   font-family: "Palanquin-SemiBold";
 }
+
+.yellow{
+  color: orange;
+  font-size: 300%;
+}

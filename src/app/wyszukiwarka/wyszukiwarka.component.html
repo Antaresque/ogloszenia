@@ -37,6 +37,11 @@
             <a routerLink='../ogloszenie/{{ogl.id_og}}'><h3 class='ogl-nazwa'>{{ogl.nazwa}}<br></h3></a>
             <p>{{ogl.cena | currency: 'zł'}}<br></p>
             <p>Opis: {{ogl.opis}}<br></p>
+            <div class='text-right'>
+              <div *ngIf = 'obs_exists(ogl.id_og); then obsdodaj; else obsusun'></div>
+              <ng-template #obsdodaj> <i class="fa fa-star-o yellow"></i> </ng-template>
+              <ng-template #obsusun> <i class="fa fa-star yellow"></i> </ng-template>
+            </div>
           </div>
         </div>
       </ng-template>
