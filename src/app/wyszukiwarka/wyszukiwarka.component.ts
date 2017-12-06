@@ -60,6 +60,18 @@ export class WyszukiwarkaComponent implements OnInit {
     return this.obserwowane.includes(parseInt(id));
   }
 
+  obs_change(id){
+    if(this.obs_exists(id))
+      this.user.obs_delete(id).subscribe(res =>
+        this.user.obs_select().subscribe(
+          res => this.obserwowane = JSON.parse(res['_body'])
+      ));
+    else
+      this.user.obs_add(id).subscribe(res =>
+        this.user.obs_select().subscribe(
+          res => this.obserwowane = JSON.parse(res['_body'])
+      ));
+  }
   search(event){
     this.router.navigate(['/wyszukiwarka'], {queryParams: event, queryParamsHandling: 'merge'});
   }

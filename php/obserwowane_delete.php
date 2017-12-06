@@ -16,13 +16,15 @@ if(!empty(file_get_contents('php://input'))) {
       echo $e->getMessage();
     }
 
+    $array = json_decode(file_get_contents('php://input'), true);
     $id_uz = $payload->id;
     $id_og = $array['id_og'];
 
     $result = DB::queryFirstRow('SELECT obserwowane FROM uzytkownicy WHERE id_uz = %i', $id_uz);
     $obserwowane = json_decode($result['obserwowane']);
 
-    $obserwowane_new = array_diff($obserwowane, array($id_og));
+    $obserwowane_new = array_diff($obserwowane, array($id_og)); //usuwa jezeli znajdzie w tablicy id
+    $obserwowane_new = array_values($obserwowane_new); //zamienia na zwykla tablice
 
     $obserwowane_new = json_encode($obserwowane_new);
     DB::update('uzytkownicy',

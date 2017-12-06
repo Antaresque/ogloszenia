@@ -38,4 +38,5 @@ padding:10px
 .yellow{
   color: orange;
   font-size: 300%;
+  cursor: pointer;
 }

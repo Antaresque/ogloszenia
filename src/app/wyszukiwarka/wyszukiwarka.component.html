@@ -38,9 +38,7 @@
             <p>{{ogl.cena | currency: 'zł'}}<br></p>
             <p>Opis: {{ogl.opis}}<br></p>
             <div class='text-right'>
-              <div *ngIf = 'obs_exists(ogl.id_og); then obsdodaj; else obsusun'></div>
-              <ng-template #obsdodaj> <i class="fa fa-star-o yellow"></i> </ng-template>
-              <ng-template #obsusun> <i class="fa fa-star yellow"></i> </ng-template>
+              <i class='fa yellow' [ngClass] = "obs_exists(ogl.id_og) ? 'fa-star' : 'fa-star-o'" (click) = 'obs_change(ogl.id_og)'></i>
             </div>
           </div>
         </div>
