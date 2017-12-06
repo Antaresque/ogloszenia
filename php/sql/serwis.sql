@@ -79,7 +79,8 @@ CREATE TABLE `uzytkownicy` (
   `wojewodztwo` varchar(50) NOT NULL,
   `data_rej` timestamp DEFAULT CURRENT_TIMESTAMP,
   `data_log` date DEFAULT NULL,
-  `obserwowane` varchar(255) DEFAULT NULL
+  `obserwowane` varchar(255) DEFAULT NULL,
+  `zdjecie` varchar(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
