@@ -15,13 +15,10 @@
     <div class="col-lg img rounded">
         <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
     </div>
-    <div class="col-lg info rounded">
-      <h1>{{ dane?.nazwa }}</h1>
-      <br>Cena: {{ dane?.cena | currency: "zł" }}
-      <br>Kategoria: {{ kategorie[kategorie.length-1]?.nazwa }}
-      <br>{{ dane?.opis }}
-      <br>Data utworzenia: {{ dane?.data_wys | date }}
-      <br><br>
+    <div class="col-lg info rounded text-center pt-3">
+      <h2>{{ dane?.nazwa }}</h2>
+      <br><h1>{{ dane?.cena | currency: "zł" }}</h1>
+      <br><p class='text-muted'>Data utworzenia: {{ dane?.data_wys | date }}</p>
       <div class="text-center"><button class='btn btn-outline-primary mt-2' (click) = 'sendMessage()'><i class="fa fa-comment"></i> Wyślij wiadomość</button>
       <button class='btn btn-outline-primary mt-2' (click) = 'telefonshow = true'><i class="fa fa-phone"></i>
         <span *ngIf='!telefonshow'>Pokaż numer telefonu</span>
@@ -34,8 +31,8 @@
     </div>
   </div>
   <div class="row rounded bott">
-    <br>Kategoria: {{ kategorie[kategorie.length-1]?.nazwa }}
-    <br>{{ dane?.opis }}
-    <br>Data utworzenia: {{ dane?.data_wys | date }}
+    <br>
+    {{ dane?.opis }}
+    <br><br>
   </div>
 </div>
