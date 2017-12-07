@@ -25,7 +25,10 @@
         <span *ngIf='telefonshow'><b>{{uzytk.nr_tel}}</b></span>
       </button>
       <br>
-      <button class='btn btn-outline-primary mt-2' (click) = 'obserwowaneDodaj()'><i class="fa fa-star"></i>Dodaj do obserwowanych</button>
+      <button class='btn btn-outline-primary mt-2' (click) = 'obserwowaneDodaj()'>
+        <span *ngIf='!obserwowany'><i class="fa fa-star-o"></i>Dodaj do obserwowanych</span>
+        <span *ngIf='obserwowany'><i class="fa fa-star"></i>Usuń z obserwowanych</span>
+      </button>
       <br><br>
       </div>
     </div>

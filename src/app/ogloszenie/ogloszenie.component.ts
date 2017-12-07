@@ -16,6 +16,7 @@ import 'hammerjs';
 export class OgloszenieComponent implements OnInit {
 
   id: number;
+  obserwowane: any = [];
   dane: any = [];
   zdjecia: any = [];
   kategorie: any = [];
@@ -24,6 +25,7 @@ export class OgloszenieComponent implements OnInit {
   img_path: string;
 
   telefonshow: boolean = false;
+  obserwowany: boolean = false;
 
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
@@ -80,6 +82,11 @@ export class OgloszenieComponent implements OnInit {
           this.galleryImages = Gallery.generateImages(this.zdjecia, this.img_path);
       }
     );
+
+    this.user.obs_select().subscribe(
+      res => {this.obserwowane = res.json();
+              this.obserwowany = this.obs_exists(this.dane.id_og);}
+    );
   }
 
   search(id){
@@ -91,7 +98,24 @@ export class OgloszenieComponent implements OnInit {
   sendMessage(){
     this.router.navigate(['/panel/wiadomosci/new'], {queryParams: {nazwa: this.dane.nazwa, odbiorca: this.uzytk.login}});
   }
-  obserwowaneDodaj(){
-    // ;__;
+
+  obs_exists(id){
+    return this.obserwowane.includes(parseInt(id));
   }
+  obserwowaneDodaj(){
+    const id = this.dane.id_og;
+
+    if(this.obs_exists(id))
+    this.user.obs_delete(id).subscribe(res =>
+      this.user.obs_select().subscribe(
+        res => {this.obserwowane = res.json();
+                this.obserwowany = this.obs_exists(this.dane.id_og);}
+    ));
+  else
+    this.user.obs_add(id).subscribe(res =>
+      this.user.obs_select().subscribe(
+        res => {this.obserwowane = res.json();
+                this.obserwowany = this.obs_exists(this.dane.id_og);}
+    ));
+}
 }
