@@ -1,3 +1,5 @@
+import { ActivatedRoute, Router } from '@angular/router';
+import { WiadomosciService } from './../../../_core/wiadomosci/wiadomosci.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WiadomosciShowComponent implements OnInit {
 
-  constructor() { }
+  id: number;
+  dane: any = {};
+
+  constructor(private wiad: WiadomosciService, private route: ActivatedRoute, private router: Router) {
+    this.route.params.subscribe(
+      params => this.id = params['id']);
+   }
 
   ngOnInit() {
+    this.wiad.search(this.id).subscribe(
+      res => {this.dane = res.json(); console.log(this.dane)}
+    )
   }
-
+  sendMessage(){
+    this.router.navigate(['/panel/wiadomosci/new'], {queryParams: {nazwa: 'Re: '+this.dane.tytul, odbiorca: this.dane.nadawca}});
+  }
 }

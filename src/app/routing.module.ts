@@ -49,7 +49,7 @@ const appRoutes: Routes = [
       { path: 'odebrane', component: WiadomosciOdebraneComponent },
       { path: 'wyslane', component: WiadomosciWyslaneComponent },
       { path: 'new', component: WiadomosciNewComponent },
-      { path: 'show', component: WiadomosciShowComponent }
+      { path: 'show/:id', component: WiadomosciShowComponent }
     ]}
   ]},
   { path: 'admin', component: AdminComponent, children: [

@@ -1,3 +1,12 @@
-<p>
-  wiadomosci-show works!
-</p>
+<div class='col-10 offset-1'>
+    <br>
+    <div>{{dane.tytul}}</div>
+    <div>{{dane.odbiorca}}</div>
+    <div>{{dane.nadawca}}</div>
+    <div>{{dane.tresc}}</div>
+    <div>{{dane.data | timeAgo}}</div>
+
+    <div class='p-2 text-center'>
+        <button class='btn btn-outline-primary mt-2 btn-sendmsg' (click) = 'sendMessage()'><i class="fa fa-comment"></i> Odpowiedz</button>
+    </div>
+</div>

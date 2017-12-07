@@ -14,9 +14,6 @@ export class WiadomosciService {
   insert(model){
     return this.http.post('http://localhost/angular/php/wiadomosci_insert.php', model, {headers: this.headers})
   }
-  read(id){
-    return this.http.post('http://localhost/angular/php/wiadomosci_read.php', {id: id}, {headers: this.headers})
-  }
   search(id){
     return this.http.post('http://localhost/angular/php/wiadomosci_search.php', {id: id}, {headers: this.headers})
   }

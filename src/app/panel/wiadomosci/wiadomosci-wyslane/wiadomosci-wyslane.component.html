@@ -12,7 +12,7 @@
                   </tr>
                 </thead>
                 <tbody>
-          <tr *ngFor='let wiad of wiadomosci'>
+          <tr class="wiadomosc-row" *ngFor='let wiad of wiadomosci' routerLink='../show/{{wiad.id_wiad}}'>
             <td class='tytul'>{{wiad?.tytul}}</td>
             <td class='odbiorca'>{{wiad?.odbiorca?.login}}</td>
             <td class='tresc'>{{wiad?.tresc}}</td>
@@ -29,5 +29,5 @@
         </ng-template>
 
         <div class='p-2 text-center'>
-            <button class='btn btn-outline-primary mt-2' (click) = 'sendMessage()'><i class="fa fa-comment"></i> Wyślij wiadomość</button>
+            <button class='btn btn-outline-primary mt-2 btn-sendmsg' (click) = 'sendMessage()'><i class="fa fa-comment"></i> Wyślij wiadomość</button>
         </div>
