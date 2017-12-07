@@ -29,8 +29,7 @@ if(!empty(file_get_contents('php://input')))
         $nr_tel = $array['telefon'];
         $miasto = $array['miasto'];
         $wojewodztwo = $array['region'];
-        $bank = $array['bank'];
-       $nr_konta = generate_hash($array['nr_konta']);
+        $o_sobie = $array['opis']);
 
        DB::update('uzytkownicy', array(
           'imie' => $imie,
@@ -39,8 +38,7 @@ if(!empty(file_get_contents('php://input')))
           'nr_tel' => $nr_tel,
           'miasto' => $miasto,
           'wojewodztwo' => $wojewodztwo,
-          'nazwa_banku' => $bank,
-          'nr_konta_bank' => $nr_konta),
+          'o_sobie' => $o_sobie),
           'id_uz=%s', $id);
 
        echo json_encode(array('id' => $id));

@@ -5,17 +5,22 @@
           <div class="col-sm-4 rounded img">
             <img class="rounded" src="assets/Image.jpg" height="100%" width="100%">
           </div>
-          <div class="col-lg info rounded">
-            <h2>{{dane.login}}</h2><br>
-            Imię: {{dane.imie}}<br>
-            Nazwisko: {{dane.nazwisko}}<br>
-            Województwo: {{dane.wojewodztwo}}<br>
-            Miasto: {{dane.miasto}}<br>
-            Wiek: nieznany<br>
+          <div class="col-lg info rounded text-center pt-3">
+            <div class="login rounded">
+              <h1>{{dane.login}}</h1>
+            </div>
+            <div class="info2 rounded">
+              <h2>Imię: {{dane.imie}}</h2>
+              <h2>Nazwisko: {{dane.nazwisko}}</h2>
+              Województwo: {{dane.wojewodztwo}}<br>
+              Miasto: {{dane.miasto}}<br>
+              Numer telefonu: {{dane.nr_tel}}
+            </div>
+            <br>Funkcja: {{dane.funkcja}}
           </div>
         </div>
-        <div class="row bott">
-          Też jakies dodatkowe informacje, ale to potem
+        <div class="row bott text-center">
+          <h4>{{dane.o_sobie}}</h4>
         </div>
       </div>
     </div>

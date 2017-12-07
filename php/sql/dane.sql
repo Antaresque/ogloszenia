@@ -70,12 +70,12 @@ INSERT INTO `kategorie` (`id_kat`, `id_kat_nad`, `nazwa`, `zdjecie`) VALUES
 -- Zrzut danych tabeli `uzytkownicy`
 --
 
-INSERT INTO `uzytkownicy` (`id_uz`, `imie`, `nazwisko`, `adres`, `nr_tel`, `haslo`, `login`, `email`, `funkcja`, `miasto`, `wojewodztwo`, `data_rej`, `data_log`) VALUES
-(1, 'Janusz', 'Tracz', 'Letnia 20/1', '632543675', '$2y$11$ZsLom.N5w.dW.XzjkqaHPurgwe9xdOS.npZ5IXxE8mBsUB4Z7VJie', 'janusz', 'janusz@wp.pl', 'user', 'Lublin', 'woj. lubelskie', '0000-00-00 00:00:00', NULL),
-(2, 'user', 'user', 'uszwica1', '333333', '$2y$11$5Dyl3FGRQ4BBGPdfBZ2eD.D5Q.SAi4/ryYql6arEJVNF/Af7jb0YO', 'uzytkownik1', 'jajusz@jajusz.pl', 'user', 'uszwice', 'woj. śląskie', '2017-11-26 16:29:25', NULL),
-(3, 'Sergiusz', 'Surow', 'Jesienna 21/2', '77668855', '$2y$11$hL.X2FQqUuqYbLZ6tbGaf.UQSsSTPiSPgzjqGBUJUdy84OSEPtdYW', 'uczen', 'uczen@janusz.pl', 'user', 'Lodowice', 'woj. pomorskie', '2017-11-29 17:28:12', NULL),
-(4, 'Administrator', 'Serwisu', 'Jeja.pl', '99880077', '$2y$11$IKgxrfQcz7OYgvvHjSRVzOsNXHKQ/tkBBwPYLLMAkWJSU6lZnZHtq', 'admin', 'admin@gmail.com', 'admin', 'Internet', 'Region', '2017-11-29 17:30:12', NULL),
-(5, 'Tajny', 'Tajniak', 'Tajne', 'Tajny', '$2y$11$6FKUMzEdof4ZTJ4cDK8lsuvGZlU8In9B9DUsCBMyaTQMcvGctZgaK', 'tajny', 'tajny@email.com', 'admin', 'Tajne', 'Region', '2017-11-29 17:31:13', NULL);
+INSERT INTO `uzytkownicy` (`id_uz`, `imie`, `nazwisko`, `adres`, `nr_tel`, `haslo`, `login`, `email`, `funkcja`, `miasto`, `wojewodztwo`, `data_rej`, `data_log`, `o_sobie`) VALUES
+(1, 'Janusz', 'Tracz', 'Letnia 20/1', '632543675', '$2y$11$ZsLom.N5w.dW.XzjkqaHPurgwe9xdOS.npZ5IXxE8mBsUB4Z7VJie', 'janusz', 'janusz@wp.pl', 'user', 'Lublin', 'woj. lubelskie', '0000-00-00 00:00:00', NULL, 'Jestem byznesmenem i szefem prosperującej firmy zajmującej się głównie handlem passatami.'),
+(2, 'user', 'user', 'uszwica1', '333333', '$2y$11$5Dyl3FGRQ4BBGPdfBZ2eD.D5Q.SAi4/ryYql6arEJVNF/Af7jb0YO', 'uzytkownik1', 'jajusz@jajusz.pl', 'user', 'uszwice', 'woj. śląskie', '2017-11-26 16:29:25', NULL, 'Jestem zwyczajnym przykładowym użytkownikiem tego serwisu, autor nie miał pomysłu na szczegółowe dane użytkowników.'),
+(3, 'Sergiusz', 'Surow', 'Jesienna 21/2', '77668855', '$2y$11$hL.X2FQqUuqYbLZ6tbGaf.UQSsSTPiSPgzjqGBUJUdy84OSEPtdYW', 'uczen', 'uczen@janusz.pl', 'user', 'Lodowice', 'woj. pomorskie', '2017-11-29 17:28:12', NULL, 'Jestem rosyjskim imigrantem, który przyjechał do polski w poszukiwaniu pierogów.'),
+(4, 'Administrator', 'Serwisu', 'Jeja.pl', '99880077', '$2y$11$IKgxrfQcz7OYgvvHjSRVzOsNXHKQ/tkBBwPYLLMAkWJSU6lZnZHtq', 'admin', 'admin@gmail.com', 'admin', 'Internet', 'Region', '2017-11-29 17:30:12', NULL, 'Jestem przykładowym administratorem serwisu, ale nie wiadomo nawet, czy będę pełnił tutaj jakąś funkcję z powodu braku czasu na dodanie panelu administratora.'),
+(5, 'Tajny', 'Tajniak', 'Tajne', 'Tajny', '$2y$11$6FKUMzEdof4ZTJ4cDK8lsuvGZlU8In9B9DUsCBMyaTQMcvGctZgaK', 'tajny', 'tajny@email.com', 'admin', 'Tajne', 'Region', '2017-11-29 17:31:13', NULL, 'Nikt nie musi tego wiedzieć.');
 
 
 --

@@ -50,7 +50,7 @@ CREATE TABLE `ogloszenia` (
   `data_wys` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `email_wys` varchar(50) NOT NULL,
   `nr_tel_wys` varchar(15) NOT NULL,
-  `opis` varchar(255) NOT NULL,
+  `opis` varchar(1500) NOT NULL,
   `wojewodztwo` varchar(100) NOT NULL,
   `miasto` varchar(100) NOT NULL,
   `adres` varchar(100) NOT NULL,
@@ -80,7 +80,8 @@ CREATE TABLE `uzytkownicy` (
   `data_rej` timestamp DEFAULT CURRENT_TIMESTAMP,
   `data_log` date DEFAULT NULL,
   `obserwowane` varchar(255) DEFAULT '[]',
-  `zdjecie` varchar(50)
+  `zdjecie` varchar(50),
+  `o_sobie` varchar(1500)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
