@@ -29,10 +29,13 @@
       </button>
       <br>
       <button class='btn btn-outline-primary mt-2' (click) = 'obserwowaneDodaj()'><i class="fa fa-star"></i>Dodaj do obserwowanych</button>
+      <br><br>
       </div>
     </div>
   </div>
   <div class="row rounded bott">
-    Stopka z jakimiś informacjami, ale to potem
+    <br>Kategoria: {{ kategorie[kategorie.length-1]?.nazwa }}
+    <br>{{ dane?.opis }}
+    <br>Data utworzenia: {{ dane?.data_wys | date }}
   </div>
 </div>
