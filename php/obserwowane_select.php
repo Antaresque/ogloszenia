@@ -28,11 +28,11 @@ if(!empty(file_get_contents('php://input'))) {
         $data = array();
 
         for($i = 0; $i < count($obserwowane); $i++){
-          $result = DB::query('SELECT o.*, k.nazwa as kategoria, u.login
+          $result = DB::queryFirstRow('SELECT o.*, k.nazwa as kategoria, u.login
                               FROM ogloszenia as o
                                 INNER JOIN uzytkownicy as u ON o.id_uz = u.id_uz
                                 INNER JOIN kategorie as k ON o.id_kat = k.id_kat
-                              WHERE o.id_og = %i', $id);
+                              WHERE o.id_og = %i', $obserwowane[$i]);
           array_push($data, $result);
         }
         echo json_encode($data);

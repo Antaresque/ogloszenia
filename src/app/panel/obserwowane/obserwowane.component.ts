@@ -17,9 +17,14 @@ export class ObserwowaneComponent implements OnInit {
   id: number;
   noresults = false;
 
-  constructor() { }
+  constructor(private user: UserService, private ogl: OgloszeniaService) {
+    this.img_path = this.ogl.img_path;
+   }
 
   ngOnInit() {
+    this.user.obs_select_detailed().subscribe(
+      res => this.wyniki = res.json()
+    )
   }
 
 }
