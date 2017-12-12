@@ -19,18 +19,19 @@
       <h2>{{ dane?.nazwa }}</h2>
       <br><h1>{{ dane?.cena | currency: "zł" }}</h1>
       <br><p class='text-muted'>Data utworzenia: {{ dane?.data_wys | date }}</p>
-      <div class="text-center"><button class='btn btn-outline-primary mt-2' (click) = 'sendMessage()'><i class="fa fa-comment"></i> Wyślij wiadomość</button>
-      <button class='btn btn-outline-primary mt-2' (click) = 'telefonshow = true'><i class="fa fa-phone"></i>
-        <span *ngIf='!telefonshow'>Pokaż numer telefonu</span>
-        <span *ngIf='telefonshow'><b>{{uzytk.nr_tel}}</b></span>
-      </button>
-      <br>
-      <button class='btn btn-outline-primary mt-2' (click) = 'obserwowaneDodaj()'>
-        <span *ngIf='!obserwowany'><i class="fa fa-star-o"></i>Dodaj do obserwowanych</span>
-        <span *ngIf='obserwowany'><i class="fa fa-star"></i>Usuń z obserwowanych</span>
-      </button>
-      <br><br>
+      <div *ngIf='logged' class="text-center"><button class='btn btn-outline-primary mt-2' (click) = 'sendMessage()'><i class="fa fa-comment"></i> Wyślij wiadomość</button>
+        <button class='btn btn-outline-primary mt-2' (click) = 'telefonshow = true'><i class="fa fa-phone"></i>
+          <span *ngIf='!telefonshow'>Pokaż numer telefonu</span>
+          <span *ngIf='telefonshow'><b>{{uzytk.nr_tel}}</b></span>
+        </button>
+        <br>
+        <button class='btn btn-outline-primary mt-2' (click) = 'obserwowaneDodaj()'>
+          <span *ngIf='!obserwowany'><i class="fa fa-star-o"></i>Dodaj do obserwowanych</span>
+          <span *ngIf='obserwowany'><i class="fa fa-star"></i>Usuń z obserwowanych</span>
+        </button>
+        <br><br>
       </div>
+      <div *ngIf='!logged'><button class='btn btn-outline-primary mt-2' routerLink='/auth/login'>Zaloguj się, aby zobaczyć dane kontaktowe</button></div>
     </div>
   </div>
   <div class="row rounded bott">

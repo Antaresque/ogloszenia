@@ -1,3 +1,4 @@
+import { tokenNotExpired } from 'angular2-jwt';
 import { UserService } from './../_core/user/user.service';
 import { KategorieService } from './../_core/kategorie/kategorie.service';
 import { Gallery } from './../_shared/generate-gallery.class';
@@ -24,6 +25,8 @@ export class OgloszenieComponent implements OnInit {
   model: any = {}
   img_path: string;
 
+  logged: boolean;
+
   telefonshow: boolean = false;
   obserwowany: boolean = false;
 
@@ -36,6 +39,8 @@ export class OgloszenieComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.id = +params['id'];
     });
+
+    this.logged = tokenNotExpired();
 
     this.galleryOptions = [
       {

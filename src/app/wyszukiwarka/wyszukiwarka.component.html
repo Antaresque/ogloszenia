@@ -6,18 +6,18 @@
       <div class='text-center'>
         <div class='text-right'>
           sortowanie:
-          <span (click)='search({sort: "cena", dir: "ASC"})' class="ml-1 sort-link">najtańsze</span>
-          <span (click)='search({sort: "cena", dir: "DESC"})' class="ml-1 sort-link">najdroższe</span>
-          <span (click)='search({sort: "data_wys", dir: "DESC"})' class="ml-1 sort-link">najnowsze</span>
-          <span (click)='search({sort: "data_wys", dir: "ASC"})' class="ml-1 sort-link">najstarsze</span>
+          <span (click)='search({sort: "cena", dir: "ASC", page: 1})' class="ml-1 sort-link">najtańsze</span>
+          <span (click)='search({sort: "cena", dir: "DESC", page: 1})' class="ml-1 sort-link">najdroższe</span>
+          <span (click)='search({sort: "data_wys", dir: "DESC", page: 1})' class="ml-1 sort-link">najnowsze</span>
+          <span (click)='search({sort: "data_wys", dir: "ASC", page: 1})' class="ml-1 sort-link">najstarsze</span>
         </div>
         <div class='text-right'>
           ilosc ogloszen na stronie:
-          <span (click)='search({num: 5})' class="ml-1 sort-link">5</span>
-          <span (click)='search({num: 10})' class="ml-1 sort-link">10</span>
-          <span (click)='search({num: 25})' class="ml-1 sort-link">25</span>
-          <span (click)='search({num: 50})' class="ml-1 sort-link">50</span>
-          <span (click)='search({num: 100})' class="ml-1 sort-link">100</span>
+          <span (click)='search({num: 5, page: 1})' class="ml-1 sort-link">5</span>
+          <span (click)='search({num: 10, page: 1})' class="ml-1 sort-link">10</span>
+          <span (click)='search({num: 25, page: 1})' class="ml-1 sort-link">25</span>
+          <span (click)='search({num: 50, page: 1})' class="ml-1 sort-link">50</span>
+          <span (click)='search({num: 100, page: 1})' class="ml-1 sort-link">100</span>
         </div>
       </div>
       <br>
@@ -37,7 +37,7 @@
             <a routerLink='../ogloszenie/{{ogl.id_og}}'><h3 class='ogl-nazwa'>{{ogl.nazwa}}<br></h3></a>
             <p>{{ogl.cena | currency: 'zł'}}<br></p>
             <p>Opis: {{ogl.opis}}<br></p>
-            <div class='text-right'>
+            <div class='text-right' *ngIf='logged'>
               <i class='fa yellow' [ngClass] = "obs_exists(ogl.id_og) ? 'fa-star' : 'fa-star-o'" (click) = 'obs_change(ogl.id_og)'></i>
             </div>
           </div>

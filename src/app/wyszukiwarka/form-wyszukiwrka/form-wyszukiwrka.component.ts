@@ -20,10 +20,10 @@ export class FormWyszukiwrkaComponent implements OnInit {
   }
 
   search(){
-    this.router.navigate(['/wyszukiwarka'], {queryParams: {nazwa: this.model.nazwa}, queryParamsHandling: 'merge'});
+    this.router.navigate(['/wyszukiwarka'], {queryParams: {nazwa: this.model.nazwa, page: 1}, queryParamsHandling: 'merge'});
   }
   delete(){
     this.model.nazwa = '';
-    this.router.navigate(['/wyszukiwarka'], {queryParams: {nazwa: this.model.nazwa}, queryParamsHandling: 'merge'});
+    this.router.navigate(['/wyszukiwarka'], {queryParams: {nazwa: this.model.nazwa, page: 1}, queryParamsHandling: 'merge'});
   }
 }

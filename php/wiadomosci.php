@@ -6,7 +6,7 @@ $path = './wiadomosci/';
 
 if(!empty($request)) {
   if($request[0] == 'insert'){
-    if(checkTokenAccess('admin') || checkTokenAccess('klient'))
+    if(checkTokenAccess('admin') || checkTokenAccess('user'))
       include_once($path.'insert.php');
   }
   else if($request[0] == 'odebrane'){
@@ -14,7 +14,7 @@ if(!empty($request)) {
       include_once($path.'odebrane.php');
   }
   else if($request[0] == 'search'){
-    if(checkTokenAccess('admin') || checkTokenAccess('klient'))
+    if(checkTokenAccess('admin') || checkTokenAccess('user'))
       include_once($path.'search.php');
   }
   else if($request[0] == 'wyslane'){

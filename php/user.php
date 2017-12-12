@@ -8,7 +8,7 @@ if(empty($request)) {                       // puste zapytanie
   error_message('UNDEFINED_FUNCTION');
 }
 else if($request[0] == 'change'){
-  if(checkTokenAccess('admin') || checkTokenAccess('klient'))
+  if(checkTokenAccess('admin') || checkTokenAccess('user'))
     include_once($path.'change.php');
 }
 else if($request[0] == 'data'){
