@@ -37,7 +37,9 @@
             <a routerLink='../ogloszenie/{{ogl.id_og}}'><h3 class='ogl-nazwa'>{{ogl.nazwa}}<br></h3></a>
             <p>{{ogl.cena | currency: 'zł'}}<br></p>
             <p>Opis: {{ogl.opis}}<br></p>
+            <p>Województwo {{ogl.wojewodztwo}}</p>
             <div class='text-right' *ngIf='logged'>
+              
               <i class='fa yellow' [ngClass] = "obs_exists(ogl.id_og) ? 'fa-star' : 'fa-star-o'" (click) = 'obs_change(ogl.id_og)'></i>
             </div>
           </div>
