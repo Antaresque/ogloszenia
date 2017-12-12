@@ -38,7 +38,7 @@ $params = array();
 
   if($params['nazwa'] != '%') $params['nazwa'] = '%'.$params['nazwa'].'%'; //dopisuje % na poczatku i koncu dla nazwy
 
-  $data = DB::query("SELECT * FROM ogloszenia WHERE
+  $data = DB::query("SELECT * FROM ogloszenia_detailed WHERE
         id_kat LIKE %s_kategoria
     && wojewodztwo LIKE %s_region
     && (nazwa LIKE %s_nazwa
@@ -47,7 +47,7 @@ $params = array();
     LIMIT %i_numstart, %i_numofrows",
     $params);
 
-  DB::query("SELECT id_og FROM ogloszenia WHERE
+  DB::query("SELECT id_og FROM ogloszenia_detailed  WHERE
     id_kat LIKE %s_kategoria
     && wojewodztwo LIKE %s_region
     && (nazwa LIKE %s_nazwa

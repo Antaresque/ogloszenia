@@ -24,3 +24,4 @@ else if($request[0] == 'search_name') {
   include_once($path.'search_name.php');
 }
 else error_message('UNDEFINED_FUNCTION');
+

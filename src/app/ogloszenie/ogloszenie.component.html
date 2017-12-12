@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row">
+  <div class="row">{{
     <div class="bread-div">
       <ol class="breadcrumb breadcrumb-arrow">
         <li class='breadcrumb-item' (click)='search("")'>
@@ -20,6 +20,7 @@
       <br><h1>{{ dane?.cena | currency: "zł" }}</h1>
       <br><h6>Województwo {{ dane?.wojewodztwo }}, {{ dane?.miasto }}, {{ dane?.adres }}</h6>
       <br><p class='text-muted'>Data utworzenia: {{ dane?.data_wys | date }}</p>
+      <p class='text-muted'>Wystawiający: <span class='link' routerLink='/uzytkownik/{{dane.id_uz}}'>{{ dane?.nazwa_uz }}</span></p>
       <div *ngIf='logged' class="text-center"><button class='btn btn-outline-primary mt-2' (click) = 'sendMessage()'><i class="fa fa-comment"></i> Wyślij wiadomość</button>
         <button class='btn btn-outline-primary mt-2' (click) = 'telefonshow = true'><i class="fa fa-phone"></i>
           <span *ngIf='!telefonshow'>Pokaż numer telefonu</span>
