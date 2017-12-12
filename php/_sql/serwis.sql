@@ -165,6 +165,16 @@ ALTER TABLE `ogloszenia`
   ADD CONSTRAINT `ogl_uz` FOREIGN KEY (`id_uz`) REFERENCES `uzytkownicy` (`id_uz`);
 COMMIT;
 
+--
+-- tu na razie jest widok ale będzie tablica (raczej nie)
+--
+
+CREATE VIEW ogloszenia_detailed AS
+	SELECT ogloszenia.*, uzytkownicy.login as nazwa_uz, kategorie.nazwa as nazwa_kat
+    FROM ogloszenia
+    	INNER JOIN kategorie ON ogloszenia.id_kat = kategorie.id_kat
+      INNER JOIN uzytkownicy ON ogloszenia.id_uz = uzytkownicy.id_uz;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
