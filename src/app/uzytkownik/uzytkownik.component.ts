@@ -17,15 +17,16 @@ export class UzytkownikComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.id = +params['id'];
+
+      this.user.data(this.id).subscribe(
+        res => {
+          this.dane = res;
+        },
+        err => {
+          console.log(err);
+        }
+      )
     });
-    this.user.data(this.id).subscribe(
-      res => {
-        this.dane = res;
-      },
-      err => {
-        console.log(err);
-      }
-    )
   }
 
 }
