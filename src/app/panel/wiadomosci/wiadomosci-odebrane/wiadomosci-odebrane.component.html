@@ -13,10 +13,10 @@
             </thead>
             <tbody>
       <tr class="p-2 wiadomosc-row" *ngFor='let wiad of wiadomosci' routerLink='../show/{{wiad.id_wiad}}'>
-        <td class='tytul'>{{wiad.tytul}}</td>
-        <td class='nadawca'>{{wiad.nadawca.login}}</td>
-        <td class='tresc'>{{wiad.tresc}}</td>
-        <td class='data'>{{wiad.data | timeAgo}}</td>
+        <td class='tytul'>{{wiad?.tytul}}</td>
+        <td class='nadawca'>{{wiad?.nadawca?.login}}</td>
+        <td class='tresc'>{{wiad?.tresc}}</td>
+        <td class='data'>{{wiad?.data | timeAgo}}</td>
       </tr>
     </tbody>
   </table>

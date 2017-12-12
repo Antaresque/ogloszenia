@@ -19,7 +19,7 @@ export class WiadomosciShowComponent implements OnInit {
 
   ngOnInit() {
     this.wiad.search(this.id).subscribe(
-      res => {this.dane = res.json(); console.log(this.dane)}
+      res => {this.dane = res; console.log(this.dane)}
     )
   }
   sendMessage(){

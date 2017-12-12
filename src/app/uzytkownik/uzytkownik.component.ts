@@ -20,7 +20,7 @@ export class UzytkownikComponent implements OnInit {
     });
     this.user.data(this.id).subscribe(
       res => {
-        this.dane = JSON.parse(res['_body']);
+        this.dane = res;
       },
       err => {
         console.log(err);

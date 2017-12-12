@@ -12,7 +12,7 @@ export class ProfilComponent implements OnInit {
 
   ngOnInit() {
     this.user.data_user().subscribe(
-      response => { this.dane = JSON.parse(response['_body'])},
+      response => { this.dane = response; },
       error => {console.log(error);});
   }
 }

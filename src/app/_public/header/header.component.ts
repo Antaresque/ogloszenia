@@ -1,3 +1,4 @@
+import { tokenNotExpired } from 'angular2-jwt';
 import { UserService } from './../../_core/user/user.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { RouterLink } from '@angular/router';
@@ -11,17 +12,20 @@ import { RouterLink } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   data: any = {};
+  logged: boolean;
 
   constructor(private user: UserService) {
-  }
-
-  get logged(): boolean{
-    return this.user.isLoggedIn;
+    this.logged = tokenNotExpired();
+    this.user.logged$.subscribe(
+        (value: boolean) => {
+          this.logged = value;
+      }
+    )
   }
 
   ngOnInit() {
     if(this.logged) this.user.data_user().subscribe(
-      res => this.data = JSON.parse(res['_body'])
+      res => this.data = res
     )
   }
 

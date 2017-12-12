@@ -10,7 +10,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  promowane: any = []
+  promowane: any = [];
+  error: any = [];
   wojewodztwa = Wojewodztwa.wojewodztwa;
   img_path: string;
 
@@ -20,8 +21,8 @@ export class HomeComponent implements OnInit {
     this.img_path = this.ogl.img_path;
 
     this.ogl.promowane().subscribe(
-      res => this.promowane = JSON.parse(res['_body']),
-      err => console.log(err)
+      res => this.promowane = res,
+      err => this.error = err
     );
   }
 }

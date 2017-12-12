@@ -4,7 +4,10 @@ import {
   Optional,
   SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpModule } from '@angular/http';
+
+// auth
+import { HttpModule, Http, RequestOptions } from '@angular/http';
+import { AuthHttp, AuthConfig } from 'angular2-jwt';
 
 // services
 import { UserService } from './user/user.service';
@@ -15,6 +18,9 @@ import { WiadomosciService } from './wiadomosci/wiadomosci.service';
 // guards
 import { AuthGuard } from './authguard/auth.guard';
 
+export function authHttpServiceFactory(http: Http, options: RequestOptions) {
+  return new AuthHttp(new AuthConfig({globalHeaders: [{'Content-Type':'application/json'}],}), http, options);
+}
 
 @NgModule({
   imports: [
@@ -35,7 +41,8 @@ export class CoreModule {
   static forRoot(): ModuleWithProviders {
     return {
         ngModule: CoreModule,
-        providers: [UserService, OgloszeniaService, KategorieService, WiadomosciService, AuthGuard, HttpModule]
+        providers: [UserService, OgloszeniaService, KategorieService, WiadomosciService, AuthGuard, HttpModule,
+          {provide: AuthHttp, useFactory: authHttpServiceFactory, deps: [Http, RequestOptions]}]
     };
   }
 }

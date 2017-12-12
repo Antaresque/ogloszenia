@@ -25,9 +25,7 @@ export class MojeogComponent implements OnInit {
 
     this.ogl.search_by_user(this.id).subscribe(
       res => {
-        console.log(res);
-        let temp = JSON.parse(res['_body']);
-        console.log(temp);
+        let temp = res;
         if(temp.hasOwnProperty('result')) this.noresults = true;
         else this.wyniki = temp;
       },

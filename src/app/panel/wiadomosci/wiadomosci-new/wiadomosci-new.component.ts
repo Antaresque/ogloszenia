@@ -37,7 +37,7 @@ export class WiadomosciNewComponent implements OnInit {
       this.loading = true;
       this.user.search_name(this.form.value.odbiorca).subscribe(
         res => {
-          let temp = JSON.parse(res['_body']);
+          let temp = res;
           if(!(temp == null)){
             this.form.value.odbiorca = temp.id_uz;
 

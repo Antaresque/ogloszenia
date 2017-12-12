@@ -29,18 +29,18 @@ export class KategorieTreeComponent implements OnInit {
         let id_kat = this.model['kategoria'];
 
         this.kat.select_tree(id_kat).subscribe(
-          res => this.kategorie = JSON.parse(res['_body']),
+          res => this.kategorie = res,
           err => console.log(err)
         )
         if(id_kat == null){
           this.kat.select_all().subscribe(
-            res => this.podkategorie = JSON.parse(res['_body']),
+            res => this.podkategorie = res,
             err => console.log(err)
           )
         }
         else{
           this.kat.select_podrz(id_kat).subscribe(
-            res => this.podkategorie = JSON.parse(res['_body']),
+            res => this.podkategorie = res,
             err => console.log(err)
           )
         }

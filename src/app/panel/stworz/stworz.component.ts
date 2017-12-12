@@ -22,7 +22,7 @@ export class StworzComponent implements OnInit {
 
   ngOnInit() {
     this.katserv.select_all().subscribe(
-      res => this.kat = JSON.parse(res['_body'])
+      res => this.kat = res
     )
   }
 
@@ -35,7 +35,7 @@ export class StworzComponent implements OnInit {
     this.loading = true;
     this.ogl.create(this.model).subscribe( //wrzuca ogloszenie
       res => {
-        let id_og = JSON.parse(res['_body'])['id'];
+        let id_og = res['id'];
         this.formData.append('id', id_og);
         this.ogl.upload_img(this.formData).subscribe( //wrzuca zdjecie z id ogloszenia
           res => {
@@ -61,6 +61,7 @@ export class StworzComponent implements OnInit {
     let file = fileList.files[0];
     console.log(event.target.name);
     this.formData.append(event.target.name, file);
+
 
     /*this.ogl.create(this.model).subscribe(
       (res) => {console.log(res);},

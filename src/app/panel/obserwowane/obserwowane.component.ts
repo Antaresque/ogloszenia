@@ -23,7 +23,7 @@ export class ObserwowaneComponent implements OnInit {
 
   ngOnInit() {
     this.user.obs_select_detailed().subscribe(
-      res => this.wyniki = res.json()
+      res => this.wyniki = res
     )
   }
 

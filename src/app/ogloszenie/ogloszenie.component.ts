@@ -63,28 +63,28 @@ export class OgloszenieComponent implements OnInit {
 
     this.ogloszenia.select(this.id).subscribe(
         res => {
-          this.dane = JSON.parse(res['_body']);
+          this.dane = res;
           this.kat.select_tree(this.dane.id_kat).subscribe(
             res => {
-              this.kategorie = JSON.parse(res['_body']);
+              this.kategorie = res;
             }
           )
           this.user.dataPublic(this.dane.id_uz).subscribe(
             res => {
-              this.uzytk = JSON.parse(res['_body']);
+              this.uzytk = res;
             }
           )
         }
     );
     this.ogloszenia.select_zdj(this.id).subscribe(
       res => {
-          this.zdjecia = JSON.parse(res['_body']);
+          this.zdjecia = res;
           this.galleryImages = Gallery.generateImages(this.zdjecia, this.img_path);
       }
     );
 
     this.user.obs_select().subscribe(
-      res => {this.obserwowane = res.json();
+      res => {this.obserwowane = res;
               this.obserwowany = this.obs_exists(this.dane.id_og);}
     );
   }
@@ -108,13 +108,13 @@ export class OgloszenieComponent implements OnInit {
     if(this.obs_exists(id))
     this.user.obs_delete(id).subscribe(res =>
       this.user.obs_select().subscribe(
-        res => {this.obserwowane = res.json();
+        res => {this.obserwowane = res;
                 this.obserwowany = this.obs_exists(this.dane.id_og);}
     ));
   else
     this.user.obs_add(id).subscribe(res =>
       this.user.obs_select().subscribe(
-        res => {this.obserwowane = res.json();
+        res => {this.obserwowane = res;
                 this.obserwowany = this.obs_exists(this.dane.id_og);}
     ));
 }

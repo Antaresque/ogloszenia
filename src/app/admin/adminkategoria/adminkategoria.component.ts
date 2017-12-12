@@ -15,8 +15,7 @@ export class AdminKategoriaComponent implements OnInit {
 
   ngOnInit() {
     this.kat.select(114).subscribe(
-      res => {  this.kategorie = JSON.parse(res['_body'])
-      this.kategorie.atrybuty = JSON.parse(this.kategorie.atrybuty);
+      res => {  this.kategorie = res
     })
   }
 

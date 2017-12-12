@@ -16,7 +16,7 @@ export class HomeWyszukiwarkaComponent implements OnInit {
 
   ngOnInit() {
     this.kat.select_all().subscribe(
-      res => { this.kategorie = JSON.parse(res['_body'])}
+      res => { this.kategorie = res}
     );
   }
 

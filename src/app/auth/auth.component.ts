@@ -3,6 +3,7 @@ import { NgIf } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { UserService } from './../_core/user/user.service';
+import { tokenNotExpired } from 'angular2-jwt';
 
 @Component({
   selector: 'app-auth',
@@ -13,10 +14,10 @@ export class AuthComponent implements OnInit {
 
   active: any;
 
-  constructor(private route: ActivatedRoute, private router: Router, private user: UserService) {}
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
-    if(this.user.getLoggedIn()){
+    if(tokenNotExpired()){
       this.router.navigate(['/']);
     }
     this.active = this.route.firstChild.snapshot.routeConfig.path;

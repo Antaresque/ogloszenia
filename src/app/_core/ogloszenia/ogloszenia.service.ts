@@ -1,17 +1,18 @@
+import { AuthHttp, JwtHelper } from 'angular2-jwt';
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { UserService } from './../user/user.service';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class OgloszeniaService {
 
+  private API_LINK = 'http://localhost/angular/php/api.php/';
   public img_path = '../zdjecia/';
 
-  constructor(private http: Http, private user: UserService) {}
-
-  get headers(): Headers{
-    return this.user.headers;
-  }
+  constructor(private http: Http, private ahttp: AuthHttp) {}
 
 
   // ogloszenia api functions
@@ -21,7 +22,7 @@ export class OgloszeniaService {
    * @param {int} id ID of advertisement.
    */
   select(id) {
-    return this.http.post('http://localhost/angular/php/ogloszenie_select.php', {id: id}, {headers: this.headers});
+    return this.http.post(this.API_LINK + 'ogloszenia/', {id: id}).map(res => res.json()).catch(err => Observable.throw(err.json()));
   }
 
   /**
@@ -30,7 +31,7 @@ export class OgloszeniaService {
    * @param {int} id ID of advertisement.
    */
   select_zdj(id) {
-    return this.http.post('http://localhost/angular/php/ogloszenie_zdjecia.php', {id: id}, {headers: this.headers});
+    return this.http.post(this.API_LINK + 'ogloszenia/zdjecia', {id: id}).map(res => res.json()).catch(err => Observable.throw(err.json()));
   }
 
   /**
@@ -39,7 +40,7 @@ export class OgloszeniaService {
    * @param {JSON} model Parameters with keys equal to database columns.
    */
   search(model){
-    return this.http.post('http://localhost/angular/php/ogloszenie_search.php', model, {headers: this.headers});
+    return this.http.post(this.API_LINK + 'ogloszenia/search', model).map(res => res.json()).catch(err => Observable.throw(err.json()));
   }
 
   /**
@@ -48,7 +49,7 @@ export class OgloszeniaService {
    * @param {Ogloszenie} model JSON array with data (Ogloszenie class).
    */
   create(model) {
-    return this.http.post('http://localhost/angular/php/ogloszenie_create.php', model, {headers: this.headers});
+    return this.ahttp.post(this.API_LINK + 'ogloszenia/create', model).map(res => res.json()).catch(err => Observable.throw(err.json()));
   }
 
   /**
@@ -57,10 +58,11 @@ export class OgloszeniaService {
    * @param {formData} formData JSON array with image and id.
    */
   upload_img(formData){
-    let up_headers = this.headers;
-    up_headers.delete('Content-Type');
+    let token = localStorage.getItem('token');
+    let up_headers = new Headers();
+    up_headers.append('Authorization', 'Bearer '+token);
     console.log(up_headers);
-    return this.http.post('http://localhost/angular/php/ogloszenie_uploadzdj.php', formData, {headers: up_headers});
+    return this.http.post(this.API_LINK + 'ogloszenia/uploadzdj', formData, {headers: up_headers}).map(res => console.log(res)).catch(err => Observable.throw(err.json()));
   }
 
 
@@ -70,7 +72,7 @@ export class OgloszeniaService {
    * @param {int} id ID of advertisement.
    */
   delete(id) {
-    return this.http.post('http://localhost/angular/php/ogloszenie_delete.php', {id: id}, {headers: this.headers});
+    return this.ahttp.post(this.API_LINK + 'ogloszenia/delete', {id: id}).map(res => res.json()).catch(err => Observable.throw(err.json()));
   }
 
   /**
@@ -79,7 +81,7 @@ export class OgloszeniaService {
    * @param {JSON} model JSON array with data (need ID of ad).
    */
   change(model) {
-    return this.http.post('http://localhost/angular/php/ogloszenie_change.php', model, {headers: this.headers});
+    return this.ahttp.post(this.API_LINK + 'ogloszenia/change', model).map(res => res.json()).catch(err => Observable.throw(err.json()));
   }
 
   /**
@@ -87,7 +89,7 @@ export class OgloszeniaService {
    *
    */
   promowane(){
-    return this.http.post('http://localhost/angular/php/promowane_select.php', '', {headers: this.headers});
+    return this.http.get(this.API_LINK + 'ogloszenia/promowane').map(res => res.json()).catch(err => Observable.throw(err.json()));
   }
 
   /**
@@ -96,6 +98,6 @@ export class OgloszeniaService {
    * @param {int} id ID of user.
    */
   search_by_user(id){
-    return this.http.post('http://localhost/angular/php/ogloszenie_select_user.php', {id: id}, {headers: this.headers});
+    return this.http.post(this.API_LINK + 'ogloszenia/select_user', {id: id}).map(res => res.json()).catch(err => Observable.throw(err.json()));
   }
 }

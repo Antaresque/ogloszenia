@@ -15,6 +15,7 @@ export class LoginComponent {
   redirect = true;
   loading = false;
   model: any = {};
+  error: any = [];
 
   constructor(public user: UserService, private router: Router, private route: ActivatedRoute, private location: Location) {
     this.route.queryParams.subscribe(
@@ -29,22 +30,19 @@ export class LoginComponent {
   loginEvent() {
     this.loading = true;
     this.user.login(this.model).subscribe(
-      data => {
-        console.log(data);
-        this.isLoggedIn = JSON.parse(data['_body'])['login_result'];
-       // czy uzytkownik podal dobre dane (bool)
+      res => {
         this.model = {};
+        this.error = [];
         this.loading = false;
 
-        if(this.isLoggedIn) {
-          this.user.setJWT(JSON.parse(data['_body'])['jwt']);
-          if(this.redirect) this.location.back();
-          else this.router.navigate(['/']);
-        } else this.wrongPassword = true;
-      },
+        this.user.setJWT(res['jwt']);
+        this.redirect === true
+          ? this.location.back()
+          : this.router.navigate(['/']);
+        },
       err => {
         this.model = {};
-        console.log(err['_body']);
+        this.error = err;
         this.loading = false;
       });
   }

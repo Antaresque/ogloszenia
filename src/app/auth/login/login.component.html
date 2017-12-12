@@ -9,7 +9,7 @@
   <button [disabled]="loading" class="btn btn-primary">Logowanie</button>
   <img *ngIf="loading" src="assets/loading.gif">
 </form>
-<div class="alert alert-danger mt-2" *ngIf="wrongPassword">
-  Nieprawidłowy login lub hasło :(
+<div class='alert alert-danger mt-2' *ngIf='error.length > 0'>
+    <div *ngFor='let i of error'>{{ i }}</div>
 </div>
 

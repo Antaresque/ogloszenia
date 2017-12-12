@@ -25,6 +25,7 @@ export class RegisterComponent implements OnInit {
 
   loading = false;
   model: any = {};
+  error: any = [];
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -52,12 +53,13 @@ export class RegisterComponent implements OnInit {
       this.user.insert(this.form.value).subscribe(
           data => {
             this.loading = false;
+            this.error = [];
             this.form.reset();
             this.router.navigate(['/']);
           },
           error => {
             this.loading = false;
-            this.form.reset();
+            this.error = error;
           });
       }
     }

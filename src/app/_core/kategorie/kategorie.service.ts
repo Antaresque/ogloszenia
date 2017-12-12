@@ -1,15 +1,17 @@
+import { AuthHttp } from 'angular2-jwt';
 import { UserService } from './../user/user.service';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Injectable } from '@angular/core';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class KategorieService {
 
-  constructor(private user: UserService, private http: Http) { }
+  private API_LINK = 'http://localhost/angular/php/api.php/';
 
-  get headers(): Headers{
-    return this.user.headers;
-  }
+  constructor(private http: Http, private ahttp: AuthHttp) { }
 
   // kategoria api functions
   /**
@@ -18,14 +20,14 @@ export class KategorieService {
    * @param {int} id ID of category.
    */
   select(id){
-    return this.http.post('http://localhost/angular/php/kat_select.php', {id: id}, {headers: this.headers});
+    return this.http.post(this.API_LINK + 'kategorie/select', {id: id}).map(res => res.json()).catch(err => Observable.throw(err.json()));
   }
 
   /**
    * Get all categories thro POST request from database.
    */
   select_all(){
-    return this.http.post('http://localhost/angular/php/kat_select_all.php', '', {headers: this.headers});
+    return this.http.get(this.API_LINK + 'kategorie').map(res => res.json()).catch(err => Observable.throw(err.json()));
   }
 
   /**
@@ -34,7 +36,7 @@ export class KategorieService {
    * @param {int} id ID of main category.
    */
   select_podrz(id) {
-    return this.http.post('http://localhost/angular/php/kat_nad_select.php', {id: id}, {headers: this.headers});
+    return this.http.post(this.API_LINK + 'kategorie/nad_select', {id: id}).map(res => res.json()).catch(err => Observable.throw(err.json()));
   }
 
   /**
@@ -44,7 +46,7 @@ export class KategorieService {
    */
 
   select_tree(id){
-    return this.http.post('http://localhost/angular/php/kat_tree.php', {id: id}, {headers: this.headers});
+    return this.http.post(this.API_LINK + 'kategorie/tree', {id: id}).map(res => res.json()).catch(err => Observable.throw(err.json()));
   }
   /**
    * Send POST request to server to create new category.
@@ -52,7 +54,7 @@ export class KategorieService {
    * @param {JSON} model JSON array with data.
    */
   create(model) {
-    return this.http.post('http://localhost/angular/php/kat_create.php', model, {headers: this.headers});
+    return this.ahttp.post(this.API_LINK + 'kategorie/create', model).map(res => res.json()).catch(err => Observable.throw(err.json()));
   }
 
   /**
@@ -61,7 +63,7 @@ export class KategorieService {
    * @param {JSON} model JSON array with data.
    */
   create_podrz(model) {
-    return this.http.post('http://localhost/angular/php/kat_nad_create.php', model, {headers: this.headers});
+    return this.ahttp.post(this.API_LINK + 'kategorie/nad_create', model).map(res => res.json()).catch(err => Observable.throw(err.json()));
   }
 
   /**
@@ -70,7 +72,7 @@ export class KategorieService {
    * @param {int} id ID of category.
    */
   delete(id) {
-    return this.http.post('http://localhost/angular/php/kat_delete.php', {id: id}, {headers: this.headers});
+    return this.ahttp.post(this.API_LINK + 'kategorie/delete', {id: id}).map(res => res.json()).catch(err => Observable.throw(err.json()));
   }
 
   /**
@@ -79,6 +81,6 @@ export class KategorieService {
    * @param {int} model Data of category.
    */
   change(model){
-    return this.http.post('http://localhost/angular/php/kat_delete.php', model, {headers: this.headers});
+    return this.ahttp.post(this.API_LINK + 'kategorie/change', model).map(res => res.json()).catch(err => Observable.throw(err.json()));
   }
 }

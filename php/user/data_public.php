@@ -1,0 +1,8 @@
+<?php
+if(!defined('NO_ACCESS')){ http_response_code(403); exit(); } // block direct access
+
+$id = $input['id'];
+
+$data = DB::queryFirstRow("SELECT id_uz, login, imie, nazwisko, wojewodztwo, miasto, adres, nr_tel, email, data_rej, data_log
+  FROM uzytkownicy WHERE id_uz = %i", $id);
+$result = $data;

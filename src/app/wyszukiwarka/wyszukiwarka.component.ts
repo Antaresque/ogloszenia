@@ -2,6 +2,7 @@ import { UserService } from './../_core/user/user.service';
 import { OgloszeniaService } from './../_core/ogloszenia/ogloszenia.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { tokenNotExpired } from 'angular2-jwt';
 
 @Component({
   selector: 'app-wyszukiwarka',
@@ -36,20 +37,25 @@ export class WyszukiwarkaComponent implements OnInit {
 
         this.ogl.search(this.model).subscribe(
           res => {
-            let temp = JSON.parse(res['_body']);
-            if(temp.hasOwnProperty('result')) this.noresults = true;
-            else {
+              let temp = res;
               this.pages = temp.pop(); //takes 1st key from array to variable
               this.wyniki = temp;
               this.noresults = false;
-            }
           },
-          err => console.log(err)
+          err => {
+            let error = err;
+            if(error == 'Brak wyników'){ // jak nie pisać kodu 101
+              this.noresults = true;
+
+            }
+          }
         );
 
-        this.user.obs_select().subscribe(
-          res => {this.obserwowane = JSON.parse(res['_body']);}
-        )
+        if(tokenNotExpired()){
+          this.user.obs_select().subscribe(
+            res => {this.obserwowane = res;}
+          )
+        }
     });
   }
 
@@ -64,12 +70,12 @@ export class WyszukiwarkaComponent implements OnInit {
     if(this.obs_exists(id))
       this.user.obs_delete(id).subscribe(res =>
         this.user.obs_select().subscribe(
-          res => this.obserwowane = JSON.parse(res['_body'])
+          res => this.obserwowane = res
       ));
     else
       this.user.obs_add(id).subscribe(res =>
         this.user.obs_select().subscribe(
-          res => this.obserwowane = JSON.parse(res['_body'])
+          res => this.obserwowane = res
       ));
   }
   search(event){
