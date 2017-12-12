@@ -32,4 +32,12 @@ export class UstawieniaComponent implements OnInit {
     }
   }
 
+  changeData(){
+
+  }
+  changeMail()
+{}
+  changePassword(){
+
+  }
 }
