@@ -40,7 +40,6 @@ export class WiadomosciNewComponent implements OnInit {
           let temp = res;
           if(!(temp == null)){
             this.form.value.odbiorca = temp.id_uz;
-
             this.wiad.insert(this.form.value).subscribe(
               res => {
                 console.log(res);

@@ -48,6 +48,6 @@ export class KategorieTreeComponent implements OnInit {
   }
 
   search(id){
-    this.router.navigate(['/wyszukiwarka'], {queryParams: {kategoria: id}, queryParamsHandling: 'merge'});
+    this.router.navigate(['/wyszukiwarka'], {queryParams: {kategoria: id, page: 1}, queryParamsHandling: 'merge'});
   }
 }

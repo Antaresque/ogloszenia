@@ -10,7 +10,7 @@ DB::insert('wiadomosci', array(
   'id_nad' => $id_nad,
   'id_od' => $id_od,
   'tresc' => $tresc,
-  'id_og' => '1',
+  'id_og' => 1,
   'tytul' => $tytul
   ));
 

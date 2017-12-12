@@ -19,6 +19,7 @@ export class WyszukiwarkaComponent implements OnInit {
   img_path: string;
   noresults = false;
 
+  logged: boolean;
   obserwowane: any = [];
 
   constructor(private route: ActivatedRoute, private router: Router, private ogl: OgloszeniaService, private user: UserService) {
@@ -51,7 +52,9 @@ export class WyszukiwarkaComponent implements OnInit {
           }
         );
 
-        if(tokenNotExpired()){
+        this.logged = tokenNotExpired();
+
+        if(this.logged){
           this.user.obs_select().subscribe(
             res => {this.obserwowane = res;}
           )
@@ -60,6 +63,7 @@ export class WyszukiwarkaComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
   obs_exists(id){
