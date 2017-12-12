@@ -21,3 +21,8 @@ ol {background-color:white}
   text-decoration: underline;
   cursor: pointer;
 }
+.link{
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: bold;
+}
