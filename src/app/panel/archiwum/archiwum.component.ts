@@ -15,7 +15,7 @@ export class ArchiwumComponent implements OnInit {
   wyniki: any = []
   img_path: string;
   id: number;
-  noresults = false;
+  errors: any = [];
 
   constructor(private user: UserService, private ogl: OgloszeniaService) { }
 
@@ -25,11 +25,13 @@ export class ArchiwumComponent implements OnInit {
 
     this.ogl.archiwum(this.id).subscribe(
       res => {
-        let temp = res;
-        if(temp.hasOwnProperty('result')) this.noresults = true;
-        else this.wyniki = temp;
+        console.log(res);
+        this.wyniki = res;
       },
-      err => console.log(err)
+      err => {
+        console.log(err);
+        this.errors = err;
+      }
     );
   }
 
