@@ -16,33 +16,33 @@
                   <form name="form" (ngSubmit)="f.form.valid && changeData()" #f = "ngForm" novalidate>
                       <div class="form-group">
                           <label for="imie">Imię/Imiona</label>
-                          <input type="password" class="form-control" name="imie" [(ngModel)]="model.imie"  #imie="ngModel">
+                          <input type="text" class="form-control" name="imie" [(ngModel)]="model.imie"  #imie="ngModel">
                         </div>
                         <div class="form-group">
                             <label for="nazwisko">Nazwisko</label>
-                            <input type="password" class="form-control" name="nazwisko" [(ngModel)]="model.nazwisko"  #nazwisko="ngModel">
+                            <input type="text" class="form-control" name="nazwisko" [(ngModel)]="model.nazwisko"  #nazwisko="ngModel">
                           </div>
                           <div class="form-group">
-                              <label for="telefon">Telefon</label>
-                              <input type="password" class="form-control" name="telefon" [(ngModel)]="model.telefon"  #telefon="ngModel">
+                              <label for="nr_tel">Telefon</label>
+                              <input type="text" class="form-control" name="nr_tel" [(ngModel)]="model.nr_tel"  #nr_tel="ngModel">
                             </div>
                     <div class="form-group">
-                      <label for="ulica">Ulica</label>
-                      <input type="text" class="form-control" name="ulica" [(ngModel)]="model.ulica" #ulica="ngModel">
+                      <label for="adres">Ulica</label>
+                      <input type="text" class="form-control" name="adres" [(ngModel)]="model.adres" #adres="ngModel">
                     </div>
                     <div class="form-group">
                       <label for="miasto">Miasto</label>
-                      <input type="password" class="form-control" name="miasto" [(ngModel)]="model.miasto"  #pass="ngModel">
+                      <input type="text" class="form-control" name="miasto" [(ngModel)]="model.miasto"  #pass="ngModel">
                     </div>
                     <div class="form-group">
-                      <label for="region">Województwo</label>
-                      <select class="form-control" name="region" [(ngModel)]="model.region" #region="ngModel">
+                      <label for="wojewodztwo">Województwo</label>
+                      <select class="form-control" name="region" [(ngModel)]="model.wojewodztwo" #wojewodztwo="ngModel">
                         <option *ngFor="let region of wojewodztwa" [value]="region">{{region}}</option>
                       </select>
                     </div>
                     <div class="form-group">
-                      <label for="opis">O sobie</label>
-                      <textarea  class="form-control" name="opis" [(ngModel)]="model.opis" #opis="ngModel"></textarea>
+                      <label for="o_sobie">O sobie</label>
+                      <textarea  class="form-control" name="o_sobie" [(ngModel)]="model.o_sobie" #o_sobie="ngModel"></textarea>
                     </div>
                     <br>
                     <button [disabled]="loading" class="btn btn-primary">Zmień dane</button>
@@ -65,11 +65,11 @@
                   <form name="form" (ngSubmit)="f2.form.valid && changePassword()" #f2 = "ngForm" novalidate>
                     <div class="form-group">
                       <label for="ulica">Hasło</label>
-                      <input type="text" class="form-control" name="ulica" [(ngModel)]="model.ulica" #ulica="ngModel">
+                      <input type="password" class="form-control" name="pass" [(ngModel)]="model2.pass" #pass="ngModel">
                     </div>
                     <div class="form-group">
                       <label for="miasto">Powtórz hasło</label>
-                      <input type="password" class="form-control" name="miasto" [(ngModel)]="model.miasto"  #pass="ngModel">
+                      <input type="password" class="form-control" name="pass2" [(ngModel)]="model2.pass2" #pass2="ngModel">
                     </div>
                     <button [disabled]="loading" class="btn btn-primary">Zmień hasło</button>
                     <img *ngIf="loading" src="assets/loading.gif">
@@ -91,26 +91,15 @@
                   <form name="form" (ngSubmit)="f3.form.valid && changeMail()" #f3 = "ngForm" novalidate>
                     <div class="form-group">
                       <label for="email">E-mail</label>
-                      <input type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel">
+                      <input type="text" class="form-control" name="email" [(ngModel)]="model3.email" #email="ngModel">
+                    </div>
+                    <div class="form-group">
+                      <label for="email2">Powtórz e-mail</label>
+                      <input type="text" class="form-control" name="email2" [(ngModel)]="model3.email2" #email2="ngModel">
                     </div>
                     <button [disabled]="loading" class="btn btn-primary">Zmień e-mail</button>
                     <img *ngIf="loading" src="assets/loading.gif">
                   </form>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header" role="tab" id="headingFive">
-                <h5 class="mb-0">
-                  <a class="collapsed" data-toggle="collapse" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                    Usuń konto
-                  </a>
-                </h5>
-              </div>
-              <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive" data-parent="#accordion">
-                <div class="card-body">
-                  <button class="btn btn-danger" (click)='deleteAcc()'>Usuń konto (!)</button>
-                  zrobić funkcje z potwierdzeniem do tego😂
                 </div>
               </div>
             </div>

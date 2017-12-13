@@ -13,31 +13,23 @@ export class UstawieniaComponent implements OnInit {
 
   loading = false;
   model: any = {};
+  model2: any = {};
+  model3: any = {};
+  errors: any = [];
 
   wojewodztwa = Wojewodztwa.wojewodztwa;
 
   constructor(private user: UserService, private router: Router) { }
 
   ngOnInit() {
+    let payload = this.user.getPayload();
+    this.user.dataPublic(payload.id).subscribe(
+      res => this.model = res,
+      err => this.errors = err
+    )
   }
 
-  deleteAcc(){
-    if(confirm('Czy na pewno chcesz usunąć konto?')){
-      let payload = this.user.getPayload();
-      this.user.logout();
-      this.router.navigate['/'];
-      this.user.delete(payload.id).subscribe(
-        (res) => console.log(res)
-      );
-    }
-  }
-
-  changeData(){
-
-  }
-  changeMail()
-{}
-  changePassword(){
-
-  }
+  changeData(){}
+  changeMail(){}
+  changePassword(){}
 }

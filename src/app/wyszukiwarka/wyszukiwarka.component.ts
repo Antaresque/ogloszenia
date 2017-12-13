@@ -45,9 +45,8 @@ export class WyszukiwarkaComponent implements OnInit {
           },
           err => {
             let error = err;
-            if(error == 'Brak wyników'){ // jak nie pisać kodu 101
+            if(error == 'Brak wyników'){ // jak nie pisać kodu 101 o 4 rano
               this.noresults = true;
-
             }
           }
         );
