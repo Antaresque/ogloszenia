@@ -100,4 +100,8 @@ export class OgloszeniaService {
   search_by_user(id){
     return this.http.post(this.API_LINK + 'ogloszenia/select_user', {id: id}).map(res => res.json()).catch(err => Observable.throw(err.json()));
   }
+
+  archiwum(id){
+    return this.http.post(this.API_LINK + 'ogloszenia/select_user_inactive', {id: id}).map(res => res.json()).catch(err => Observable.throw(err.json()));
+  }
 }

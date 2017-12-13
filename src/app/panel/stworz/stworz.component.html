@@ -30,8 +30,19 @@
                 <input type="text" class="form-control" [(ngModel)]="model.opis" #opis="ngModel" name="opis" required>
               </div>
               <div class="form-group">
-                  region
-              </div>
+                  <label for="region">Województwo</label>
+                  <select class="form-control" name="region" [(ngModel)]="model.region" #region="ngModel">
+                    <option *ngFor="let region of wojewodztwa" [value]="region">{{region}}</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                    <label for="miasto">Miasto</label>
+                    <input type="password" class="form-control" name="miasto" [(ngModel)]="model.miasto"  #pass="ngModel">
+                  </div>
+                  <div class="form-group">
+                      <label for="adres">Adres</label>
+                      <input type="text" class="form-control" name="adres" [(ngModel)]="model.adres" #ulica="ngModel">
+                    </div>
               <div class='form-group' #files>
                   <input type="file" name='0' (change)='submit_zdj($event)'>
                   <input type="file" name='1' (change)='submit_zdj($event)'>
@@ -50,3 +61,4 @@
       </div>
     </div>
 </div>
+ 
