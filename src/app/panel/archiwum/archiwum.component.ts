@@ -23,7 +23,7 @@ export class ArchiwumComponent implements OnInit {
     this.id = this.user.getPayload().id;
     this.img_path = this.ogl.img_path;
 
-    this.ogl.search_by_user(this.id).subscribe(
+    this.ogl.archiwum(this.id).subscribe(
       res => {
         let temp = res;
         if(temp.hasOwnProperty('result')) this.noresults = true;

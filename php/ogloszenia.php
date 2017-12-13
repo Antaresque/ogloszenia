@@ -13,6 +13,9 @@ else if($request[0] == 'search'){
 else if($request[0] == 'select_user'){
   include_once($path.'select_user.php');
 }
+else if($request[0] == 'select_user_inactive'){
+  include_once($path.'select_user_inactive.php');
+}
 else if($request[0] == 'uploadzdj'){
   if(checkTokenAccess('user') || checkTokenAccess('admin'))
     include_once($path.'uploadzdj.php');
