@@ -20,7 +20,7 @@ export class WyszukiwarkaComponent implements OnInit {
   noresults = false;
 
   logged: boolean;
-  obserwowane: any = [];
+  obserwowane = new Array();
 
   constructor(private route: ActivatedRoute, private router: Router, private ogl: OgloszeniaService, private user: UserService) {
     this.route.queryParams.subscribe(
@@ -56,7 +56,7 @@ export class WyszukiwarkaComponent implements OnInit {
 
         if(this.logged){
           this.user.obs_select().subscribe(
-            res => {this.obserwowane = res;}
+            res => {this.obserwowane = JSON.parse(res);}
           )
         }
     });
@@ -74,12 +74,12 @@ export class WyszukiwarkaComponent implements OnInit {
     if(this.obs_exists(id))
       this.user.obs_delete(id).subscribe(res =>
         this.user.obs_select().subscribe(
-          res => this.obserwowane = res
+          res => this.obserwowane = JSON.parse(res)
       ));
     else
       this.user.obs_add(id).subscribe(res =>
         this.user.obs_select().subscribe(
-          res => this.obserwowane = res
+          res => this.obserwowane = JSON.parse(res)
       ));
   }
   search(event){
