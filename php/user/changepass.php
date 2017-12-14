@@ -5,7 +5,7 @@ $id = getPayload()->id;
 $haslo = $input['pass'];
 $data = DB::queryFirstRow('SELECT * FROM uzytkownicy WHERE id_uz = %i', $id);
 
-if($data['pass'] == $haslo) error_message('UPDATE_PASS_IS_SAME');
+if($data['haslo'] == $haslo) error_message('UPDATE_PASS_IS_SAME');
 else {
 
   DB::update('uzytkownicy', array(
