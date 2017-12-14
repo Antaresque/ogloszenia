@@ -9,9 +9,17 @@
                 <img class="rounded" [src]="img_path+ogl.zdjecie" height="100%" width="100%" onError="this.src = '../../zdjecia/placeholder.jpg'">
             </div>
             <div class="col info rounded">
-              <a class='ogl-nazwa' routerLink='../../ogloszenie/{{ogl.id_og}}'><h3>{{ogl.nazwa}}<br></h3></a>
-              <p>Cena: {{ogl.cena}} złotych polskich<br></p>
-              <p>Opis: {{ogl.opis}}<br></p>
+              <div class='row'>
+                <a class='ogl-nazwa' routerLink='../../ogloszenie/{{ogl.id_og}}'><h3>{{ogl.nazwa}}<br></h3></a>
+              </div>
+              <div class='row'>
+                <div class='col'>
+                  <button class='btn btn-outline-success' (click)='refresh(ogl.id_og)'>Odśwież ogłoszenie</button>
+                </div>
+                <div class='col'>
+                  <button class='btn btn-outline-danger' (click)='delete(ogl.id_og)'>Usuń ogłoszenie</button>
+                </div>
+              </div>
             </div>
           </div>
 
