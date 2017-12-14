@@ -54,7 +54,7 @@ export class RegisterComponent implements OnInit {
             this.loading = false;
             this.error = [];
             this.form.reset();
-            this.router.navigate(['/']);
+            this.router.navigate(['/auth/login'], {queryParams: {redirect: false}});
           },
           error => {
             this.loading = false;
