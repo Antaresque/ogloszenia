@@ -14,7 +14,9 @@ $msg_arr = array(
   'CATEGORY_NOT_FOUND' => 'Nie znalzeiono kategorii',
   'USER_NOT_FOUND' => 'Nie znaleziono takiego użytkownika',
   'INSERT_FAIL' => 'Błąd przy dodawaniu',
-  'UPDATE_FAIL' => 'Błąd przy zmienianiu'
+  'UPDATE_FAIL' => 'Błąd przy zmienianiu',
+  'UPDATE_EMAIL_IS_SAME' => 'Podany e-mail jest identyczny z wcześniejszym',
+  'UPDATE_PASS_IS_SAME' => 'Błąd zmiany hasła'
 );
 
 function error_message($value, $code = 404) {
