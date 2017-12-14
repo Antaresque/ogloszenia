@@ -37,8 +37,15 @@
     </div>
   </div>
   <div class="row rounded bott">
+    <div class='col'>
+      <div class='row border-bottom p-2 text-muted'>
+    <div *ngFor='let i of atrybuty; let index = index' class='col-6'>
+      <b>{{i}}</b>: {{atrybuty_values[index]}}
+    </div>
+    </div>
     <br>
     {{ dane?.opis }}
     <br><br>
+  </div>
   </div>
 </div>

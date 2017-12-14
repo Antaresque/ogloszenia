@@ -22,6 +22,8 @@ export class OgloszenieComponent implements OnInit {
   zdjecia: any = [];
   kategorie: any = [];
   uzytk: any = [];
+  atrybuty: any = [];
+  atrybuty_values: any = [];
   model: any = {}
   img_path: string;
 
@@ -69,9 +71,16 @@ export class OgloszenieComponent implements OnInit {
     this.ogloszenia.select(this.id).subscribe(
         res => {
           this.dane = res;
+          this.atrybuty_values = JSON.parse(res.atrybuty);
+          console.log(this.atrybuty_values);
           this.kat.select_tree(this.dane.id_kat).subscribe(
             res => {
               this.kategorie = res;
+            }
+          )
+          this.kat.select_attr(this.dane.id_kat).subscribe(
+            res => {
+              this.atrybuty = res;
             }
           )
           this.user.dataPublic(this.dane.id_uz).subscribe(
