@@ -1,5 +1,6 @@
 <?php
 if(!defined('NO_ACCESS')){ http_response_code(403); exit(); } // block direct access
+use \Firebase\JWT\JWT;
 
 $login = $input['login'];
 $email = $input['email'];

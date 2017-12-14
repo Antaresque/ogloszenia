@@ -17,7 +17,8 @@ $msg_arr = array(
   'UPDATE_FAIL' => 'Błąd przy zmienianiu',
   'UPDATE_EMAIL_IS_SAME' => 'Podany e-mail jest identyczny z wcześniejszym',
   'UPDATE_PASS_IS_SAME' => 'Błąd zmiany hasła',
-  'WRONG_MAIL' => 'Nieprawidłowy mail'
+  'WRONG_MAIL' => 'Nieprawidłowy mail',
+  'ACCOUNT_NOT_ACTIVE' => 'Konto nieaktywne, potwierdź swój mail poprzez link aktywacyjny.'
 );
 
 function error_message($value, $code = 404) {
