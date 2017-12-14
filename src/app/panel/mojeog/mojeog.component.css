@@ -1,14 +1,47 @@
-.bg-prom{
-    background-color: rgb(255, 220, 106);
+.noresults-text{
+    font-size: 150%;
+    font-family: 'Palanquin-SemiBold';
   }
-.info{
-      background-color: #EEE
+  .bg-prom{
+    background-color: rgb(255, 220, 106);;
   }
-.img{
+  .text-center{
+    font-size: 16px;
+    font-family: 'Palanquin-Light';
+  }
+  .sort-link:hover{
+    cursor: pointer;
+    text-decoration: underline;
     background-color: #EEE;
-    margin-right:10px;
-    padding:5px
-}
-.mb-2{
-    padding:10px
-}
+  }
+  .noselect{
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;
+  }
+  .info{
+    background-color: #EEE
+  }
+  .img{
+  background-color: #EEE;
+  margin-right:10px;
+  padding:5px
+  }
+  .mb-2{
+  padding:10px
+  }
+  .ogl-nazwa{
+    font-family: "Palanquin-SemiBold";
+  }
+  
+  .yellow{
+    color: orange;
+    font-size: 300%;
+    cursor: pointer;
+  }
+  
+  .yellow:hover{
+    color: darkgoldenrod;
+  }
+   
