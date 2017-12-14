@@ -1,9 +1,9 @@
 <div class="container-fluid">
   <div class="row">
-    
+
     <div class="container">
       <h4>Oto twoje obserwowane ogłoszenia:</h4>
-      <div *ngIf='noresults; then noResultsTemplate; else resultsTemplate'></div>
+      <div *ngIf='errors.length > 0; then noResultsTemplate; else resultsTemplate'></div>
 
       <ng-template #resultsTemplate>
         <div class="row rounded mb-2" [ngClass]='ogl.promowane == 1 ? "bg-prom" : "bg-light"' *ngFor = 'let ogl of wyniki'>
@@ -17,12 +17,12 @@
           </div>
         </div>
       </ng-template>
-      
+
 
       <ng-template #noResultsTemplate>
         <h1>Nie masz nic w obserwowanych :[</h1>
+        <div *ngFor='let error of errors'>{{ error }}</div>
       </ng-template>
     </div>
   </div>
 </div>
- 

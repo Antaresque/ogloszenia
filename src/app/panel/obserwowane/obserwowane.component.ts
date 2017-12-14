@@ -13,6 +13,7 @@ import { Http } from '@angular/http';
 export class ObserwowaneComponent implements OnInit {
 
   wyniki: any = []
+  errors: any = []
   img_path: string;
   id: number;
   noresults = false;
@@ -23,7 +24,8 @@ export class ObserwowaneComponent implements OnInit {
 
   ngOnInit() {
     this.user.obs_select_detailed().subscribe(
-      res => this.wyniki = res
+      res => this.wyniki = res,
+      err => this.errors = err
     )
   }
 
