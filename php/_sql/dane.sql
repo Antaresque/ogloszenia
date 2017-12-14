@@ -103,8 +103,8 @@ INSERT INTO `ogloszenia` (`id_og`, `id_uz`, `id_kat`, `nazwa`, `cena`, `data_wys
 --
 
 INSERT INTO `wiadomosci` (`id_wiad`, `id_od`, `id_nad`, `tresc`, `data`, `tytul`, `id_og`) VALUES
-(1, 1, 2, 'Witam panie Januszu. Mam pytanie co do Opla corsy. Czy on aby na pewno nie był klepany?', '2017-12-03 20:02:22', 'Opel', 2),
-(2, 2, 1, 'Pan mie tu nie obraża, oczywiście, że nie klepany, ja to uczciwy człowiek jestem. Kupujesz pan czy nie?', '2017-12-03 20:03:44', 'Klepanko', 2);
+(1, 1, 2, 'Witam panie Januszu. Mam pytanie co do Opla corsy. Czy on aby na pewno nie był klepany?', '2017-12-03 20:02:22', 'Opel'),
+(2, 2, 1, 'Pan mie tu nie obraża, oczywiście, że nie klepany, ja to uczciwy człowiek jestem. Kupujesz pan czy nie?', '2017-12-03 20:03:44', 'Klepanko');
 
 
 
