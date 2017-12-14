@@ -26,9 +26,18 @@ h5{
   margin-top:20px;
   margin-bottom:10px;
 }
+
+.image-upload > div > div > input{
+  display: none;
+}
+
+.file_img{
+  cursor: pointer;
+}
+
 .promowane {
   position: relative; width: 90px;
-  
+
 }
 .promowane-checkbox {
   display: none;
@@ -63,11 +72,11 @@ h5{
   position: absolute; top: 0; bottom: 0;
   right: 56px;
   border: 2px solid #999999; border-radius: 20px;
-  transition: all 0.3s ease-in 0s; 
+  transition: all 0.3s ease-in 0s;
 }
 .promowane-checkbox:checked + .promowane-label .promowane-inner {
   margin-left: 0;
 }
 .promowane-checkbox:checked + .promowane-label .promowane-switch {
-  right: 0px; 
+  right: 0px;
 }

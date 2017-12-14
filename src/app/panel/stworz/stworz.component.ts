@@ -20,6 +20,7 @@ export class StworzComponent implements OnInit {
   loading = false;
   formData = new FormData();
   @ViewChild('files') files: FormGroup;
+  @ViewChild('f') form;
   wojewodztwa = Wojewodztwa.wojewodztwa;
 
   constructor(private user: UserService, private ogl: OgloszeniaService, private katserv: KategorieService, private router: Router) { }
@@ -44,6 +45,7 @@ export class StworzComponent implements OnInit {
   getKategoria(event){
     let option = event.target.selectedOptions;
     this.model.id_kat = option[0].value;
+
     this.katserv.select_podrz(option[0].value).subscribe(
       res => this.podkategorie = res,
       err => console.log(err)
@@ -64,7 +66,7 @@ export class StworzComponent implements OnInit {
         this.ogl.upload_img(this.formData).subscribe( //wrzuca zdjecie z id ogloszenia
           res => {
             this.model = {};
-            //this.files.reset();
+            this.form.reset();
             this.loading = false;
             this.router.navigate(['/ogloszenie/' + id_og]);
           },
@@ -83,10 +85,12 @@ export class StworzComponent implements OnInit {
   }
 
   submit_zdj(event){ //dodaje zdjecie do formdata po wybraniu
-    let fileList = event.target;
-    let file = fileList.files[0];
-    console.log(event.target.name);
-    this.formData.append(event.target.name, file);
+      let fileList = event.target;
+      let file = fileList.files[0];
+      event.path[1].children[0].children[0].src = '../zdjecia/ogl_uploaded.png'
+
+      this.formData.append(event.target.name, file);
+    }
 
 
     /*this.ogl.create(this.model).subscribe(
