@@ -178,6 +178,15 @@ CREATE VIEW ogloszenia_detailed AS
     	INNER JOIN kategorie ON ogloszenia.id_kat = kategorie.id_kat
       INNER JOIN uzytkownicy ON ogloszenia.id_uz = uzytkownicy.id_uz;
 
+--
+-- drugi widok na archiwum
+--
+
+CREATE VIEW ogloszenia_detailed_notarchived AS
+	SELECT ogloszenia_detailed.*
+  FROM ogloszenia_detailed
+  WHERE data_wyg > NOW();
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
