@@ -41,11 +41,11 @@
               </div>
                   <div class="form-group">
                       <label for="adres">Adres</label>
-                      <input type="text" class="form-control" name="adres" [(ngModel)]="model.adres" #ulica="ngModel">
+                      <input type="text" class="form-control" name="adres" [(ngModel)]="model.adres" #adres="ngModel">
                     </div>
                     <div class="form-group">
                       <label for="miasto">Miasto</label>
-                      <input type="text" class="form-control" name="miasto" [(ngModel)]="model.miasto"  #pass="ngModel">
+                      <input type="text" class="form-control" name="miasto" [(ngModel)]="model.miasto"  #miasto="ngModel">
                     </div>
                     <div class="form-group">
                       <label for="wojewodztwo">Województwo</label>
@@ -93,8 +93,8 @@
               Czy chcesz wypromować swoje ogłoszenie? Promowane ogłoszenia wyświetlane są jako pierwsze w wyszukiwarce, a także mają szansę na pojawienie się na stronie głównej.
                    <br> (Normalnie za coś takiego naliczylibyśmy opłatę, ale w projekcie chyba nie wolno tak robić) <br>
                 <div class="promowane form-group offset-10">
-                    <input type="checkbox" name="promowane" class="promowane-checkbox" id="mypromowane">
-                    <label class="promowane-label" for="mypromowane">
+                    <input type="checkbox"  [(ngModel)]="model.promowane" #promowane="ngModel" name="promowane" class="promowane-checkbox">
+                    <label class="promowane-label" for="promowane">
                         <span class="promowane-inner"></span>
                         <span class="promowane-switch"></span>
                     </label>
