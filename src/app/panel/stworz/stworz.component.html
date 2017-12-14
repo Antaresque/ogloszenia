@@ -101,7 +101,7 @@
                 </div>
             </div>
                 <div class="text-center">
-              <button [disabled]="loading" class="btn btn-primary">Zarejestruj</button>
+              <button [disabled]="loading || f.form.invalid" class="btn btn-outline-success">Zarejestruj</button>
               <img *ngIf="loading" src="assets/loading.gif"></div>
             </form>
             </div>
