@@ -14,7 +14,11 @@ export class UzytkownikComponent implements OnInit {
   id: number;
   dane: any = {}
 
-  constructor(private route: ActivatedRoute, private user: UserService, private router: Router, ) { }
+  wyniki: any = []
+  img_path: string;
+  noresults = false;
+
+  constructor(private route: ActivatedRoute, private user: UserService, private router: Router, private ogl: OgloszeniaService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -30,38 +34,20 @@ export class UzytkownikComponent implements OnInit {
       )
     });
     this.logged = tokenNotExpired();
+
+    this.img_path = this.ogl.img_path;
+
+    this.ogl.search_by_user(this.id).subscribe(
+      res => {
+        let temp = res;
+        if(temp.hasOwnProperty('result')) this.noresults = true;
+        else this.wyniki = temp;
+        },
+      err => console.log(err)
+      );
   }
-  
 
   sendMessage(){
     this.router.navigate(['/panel/wiadomosci/new'], {queryParams: {odbiorca: this.dane.login}});
   }
-
 }
-
-export class MojeogComponent implements OnInit {
-  
-    wyniki: any = []
-    img_path: string;
-    id: number;
-    noresults = false;
-  
-    constructor(private user: UserService, private ogl: OgloszeniaService, private route: ActivatedRoute) { }
-  
-    ngOnInit() {
-      this.route.params.subscribe(params => {
-        this.id = +params['id'];
-      });
-      this.id = this.user.getPayload().id;
-      this.img_path = this.ogl.img_path;
-  
-      this.ogl.search_by_user(this.id).subscribe(
-        res => {
-          let temp = res;
-          if(temp.hasOwnProperty('result')) this.noresults = true;
-          else this.wyniki = temp;
-        },
-        err => console.log(err)
-      );
-    }
-  }
