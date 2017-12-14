@@ -24,7 +24,6 @@ export class RegisterComponent implements OnInit {
   constructor(private fb: FormBuilder, private user: UserService, private router: Router) { }
 
   loading = false;
-  model: any = {};
   error: any = [];
 
   ngOnInit() {
@@ -47,10 +46,10 @@ export class RegisterComponent implements OnInit {
   registerEvent() {
     if (this.form.valid) {
       const formValue = Object.assign({}, this.form.value);
-      formValue.password = formValue.passGroup.password;
+      formValue.pass = formValue.passGroup.pass;
       delete formValue.passGroup;
       this.loading = true;
-      this.user.insert(this.form.value).subscribe(
+      this.user.insert(formValue).subscribe(
           data => {
             this.loading = false;
             this.error = [];
