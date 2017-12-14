@@ -1,8 +1,10 @@
+import { Wojewodztwa } from './../../_core/ogloszenia/wojewodztwa.class';
 import { Router } from '@angular/router';
 import { KategorieService } from './../../_core/kategorie/kategorie.service';
 import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
 import { OgloszeniaService } from '../../_core/ogloszenia/ogloszenia.service';
 import { FormGroup } from '@angular/forms';
+import { UserService } from '../../_core/user/user.service';
 
 @Component({
   selector: 'app-stworz',
@@ -14,19 +16,41 @@ export class StworzComponent implements OnInit {
 
   model: any = {};
   kat: any = [];
+  podkategorie: any = [];
   loading = false;
   formData = new FormData();
   @ViewChild('files') files: FormGroup;
+  wojewodztwa = Wojewodztwa.wojewodztwa;
 
-  constructor(private ogl: OgloszeniaService, private katserv: KategorieService, private router: Router) { }
+  constructor(private user: UserService, private ogl: OgloszeniaService, private katserv: KategorieService, private router: Router) { }
 
   ngOnInit() {
     this.katserv.select_all().subscribe(
       res => this.kat = res
+    );
+    let id = this.user.getPayload().id;
+    this.user.dataPublic(id).subscribe(
+      res => {
+        this.model.email = res.email;
+        this.model.wojewodztwo = res.wojewodztwo;
+        this.model.nr_tel = res.nr_tel;
+        this.model.miasto = res.miasto;
+        this.model.adres = res.adres;
+      },
+      err => console.log(err)
     )
   }
 
   getKategoria(event){
+    let option = event.target.selectedOptions;
+    this.model.id_kat = option[0].value;
+    this.katserv.select_podrz(option[0].value).subscribe(
+      res => this.podkategorie = res,
+      err => console.log(err)
+    )
+  }
+
+  getPodkategoria(event){
     let option = event.target.selectedOptions;
     this.model.id_kat = option[0].value;
   }
@@ -47,12 +71,14 @@ export class StworzComponent implements OnInit {
           err => {
             this.model = {};
             this.loading = false;
+            console.log(err);
           }
         );
       },
       err => {
         this.model = {};
         this.loading = false;
+        console.log(err);
       });
   }
 

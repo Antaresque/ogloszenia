@@ -104,6 +104,6 @@ export class OgloszeniaService {
   }
 
   archiwum(id){
-    return this.http.post(this.API_LINK + 'ogloszenia/select_user_inactive', {id: id}).map(res => res.json()).catch(err => Observable.throw(err.json()));
+    return this.http.post(this.API_LINK + 'ogloszenia/select_user_inactive', {id: id}).map(res => res.json()).catch(err => Observable.throw(err.json));
   }
 }
