@@ -42,8 +42,9 @@
                     </div>
                     <div class="form-group">
                       <label for="o_sobie">O sobie</label>
-                      <textarea  class="form-control" name="o_sobie" [(ngModel)]="model.o_sobie" #o_sobie="ngModel"></textarea>
+                      <textarea rows='8' class="form-control" name="o_sobie" [(ngModel)]="model.o_sobie" #o_sobie="ngModel"></textarea>
                     </div>
+                    <div class='text-muted text-right markdown'>opis używa <a target="_blank" href='https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet'>Markdown</a></div>
                     <div class='alert alert-success mb-2' *ngFor='let suc of success'>{{ suc }}</div>
                     <div class='alert alert-danger mb-2' *ngFor='let error of errors'>{{ error }}</div>
                     <button [disabled]="loading" class="btn btn-primary">Zmień dane</button>

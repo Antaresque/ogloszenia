@@ -24,16 +24,18 @@
             </div>
           </div>
           <div class="row bott text-center rounded">
-            <h4>{{dane.o_sobie}}</h4>
+            <div [innerHTML]='dane.o_sobie | MarkdownToHtml'></div>
+            <div class='text-muted markdown offset-10 mt-2'>opis używa <a target="_blank" href='https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet'>Markdown</a></div>
+
           </div>
           <div class="row">
               <div class="container-fluid">
                   <div class="row">
-                    
+
                     <div class="container">
                       <h4>Oto wszystkie ogłoszenia tego użytkownika:</h4>
                       <div *ngIf='noresults; then noResultsTemplate; else resultsTemplate'></div>
-                
+
                       <ng-template #resultsTemplate>
                         <div class="row rounded mb-2" [ngClass]='ogl.promowane == 1 ? "bg-prom" : "bg-light"' *ngFor = 'let ogl of wyniki'>
                           <div class="col-4 img rounded">
