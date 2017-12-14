@@ -11,9 +11,9 @@
               <img class="rounded" [src]="img_path+ogl.zdjecie" height="100%" width="100%" onError="this.src = '../../zdjecia/placeholder.jpg'">
           </div>
           <div class="col info rounded">
-            <a routerLink='../../ogloszenie/{{ogl.id_og}}'><h2>{{ogl.nazwa}}<br></h2></a>
-            <h3>Cena: {{ogl.cena}} złotych polskich<br></h3>
-            <h4>Opis: {{ogl.opis}}<br></h4>
+            <a class='ogl-nazwa' routerLink='../../ogloszenie/{{ogl.id_og}}'><h3>{{ ogl.nazwa }}<br></h3></a>
+            <p>Cena: {{ogl.cena}} zł<br></p>
+            <p>Opis: {{ogl.opis}}<br></p>
           </div>
         </div>
       </ng-template>
