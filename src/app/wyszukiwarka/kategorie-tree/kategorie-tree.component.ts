@@ -35,13 +35,13 @@ export class KategorieTreeComponent implements OnInit {
         if(id_kat == null){
           this.kat.select_all().subscribe(
             res => this.podkategorie = res,
-            err => console.log(err)
+            err => this.podkategorie = []
           )
         }
         else{
           this.kat.select_podrz(id_kat).subscribe(
             res => this.podkategorie = res,
-            err => console.log(err)
+            err => this.podkategorie = []
           )
         }
     });
