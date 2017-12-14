@@ -164,7 +164,13 @@ export class UserService {
     return this.ahttp.post(this.API_LINK + 'obserwowane/delete', {id_og: id_og}).map(res => res.json()).catch(err => Observable.throw(err.json()));
   }
 
+  change_email(model){
+    return this.ahttp.post(this.API_LINK + 'user/changeEmail', model).map(res => res.json()).catch(err => Observable.throw(err.json()));
+  }
 
+  change_pass(model){
+    return this.ahttp.post(this.API_LINK + 'user/changePass', model).map(res => res.json()).catch(err => Observable.throw(err.json()));
+  }
 
   // tylko do testów
 
