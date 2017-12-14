@@ -1,3 +1,4 @@
+import { OgloszeniaService } from './../_core/ogloszenia/ogloszenia.service';
 import { tokenNotExpired } from 'angular2-jwt';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from './../_core/user/user.service';
@@ -37,3 +38,30 @@ export class UzytkownikComponent implements OnInit {
   }
 
 }
+
+export class MojeogComponent implements OnInit {
+  
+    wyniki: any = []
+    img_path: string;
+    id: number;
+    noresults = false;
+  
+    constructor(private user: UserService, private ogl: OgloszeniaService, private route: ActivatedRoute) { }
+  
+    ngOnInit() {
+      this.route.params.subscribe(params => {
+        this.id = +params['id'];
+      });
+      this.id = this.user.getPayload().id;
+      this.img_path = this.ogl.img_path;
+  
+      this.ogl.search_by_user(this.id).subscribe(
+        res => {
+          let temp = res;
+          if(temp.hasOwnProperty('result')) this.noresults = true;
+          else this.wyniki = temp;
+        },
+        err => console.log(err)
+      );
+    }
+  }

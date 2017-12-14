@@ -23,8 +23,35 @@
               Funkcja: {{dane.funkcja}}<br><br>
             </div>
           </div>
-          <div class="row bott text-center">
+          <div class="row bott text-center rounded">
             <h4>{{dane.o_sobie}}</h4>
+          </div>
+          <div class="row">
+              <div class="container-fluid">
+                  <div class="row">
+                    
+                    <div class="container">
+                      <h4>Oto wszystkie ogłoszenia tego użytkownika:</h4>
+                      <div *ngIf='noresults; then noResultsTemplate; else resultsTemplate'></div>
+                
+                      <ng-template #resultsTemplate>
+                        <div class="row rounded mb-2" [ngClass]='ogl.promowane == 1 ? "bg-prom" : "bg-light"' *ngFor = 'let ogl of wyniki'>
+                          <div class="col-4 img rounded">
+                              <img class="rounded" [src]="img_path+ogl.zdjecie" height="100%" width="100%" onError="this.src = '../../zdjecia/placeholder.jpg'">
+                          </div>
+                          <div class="col info rounded">
+                            <a class='ogl-nazwa' routerLink='../../ogloszenie/{{ogl.id_og}}'><h3>{{ ogl.nazwa }}<br></h3></a>
+                            <p>Cena: {{ogl.cena}} zł<br></p>
+                            <p>Opis: {{ogl.opis}}<br></p>
+                          </div>
+                        </div>
+                      </ng-template>
+                      <ng-template #noResultsTemplate>
+                        <h1>Ten użytkownik nie ma żadnych ogłoszeń</h1>
+                      </ng-template>
+                    </div>
+                  </div>
+                </div>
           </div>
         </div>
       </div>
