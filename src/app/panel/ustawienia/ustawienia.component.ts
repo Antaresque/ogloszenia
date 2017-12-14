@@ -83,7 +83,7 @@ export class UstawieniaComponent implements OnInit {
 
   changePass(){
     if(this.form_pass.valid){
-      this.loading3 = true;
+      this.loading2 = true;
 
       const formValue = Object.assign({}, this.form_pass.value);
       formValue.pass = formValue.passGroup.pass;
@@ -94,20 +94,20 @@ export class UstawieniaComponent implements OnInit {
           this.success2 = res;
           this.errors2 = [];
           this.form_pass.reset();
-          this.loading = false;
+          this.loading2 = false;
           },
         err => {
           this.success2 = [];
           this.errors2 = err;
           this.form_pass.reset();
-          this.loading = false;
+          this.loading2 = false;
         });
     }
   }
 
   changeEmail(){
     if(this.form_mail.valid){
-      this.loading2 = true;
+      this.loading3 = true;
 
       const formValue = Object.assign({}, this.form_mail.value);
       formValue.email = formValue.mailGroup.email;
@@ -118,13 +118,13 @@ export class UstawieniaComponent implements OnInit {
           this.success3 = res;
           this.errors3 = [];
           this.form_mail.reset();
-          this.loading = false;
+          this.loading3 = false;
           },
         err => {
           this.success3 = [];
           this.errors3 = err;
           this.form_mail.reset();
-          this.loading = false;
+          this.loading3 = false;
         });
     }
   }
