@@ -98,4 +98,4 @@ export class StworzComponent implements OnInit {
       (err) => {console.log(err);}
     );*/
   }
-}
+
