@@ -97,10 +97,9 @@ CREATE TABLE `wiadomosci` (
   `id_nad` int(11) NOT NULL,
   `tresc` varchar(512) NOT NULL,
   `data` timestamp NOT NULL,
-  `tytul` varchar(50) NOT NULL,
-  `id_og` int(11) NOT NULL
+  `tytul` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
-
+ 
 -- --------------------------------------------------------
 
 --
