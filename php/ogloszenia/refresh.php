@@ -4,7 +4,7 @@ if(!defined('NO_ACCESS')){ http_response_code(403); exit(); } // block direct ac
 $id = $input['id'];
 
 $data = DB::queryFirstRow('SELECT * FROM ogloszenia WHERE id_og = %i', $id);
-$date = date("Y-m-d H:i:s", strtotime("+1 month", date("Y-m-d H:i:s")));
+$date = date("Y-m-d H:i:s", strtotime("+1 month"));
 
 if($data['id_uz'] == getPayload()->id) {
 

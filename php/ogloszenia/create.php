@@ -16,7 +16,7 @@ if(array_key_exists('promowane', $input)) $prom = $input['promowane'];
 else $prom = 0;
 
 $date = date("Y-m-d H:i:s");
-$date_wygasniecie = date("Y-m-d H:i:s", strtotime("+1 month", $date));
+$date_wygasniecie = date("Y-m-d H:i:s", strtotime("+1 month"));
 
 $atrybuty = json_encode($input['atrybuty']);
 
