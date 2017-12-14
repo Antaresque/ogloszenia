@@ -20,8 +20,6 @@ import { PanelComponent } from './panel/panel.component';
     import { WiadomosciNewComponent } from './panel/wiadomosci/wiadomosci-new/wiadomosci-new.component';
     import { WiadomosciWyslaneComponent } from './panel/wiadomosci/wiadomosci-wyslane/wiadomosci-wyslane.component';
     import { WiadomosciOdebraneComponent } from './panel/wiadomosci/wiadomosci-odebrane/wiadomosci-odebrane.component';
-import { AdminComponent } from './admin/admin.component';
-  import { AdminKategoriaComponent } from './admin/adminkategoria/adminkategoria.component';
 import { PageNotFoundComponent } from './_public/pagenotfound/pagenotfound.component';
 
 import { AuthGuard } from './_core/authguard/auth.guard';
@@ -51,9 +49,6 @@ const appRoutes: Routes = [
       { path: 'new', component: WiadomosciNewComponent },
       { path: 'show/:id', component: WiadomosciShowComponent }
     ]}
-  ]},
-  { path: 'admin', component: AdminComponent, children: [
-    { path: 'kategoria', component: AdminKategoriaComponent }
   ]},
   { path: '**', component: PageNotFoundComponent } // 404
 ];

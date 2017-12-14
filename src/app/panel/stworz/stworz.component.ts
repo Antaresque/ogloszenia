@@ -88,14 +88,12 @@ export class StworzComponent implements OnInit {
           err => {
             this.model = {};
             this.loading = false;
-            console.log(err);
           }
         );
       },
       err => {
         this.model = {};
         this.loading = false;
-        console.log(err);
       });
   }
 

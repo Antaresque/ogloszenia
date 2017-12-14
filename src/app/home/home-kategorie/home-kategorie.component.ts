@@ -15,7 +15,7 @@ export class HomeKategorieComponent implements OnInit {
 
   ngOnInit() {
     this.kat.select_all().subscribe(
-      res => { this.dane = res}
+      res => { this.dane = res }
     );
   }
 

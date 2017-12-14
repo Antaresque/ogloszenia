@@ -23,26 +23,15 @@ export class ArchiwumComponent implements OnInit {
     this.id = this.user.getPayload().id;
     this.img_path = this.ogl.img_path;
 
-    this.ogl.archiwum(this.id).subscribe(
-      res => {
-        console.log(res);
-        this.wyniki = res;
-      },
-      err => {
-        console.log(err);
-        this.errors = err;
-      }
-    );
+    this.archiwum();
   }
 
   archiwum(){
     this.ogl.archiwum(this.id).subscribe(
       res => {
-        console.log(res);
         this.wyniki = res;
       },
       err => {
-        console.log(err);
         this.errors = err;
       }
     );
@@ -55,7 +44,9 @@ export class ArchiwumComponent implements OnInit {
   }
 
   refresh(id){
-
+    this.ogl.refresh(id).subscribe(
+      res => this.archiwum()
+    )
   }
 
 }
