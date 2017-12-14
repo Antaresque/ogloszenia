@@ -6,8 +6,10 @@ $data = array();
 
 while($id_kat != null){
   $temp = DB::queryFirstRow("SELECT * FROM kategorie WHERE id_kat = %i", $id_kat);
-  $temp2 = json_decode($temp['atrybuty']);
-  $data = array_merge($temp2, $data);
+  if(!is_null($temp['atrybuty'])) {
+    $temp2 = json_decode($temp['atrybuty']);
+    $data = array_merge($temp2, $data);
+  }
   $id_kat = $temp['id_kat_nad'];
 }
 
