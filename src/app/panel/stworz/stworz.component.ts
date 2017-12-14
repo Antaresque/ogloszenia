@@ -100,7 +100,7 @@ export class StworzComponent implements OnInit {
   submit_zdj(event){ //dodaje zdjecie do formdata po wybraniu
       let fileList = event.target;
       let file = fileList.files[0];
-      event.path[1].children[0].children[0].src = '../zdjecia/ogl_uploaded.png'
+      event.path[1].children[0].children[0].src = '../zdjecia/ogl_uploaded.png';
 
       this.formData.append(event.target.name, file);
     }
