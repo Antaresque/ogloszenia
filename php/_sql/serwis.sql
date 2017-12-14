@@ -57,7 +57,6 @@ CREATE TABLE `ogloszenia` (
   `miasto` varchar(100) NOT NULL,
   `adres` varchar(100) NOT NULL,
   `promowane` tinyint(1) DEFAULT 0,
-  `aktywne` tinyint(1) DEFAULT 1,
   `zdjecie` varchar(50),
   `atrybuty` varchar(200) DEFAULT '[]'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
@@ -81,10 +80,9 @@ CREATE TABLE `uzytkownicy` (
   `miasto` varchar(50) NOT NULL,
   `wojewodztwo` varchar(50) NOT NULL,
   `data_rej` timestamp DEFAULT CURRENT_TIMESTAMP,
-  `data_log` date DEFAULT NULL,
   `obserwowane` varchar(255) DEFAULT '[]',
-  `zdjecie` varchar(50),
-  `o_sobie` varchar(1500)
+  `o_sobie` varchar(1500),
+  `aktywny` tinyint(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
@@ -100,8 +98,7 @@ CREATE TABLE `wiadomosci` (
   `tresc` varchar(512) NOT NULL,
   `data` timestamp NOT NULL,
   `tytul` varchar(50) NOT NULL,
-  `id_og` int(11) NOT NULL,
-  `odczytane` tinyint(1) DEFAULT '0'
+  `id_og` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
