@@ -21,7 +21,7 @@ else if($request[0] == 'uploadzdj'){
     include_once($path.'uploadzdj.php');
 }
 else if($request[0] == 'create') {        // TODO: kod do dodawania =w=
-  if(checkTokenAccess('user') || checkTokenAccess('admin'))           // dodawanie tylko dla szefa
+  if(checkTokenAccess('user') || checkTokenAccess('admin'))
     include_once($path.'create.php');
 }
 else if($request[0] == 'change') {
@@ -29,8 +29,12 @@ else if($request[0] == 'change') {
     include_once($path.'change.php');
 }
 else if($request[0] == 'delete') {                              // TODO: kod do usuwania też =w=
-  if(checkTokenAccess('admin'))            // usuwanie tylko dla szefa
+  if(checkTokenAccess('admin') || checkTokenAccess('user'))
     include_once($path.'delete.php');
+}
+else if($request[0] == 'refresh') {
+  if(checkTokenAccess('admin') || checkTokenAccess('user'))
+    include_once($path.'refresh.php');
 }
 else if($request[0] == 'promowane') {
   include_once($path.'promowane.php');

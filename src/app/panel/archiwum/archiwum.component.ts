@@ -35,4 +35,27 @@ export class ArchiwumComponent implements OnInit {
     );
   }
 
+  archiwum(){
+    this.ogl.archiwum(this.id).subscribe(
+      res => {
+        console.log(res);
+        this.wyniki = res;
+      },
+      err => {
+        console.log(err);
+        this.errors = err;
+      }
+    );
+  }
+
+  delete(id){
+    this.ogl.delete(id).subscribe(
+      res => this.archiwum()
+    )
+  }
+
+  refresh(id){
+
+  }
+
 }

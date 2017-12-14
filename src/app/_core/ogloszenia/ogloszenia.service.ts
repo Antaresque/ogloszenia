@@ -77,6 +77,10 @@ export class OgloszeniaService {
     return this.ahttp.post(this.API_LINK + 'ogloszenia/delete', {id: id}).map(res => res.json()).catch(err => Observable.throw(err.json()));
   }
 
+
+  refresh(id){
+    return this.ahttp.post(this.API_LINK + 'ogloszenia/refresh', {id: id}).map(res => res.json()).catch(err => Observable.throw(err.json()));
+  }
   /**
    * Send POST request to server to change advertisement data.
    *
