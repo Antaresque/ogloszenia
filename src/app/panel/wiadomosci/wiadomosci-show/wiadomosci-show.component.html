@@ -1,10 +1,10 @@
 <div class='col-10 offset-1 pb-2'>
     <br>
-    <div>{{dane.tytul}}</div>
-    <div>{{dane.odbiorca}}</div>
-    <div>{{dane.nadawca}}</div>
-    <div>{{dane.tresc}}</div>
-    <div>{{dane.data | timeAgo}}</div>
+    <div><h2>Temat: {{dane.tytul}}</h2></div>
+    <div class="nad">Od: {{dane.nadawca}}</div>
+    <div >Do: {{dane.odbiorca}}</div>
+    <div class="odb">Wysłano: {{dane.data | timeAgo}}<br><br></div><br>
+    <div>{{dane.tresc}}</div><br>
 
     <div class='p-2 text-center' *ngIf='!ownerMsg'>
         <button class='btn btn-outline-primary mt-2 btn-sendmsg' (click) = 'sendMessage()'><i class="fa fa-comment"></i> Odpowiedz</button>
