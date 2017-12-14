@@ -89,7 +89,7 @@ export class UstawieniaComponent implements OnInit {
       formValue.email = formValue.mailGroup.email;
       delete formValue.mailGroup;
 
-      this.user.changeEmail(formValue).subscribe(
+      this.user.change_email(formValue).subscribe(
         res => {
           this.success2 = res;
           this.errors2 = [];
@@ -111,7 +111,7 @@ export class UstawieniaComponent implements OnInit {
       formValue.pass = formValue.passGroup.pass;
       delete formValue.passGroup;
 
-      this.user.changePass(formValue).subscribe(
+      this.user.change_pass(formValue).subscribe(
         res => {
           this.success3 = res;
           this.errors3 = [];

@@ -11,6 +11,14 @@ else if($request[0] == 'change'){
   if(checkTokenAccess('admin') || checkTokenAccess('user'))
     include_once($path.'change.php');
 }
+else if($request[0] == 'changePass'){
+  if(checkTokenAccess('admin') || checkTokenAccess('user'))
+    include_once($path.'changepass.php');
+}
+else if($request[0] == 'changeEmail'){
+  if(checkTokenAccess('admin') || checkTokenAccess('user'))
+    include_once($path.'changeemail.php');
+}
 else if($request[0] == 'data'){
   if(checkTokenAccess('admin') || checkTokenID($input['id']))
     include_once($path.'data.php');
