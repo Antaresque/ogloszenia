@@ -16,27 +16,27 @@
                   <form name="form" (ngSubmit)="f.form.valid && changeData()" #f = "ngForm" novalidate>
                       <div class="form-group">
                           <label for="imie">Imię/Imiona</label>
-                          <input type="text" class="form-control" name="imie" [(ngModel)]="model.imie"  #imie="ngModel">
+                          <input type="text" class="form-control" name="imie" [(ngModel)]="model.imie"  #imie="ngModel" required>
                         </div>
                         <div class="form-group">
                             <label for="nazwisko">Nazwisko</label>
-                            <input type="text" class="form-control" name="nazwisko" [(ngModel)]="model.nazwisko"  #nazwisko="ngModel">
+                            <input type="text" class="form-control" name="nazwisko" [(ngModel)]="model.nazwisko"  #nazwisko="ngModel" required>
                           </div>
                           <div class="form-group">
                               <label for="nr_tel">Telefon</label>
-                              <input type="text" class="form-control" name="nr_tel" [(ngModel)]="model.nr_tel"  #nr_tel="ngModel">
+                              <input type="text" class="form-control" name="nr_tel" [(ngModel)]="model.nr_tel"  #nr_tel="ngModel" required>
                             </div>
                     <div class="form-group">
                       <label for="adres">Ulica</label>
-                      <input type="text" class="form-control" name="adres" [(ngModel)]="model.adres" #adres="ngModel">
+                      <input type="text" class="form-control" name="adres" [(ngModel)]="model.adres" #adres="ngModel" required>
                     </div>
                     <div class="form-group">
                       <label for="miasto">Miasto</label>
-                      <input type="text" class="form-control" name="miasto" [(ngModel)]="model.miasto"  #pass="ngModel">
+                      <input type="text" class="form-control" name="miasto" [(ngModel)]="model.miasto"  #pass="ngModel" required>
                     </div>
                     <div class="form-group">
                       <label for="wojewodztwo">Województwo</label>
-                      <select class="form-control" name="region" [(ngModel)]="model.wojewodztwo" #wojewodztwo="ngModel">
+                      <select class="form-control" name="region" [(ngModel)]="model.wojewodztwo" #wojewodztwo="ngModel" required>
                         <option *ngFor="let region of wojewodztwa" [value]="region">{{region}}</option>
                       </select>
                     </div>
@@ -44,7 +44,8 @@
                       <label for="o_sobie">O sobie</label>
                       <textarea  class="form-control" name="o_sobie" [(ngModel)]="model.o_sobie" #o_sobie="ngModel"></textarea>
                     </div>
-                    <br>
+                    <div class='alert alert-success mb-2' *ngFor='let suc of success'>{{ suc }}</div>
+                    <div class='alert alert-danger mb-2' *ngFor='let error of errors'>{{ error }}</div>
                     <button [disabled]="loading" class="btn btn-primary">Zmień dane</button>
                     <img *ngIf="loading" src="assets/loading.gif">
                   </form>
@@ -62,17 +63,17 @@
               </div>
               <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
                 <div class="card-body">
-                  <form name="form" (ngSubmit)="f2.form.valid && changePassword()" #f2 = "ngForm" novalidate>
-                    <div class="form-group">
-                      <label for="ulica">Hasło</label>
-                      <input type="password" class="form-control" name="pass" [(ngModel)]="model2.pass" #pass="ngModel">
+                  <form name="form" [formGroup] = "form_pass" (ngSubmit)="changePass()" novalidate>
+                    <div class="form-group" formGroupName="passGroup">
+                      <input type="password" placeholder="Hasło" class="form-control passgroup" formControlName="pass">
                     </div>
-                    <div class="form-group">
-                      <label for="miasto">Powtórz hasło</label>
-                      <input type="password" class="form-control" name="pass2" [(ngModel)]="model2.pass2" #pass2="ngModel">
+                    <div class="form-group" formGroupName="passGroup">
+                        <input type="password" placeholder="Potwierdź hasło" class="form-control passgroup" formControlName="pass2">
                     </div>
-                    <button [disabled]="loading" class="btn btn-primary">Zmień hasło</button>
-                    <img *ngIf="loading" src="assets/loading.gif">
+                    <div class='alert alert-success mb-2' *ngFor='let suc of success2'>{{ suc }}</div>
+                    <div class='alert alert-danger mb-2' *ngFor='let error of errors2'>{{ error }}</div>
+                    <button [disabled]="loading2" class="btn btn-primary">Zmień hasło</button>
+                    <img *ngIf="loading2" src="assets/loading.gif">
                   </form>
                 </div>
               </div>
@@ -88,17 +89,17 @@
               </div>
               <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
                 <div class="card-body">
-                  <form name="form" (ngSubmit)="f3.form.valid && changeMail()" #f3 = "ngForm" novalidate>
-                    <div class="form-group">
-                      <label for="email">E-mail</label>
-                      <input type="text" class="form-control" name="email" [(ngModel)]="model3.email" #email="ngModel">
+                  <form name="form" [formGroup] = "form_mail" (ngSubmit)="changeEmail()" novalidate>
+                    <div class="form-group" formGroupName="mailGroup">
+                      <input type="text" placeholder="E-mail" class="form-control passgroup" formControlName="email">
                     </div>
-                    <div class="form-group">
-                      <label for="email2">Powtórz e-mail</label>
-                      <input type="text" class="form-control" name="email2" [(ngModel)]="model3.email2" #email2="ngModel">
+                    <div class="form-group" formGroupName="mailGroup">
+                        <input type="text" placeholder="Potwierdź e-mail" class="form-control passgroup" formControlName="email2">
                     </div>
-                    <button [disabled]="loading" class="btn btn-primary">Zmień e-mail</button>
-                    <img *ngIf="loading" src="assets/loading.gif">
+                    <div class='alert alert-success mb-2' *ngFor='let suc of success3'>{{ suc }}</div>
+                    <div class='alert alert-danger mb-2' *ngFor='let error of errors3'>{{ error }}</div>
+                    <button [disabled]="loading3" class="btn btn-primary">Zmień hasło</button>
+                    <img *ngIf="loading3" src="assets/loading.gif">
                   </form>
                 </div>
               </div>
