@@ -15,8 +15,10 @@ import { UserService } from '../../_core/user/user.service';
 export class StworzComponent implements OnInit {
 
   model: any = {};
+  model2: any = {};
   kat: any = [];
   podkategorie: any = [];
+  atrybuty: any = [];
   loading = false;
   formData = new FormData();
   @ViewChild('files') files: FormGroup;
@@ -42,6 +44,13 @@ export class StworzComponent implements OnInit {
     )
   }
 
+  getAttr(id){
+    this.katserv.select_attr(id).subscribe(
+      res => this.atrybuty = res,
+      err => this.atrybuty = []
+    )
+  }
+
   getKategoria(event){
     let option = event.target.selectedOptions;
     this.model.id_kat = option[0].value;
@@ -50,16 +59,22 @@ export class StworzComponent implements OnInit {
       res => this.podkategorie = res,
       err => console.log(err)
     )
+
+    this.getAttr(this.model.id_kat);
   }
 
   getPodkategoria(event){
     let option = event.target.selectedOptions;
     this.model.id_kat = option[0].value;
+
+    this.getAttr(this.model.id_kat);
   }
 
   submit(event){ //po submitowaniu form
     this.loading = true;
-    this.ogl.create(this.model).subscribe( //wrzuca ogloszenie
+    const formValue = this.model;
+    formValue['atrybuty'] = this.model2;
+    this.ogl.create(formValue).subscribe( //wrzuca ogloszenie
       res => {
         let id_og = res['id'];
         this.formData.append('id', id_og);

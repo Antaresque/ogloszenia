@@ -50,6 +50,15 @@ export class KategorieService {
     return this.http.post(this.API_LINK + 'kategorie/tree', {id: id}).map(res => res.json()).catch(err => Observable.throw(err.json()));
   }
   /**
+   * Get attributes of categories thro POST request from database.
+   *
+   * @param {int} id ID of child category.
+   */
+
+  select_attr(id){
+    return this.http.post(this.API_LINK + 'kategorie/atrybuty', {id: id}).map(res => res.json()).catch(err => Observable.throw(err.json()));
+  }
+  /**
    * Send POST request to server to create new category.
    *
    * @param {JSON} model JSON array with data.

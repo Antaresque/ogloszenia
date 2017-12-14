@@ -53,6 +53,11 @@
                         <option *ngFor="let region of wojewodztwa" [value]="region">{{region}}</option>
                       </select>
                     </div>
+                    <div class="form-group" *ngIf='atrybuty.length > 0'>
+                      <label for='atrybuty'>Atrybuty</label>
+                      <input *ngFor = 'let att of atrybuty; let index = index'
+                        type='text' class='form-control' name="att{{index}}" [(ngModel)]="model2[index]" [placeholder]='att'>
+                    </div>
               <div class='form-group image-upload' #files>
                 <label for='files'>Zdjęcia</label>
                   <div class='row d-flex justify-content-center'>
@@ -88,7 +93,7 @@
               Czy chcesz wypromować swoje ogłoszenie? Promowane ogłoszenia wyświetlane są jako pierwsze w wyszukiwarce, a także mają szansę na pojawienie się na stronie głównej.
                    <br> (Normalnie za coś takiego naliczylibyśmy opłatę, ale w projekcie chyba nie wolno tak robić) <br>
                 <div class="promowane form-group offset-10">
-                    <input type="checkbox" name="promowane" class="promowane-checkbox" id="mypromowane" checked>
+                    <input type="checkbox" name="promowane" class="promowane-checkbox" id="mypromowane">
                     <label class="promowane-label" for="mypromowane">
                         <span class="promowane-inner"></span>
                         <span class="promowane-switch"></span>

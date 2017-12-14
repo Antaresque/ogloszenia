@@ -16,6 +16,9 @@ if(array_key_exists('promowane', $input)) $prom = $input['promowane'];
 else $prom = 0;
 
 $date = date("Y-m-d H:i:s");
+$date_wygasniecie = date("Y-m-d H:i:s", strtotime("+1 month", $date));
+
+$atrybuty = json_encode($input['atrybuty']);
 
 DB::insert('ogloszenia', array(
       'nazwa' => $nazwa,
@@ -26,7 +29,9 @@ DB::insert('ogloszenia', array(
       'id_uz' => $id_uz,
       'id_kat' => $id_kat,
       'promowane' => $prom,
-      'data_wys' => $date));
+      'data_wys' => $date,
+      'data_wyg' => $date_wygasniecie,
+      'atrybuty' => $atrybuty));
 
 if(DB::affectedRows() == 0) error_message('INSERT_FAIL');
 else $result = array('id' => DB::insertId());

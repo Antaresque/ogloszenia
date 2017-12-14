@@ -16,6 +16,9 @@ else if($request[0] == 'nad_select'){
 else if($request[0] == 'tree'){
   include_once($path.'tree.php');
 }
+else if($request[0] == 'atrybuty'){
+  include_once($path.'atrybuty.php');
+}
 else if($request[0] == 'create') {
   if(checkTokenAccess('admin'))            // dodawanie tylko dla szefa
     include_once($path.'create.php');
