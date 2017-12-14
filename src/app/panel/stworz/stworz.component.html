@@ -1,6 +1,9 @@
 <div class="container" >
     <div class="row">
-      <div class="col">
+      <div class="col"></div>
+      <div class="col-lg-6 us rounded">
+        <div class="text-center tx"><h2>Wstaw nowe ogłoszenie</h2></div>
+        <div class="he">
           <form name="form" (ngSubmit)="f.form.valid && this.model.hasOwnProperty('id_kat') && submit($event)" #f = "ngForm" novalidate>
               <div class="form-group">
                 <label for="nazwa">Nazwa ogłoszenia</label>
@@ -37,7 +40,7 @@
                 </div>
                 <div class="form-group">
                     <label for="miasto">Miasto</label>
-                    <input type="password" class="form-control" name="miasto" [(ngModel)]="model.miasto"  #pass="ngModel">
+                    <input type="text" class="form-control" name="miasto" [(ngModel)]="model.miasto"  #pass="ngModel">
                   </div>
                   <div class="form-group">
                       <label for="adres">Adres</label>
@@ -51,14 +54,24 @@
                   <input type="file" name='4' (change)='submit_zdj($event)'>
                   <input type="file" name='5' (change)='submit_zdj($event)'>
               </div>
-              <div class="form-group">
-                  promowane
-                  <input type="checkbox" class="form-control" [(ngModel)]="model.promowane" #promowane="ngModel" name="promowane">
+              <div class="text-center">
+              Czy chcesz wypromować swoje ogłoszenie? Promowane ogłoszenia wyświetlane są jako pierwsze w wyszukiwarce, a także mają szansę na pojawienie się na stronie głównej.
+                    <br> (Normalnie za coś takiego naliczylibyśmy opłatę, ale w projekcie chyba nie wolno tak robić)<br>
+                <div class="promowane form-group ">
+                    <input type="checkbox" name="promowane" class="promowane-checkbox" id="mypromowane" checked>
+                    <label class="promowane-label" for="mypromowane">
+                        <span class="promowane-inner"></span>
+                        <span class="promowane-switch"></span>
+                    </label>
                 </div>
+            </div>
+                <div class="text-center">
               <button [disabled]="loading" class="btn btn-primary">Zarejestruj</button>
-              <img *ngIf="loading" src="assets/loading.gif">
+              <img *ngIf="loading" src="assets/loading.gif"></div>
             </form>
+            </div>
       </div>
+      <div class="col"></div>
     </div>
 </div>
- 
+  
