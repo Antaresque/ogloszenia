@@ -32,7 +32,8 @@ CREATE TABLE `kategorie` (
   `id_kat` int(11) NOT NULL,
   `id_kat_nad` int(11) NULL,
   `nazwa` varchar(50) NOT NULL,
-  `zdjecie` varchar(50) NULL
+  `zdjecie` varchar(50) NULL,
+  `atrybuty` varchar(200) DEFAULT '[]'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
@@ -56,7 +57,8 @@ CREATE TABLE `ogloszenia` (
   `adres` varchar(100) NOT NULL,
   `promowane` tinyint(1) DEFAULT 0,
   `aktywne` tinyint(1) DEFAULT 1,
-  `zdjecie` varchar(50)
+  `zdjecie` varchar(50),
+  `atrybuty` varchar(200) DEFAULT '[]'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
