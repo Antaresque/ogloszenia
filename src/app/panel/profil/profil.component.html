@@ -20,7 +20,8 @@
           </div>
         </div>
         <div class="row bott text-center">
-          <h4>{{dane.o_sobie}}</h4>
+          <div [innerHTML]='dane.o_sobie | MarkdownToHtml'></div>
+          <div class='text-muted markdown offset-10 mt-2'>opis używa <a target="_blank" href='https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet'>Markdown</a></div>
         </div>
       </div>
     </div>

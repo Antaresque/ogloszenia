@@ -12,6 +12,7 @@
 .bott{
     background-color: #EEE;
     padding:10px;
+    font-size: 1rem;
 }
 .login{
     padding:10px;
@@ -26,4 +27,7 @@
     margin-right:10px;
     margin-left:10px;
     height: auto;
+}
+.markdown{
+  font-size: 0.75rem;
 }
