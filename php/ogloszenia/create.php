@@ -23,6 +23,9 @@ $atrybuty = json_encode($input['atrybuty']);
 DB::insert('ogloszenia', array(
       'nazwa' => $nazwa,
       'cena' => $cena,
+      'wojewodztwo' => $wojewodztwo,
+      'miasto' => $miasto,
+      'adres' => $adres,
       'email_wys' => $email,
       'nr_tel_wys' => $nr_tel,
       'opis' => $opis,
