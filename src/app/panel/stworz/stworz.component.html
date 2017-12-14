@@ -13,9 +13,20 @@
                   <option *ngFor='let option of kat' [value]='option.id_kat'>{{option.nazwa}}</option>
                 </select>
               </div>
+              <div class="form-group" *ngIf='podkategorie.length != 0'>
+                <select class="form-control" (change)="getPodkategoria($event)">
+                  <option disabled selected value style="display:none"> -- select an option -- </option>
+                  <option *ngFor='let option of podkategorie' [value]='option.id_kat'>{{option.nazwa}}</option>
+                </select>
+              </div>
+
               <div class="form-group">
                 <label for="cena">Cena</label>
                 <input type="number" class="form-control" [(ngModel)]="model.cena"  #cena="ngModel" name="cena" required>
+              </div>
+              <div class="form-group">
+                <label for="cena">Opis</label>
+                <textarea class="form-control" [(ngModel)]="model.opis" #opis="ngModel" name="opis" required></textarea>
               </div>
               <div class="form-group">
                 <label for="email">E-mail</label>
@@ -23,25 +34,21 @@
               </div>
               <div class="form-group">
                 <label for="telefon">Telefon</label>
-                <input type="number" class="form-control" [(ngModel)]="model.telefon" #telefon="ngModel" name="telefon" required>
+                <input type="number" class="form-control" [(ngModel)]="model.nr_tel" #nr_tel="ngModel" name="nr_tel" required>
               </div>
-              <div class="form-group">
-                <label for="cena">Opis</label>
-                <input type="text" class="form-control" [(ngModel)]="model.opis" #opis="ngModel" name="opis" required>
-              </div>
-              <div class="form-group">
-                  <label for="region">Województwo</label>
-                  <select class="form-control" name="region" [(ngModel)]="model.region" #region="ngModel">
-                    <option *ngFor="let region of wojewodztwa" [value]="region">{{region}}</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                    <label for="miasto">Miasto</label>
-                    <input type="password" class="form-control" name="miasto" [(ngModel)]="model.miasto"  #pass="ngModel">
-                  </div>
                   <div class="form-group">
                       <label for="adres">Adres</label>
                       <input type="text" class="form-control" name="adres" [(ngModel)]="model.adres" #ulica="ngModel">
+                    </div>
+                    <div class="form-group">
+                      <label for="miasto">Miasto</label>
+                      <input type="text" class="form-control" name="miasto" [(ngModel)]="model.miasto"  #pass="ngModel">
+                    </div>
+                    <div class="form-group">
+                      <label for="wojewodztwo">Województwo</label>
+                      <select class="form-control" name="wojewodztwo" [(ngModel)]="model.wojewodztwo" #wojewodztwo="ngModel">
+                        <option *ngFor="let region of wojewodztwa" [value]="region">{{region}}</option>
+                      </select>
                     </div>
               <div class='form-group' #files>
                   <input type="file" name='0' (change)='submit_zdj($event)'>
@@ -61,4 +68,3 @@
       </div>
     </div>
 </div>
- 
