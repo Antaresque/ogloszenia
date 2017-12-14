@@ -8,6 +8,7 @@ require_once('_hash.php');
 require_once('_messages.php');
 require_once('_JWT.php');
 require_once('_imagetype.php');
+require_once('_mail.php');
 use \Firebase\JWT\JWT;
 
 // check for localhost (OPTIONS pre-flight response)
