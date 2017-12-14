@@ -172,6 +172,10 @@ export class UserService {
     return this.ahttp.post(this.API_LINK + 'user/changePass', model).map(res => res.json()).catch(err => Observable.throw(err.json()));
   }
 
+  verify(token){
+    return this.http.post(this.API_LINK + 'auth/verify', {token: token}).map(res => res.json()).catch(err => Observable.throw(err.json()));
+  }
+
   // tylko do testów
 
   testfirst(){

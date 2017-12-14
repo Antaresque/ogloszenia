@@ -16,7 +16,8 @@ $msg_arr = array(
   'INSERT_FAIL' => 'Błąd przy dodawaniu',
   'UPDATE_FAIL' => 'Błąd przy zmienianiu',
   'UPDATE_EMAIL_IS_SAME' => 'Podany e-mail jest identyczny z wcześniejszym',
-  'UPDATE_PASS_IS_SAME' => 'Błąd zmiany hasła'
+  'UPDATE_PASS_IS_SAME' => 'Błąd zmiany hasła',
+  'WRONG_MAIL' => 'Nieprawidłowy mail'
 );
 
 function error_message($value, $code = 404) {

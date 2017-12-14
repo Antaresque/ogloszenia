@@ -11,6 +11,9 @@ if(!empty($request)) {                   // nie ma pustego zapytania wiec musi s
   else if($request[0] == 'register'){
     include_once($path.'register.php');
   }
+  else if($request[0] == 'verify'){
+    include_once($path.'verify.php');
+  }
   else error_message('UNDEFINED_FUNCTION', 404);
 }
 else error_message('UNDEFINED_FUNCTION', 404);

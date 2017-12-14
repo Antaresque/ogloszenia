@@ -19,26 +19,36 @@ if(!is_null($check2)) { // jeżeli email znajduje się w bazie to nie można
 }
 
 if($register){
-  $haslo = generate_hash($input['pass']);
-  $imie = $input['imie'];
-  $nazwisko = $input['nazwisko'];
-  $adres = $input['adres'];
-  $nr_tel = $input['telefon'];
-  $miasto = $input['miasto'];
-  $wojewodztwo = $input['region'];
+  if(filter_var($email, FILTER_VALIDATE_EMAIL)){
+    $haslo = generate_hash($input['pass']);
+    $imie = $input['imie'];
+    $nazwisko = $input['nazwisko'];
+    $adres = $input['adres'];
+    $nr_tel = $input['telefon'];
+    $miasto = $input['miasto'];
+    $wojewodztwo = $input['region'];
 
-  DB::insert('uzytkownicy', array(
-      'imie' => $imie,
-      'nazwisko' => $nazwisko,
-      'adres' => $adres,
-      'nr_tel' => $nr_tel,
-      'login' => $login,
-      'haslo' => $haslo,
-      'email' => $email,
-      'miasto' => $miasto,
-      'wojewodztwo' => $wojewodztwo));
+    DB::insert('uzytkownicy', array(
+        'imie' => $imie,
+        'nazwisko' => $nazwisko,
+        'adres' => $adres,
+        'nr_tel' => $nr_tel,
+        'login' => $login,
+        'haslo' => $haslo,
+        'email' => $email,
+        'miasto' => $miasto,
+        'wojewodztwo' => $wojewodztwo));
 
-  if(DB::affectedRows() == 0) error_message('INSERT_FAIL', 404);
+    $id_potw = DB::insertId();
+
+    $payload = array('id_potw' => $id_potw);
+    $token = JWT::encode($payload, $jwt_secret);
+    $url = 'http://jan-usz-ix.cba.pl/auth/verify?token='.$token;
+    mail_message($email, 'VERIFY', $url);
+
+    if(DB::affectedRows() == 0) error_message('INSERT_FAIL', 404);
+  }
+  else error_message('WRONG_MAIL');
 }
 
 

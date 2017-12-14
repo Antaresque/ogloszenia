@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { AuthComponent } from './auth/auth.component';
   import { RegisterComponent } from './auth/register/register.component';
   import { LoginComponent } from './auth/login/login.component';
+  import { VerifyComponent } from './auth/verify/verify.component';
 import { OgloszenieComponent } from './ogloszenie/ogloszenie.component';
 import { UzytkownikComponent } from './uzytkownik/uzytkownik.component';
 import { WyszukiwarkaComponent } from './wyszukiwarka/wyszukiwarka.component';
@@ -29,7 +30,8 @@ const appRoutes: Routes = [
   { path: 'auth', component: AuthComponent, children: [
     { path: '', redirectTo: 'login',  pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
-    { path: 'register', component: RegisterComponent }
+    { path: 'register', component: RegisterComponent },
+    { path: 'verify', component: VerifyComponent }
   ]},
   { path: 'ogloszenie/:id', component: OgloszenieComponent },
   { path: 'wyszukiwarka', component: WyszukiwarkaComponent },
